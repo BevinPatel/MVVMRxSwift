@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,8 +16,12 @@
                 <navigationController storyboardIdentifier="SignUpLoginNavigationController" id="aCk-5X-maU" customClass="SignUpLoginNavigationController" customModule="MVVMRxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="RXr-VU-mIu">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.94509803920000002" green="0.94117647059999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6f-t1-uYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -29,34 +33,59 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpLoginViewController" id="Fe7-eW-JBX" customClass="SignUpLoginViewController" customModule="MVVMRxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lq6-kg-HV5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRE-ZZ-DF8">
-                                <rect key="frame" x="20" y="513" width="335" height="30"/>
-                                <state key="normal" title="Login"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5v0-gf-GFS">
-                                <rect key="frame" x="20" y="553" width="335" height="30"/>
-                                <state key="normal" title="New User"/>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qi4-xC-fNq">
+                                <rect key="frame" x="0.0" y="509" width="375" height="215"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold your horses!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egj-Dj-EXC">
+                                        <rect key="frame" x="113" y="20" width="149" height="22"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="19"/>
+                                        <color key="textColor" red="0.5450980392" green="0.59999999999999998" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Z6-5N-Bzc">
+                                        <rect key="frame" x="20" y="135" width="335" height="40"/>
+                                        <color key="backgroundColor" red="0.9137254901960784" green="0.11372549019607843" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Ayd-2b-OFh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="18"/>
+                                        <state key="normal" title="GET STARTED"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFB-Ay-I5D">
+                                        <rect key="frame" x="89.666666666666671" y="52" width="195.66666666666663" height="52.666666666666657"/>
+                                        <string key="text">Never ever think of giving up.
+Winners never quit
+quitters never win.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <color key="textColor" red="0.5450980392" green="0.59999999999999998" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="LFB-Ay-I5D" firstAttribute="top" secondItem="egj-Dj-EXC" secondAttribute="bottom" constant="10" id="3Ei-2X-ggE"/>
+                                    <constraint firstItem="LFB-Ay-I5D" firstAttribute="centerX" secondItem="qi4-xC-fNq" secondAttribute="centerX" id="EYL-mo-qHx"/>
+                                    <constraint firstAttribute="width" secondItem="qi4-xC-fNq" secondAttribute="height" multiplier="375:215" id="NyM-Gf-krW"/>
+                                    <constraint firstItem="egj-Dj-EXC" firstAttribute="centerX" secondItem="qi4-xC-fNq" secondAttribute="centerX" id="a8T-Od-9ud"/>
+                                    <constraint firstItem="6Z6-5N-Bzc" firstAttribute="leading" secondItem="qi4-xC-fNq" secondAttribute="leading" constant="20" id="kWm-F5-yEM"/>
+                                    <constraint firstItem="egj-Dj-EXC" firstAttribute="top" secondItem="qi4-xC-fNq" secondAttribute="top" constant="20" id="rBa-dO-EKh"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Z6-5N-Bzc" secondAttribute="trailing" constant="20" id="ujj-G4-ieQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Z6-5N-Bzc" secondAttribute="bottom" constant="40" id="vWM-O2-Amd"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.94509803920000002" green="0.94117647059999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="SgQ-Me-Gr0" firstAttribute="trailing" secondItem="5v0-gf-GFS" secondAttribute="trailing" constant="20" id="4yZ-ZO-BiM"/>
-                            <constraint firstItem="SgQ-Me-Gr0" firstAttribute="bottom" secondItem="5v0-gf-GFS" secondAttribute="bottom" constant="20" id="Eq6-tc-TEf"/>
-                            <constraint firstItem="5v0-gf-GFS" firstAttribute="top" secondItem="pRE-ZZ-DF8" secondAttribute="bottom" constant="10" id="IbQ-Na-8fS"/>
-                            <constraint firstItem="SgQ-Me-Gr0" firstAttribute="trailing" secondItem="pRE-ZZ-DF8" secondAttribute="trailing" constant="20" id="OmT-ya-zOU"/>
-                            <constraint firstItem="pRE-ZZ-DF8" firstAttribute="leading" secondItem="SgQ-Me-Gr0" secondAttribute="leading" constant="20" id="pdp-l4-cH9"/>
-                            <constraint firstItem="5v0-gf-GFS" firstAttribute="leading" secondItem="SgQ-Me-Gr0" secondAttribute="leading" constant="20" id="z4q-wk-12e"/>
+                            <constraint firstItem="SgQ-Me-Gr0" firstAttribute="trailing" secondItem="qi4-xC-fNq" secondAttribute="trailing" id="CHN-9k-k3E"/>
+                            <constraint firstItem="qi4-xC-fNq" firstAttribute="leading" secondItem="SgQ-Me-Gr0" secondAttribute="leading" id="JiX-Yp-LBS"/>
+                            <constraint firstAttribute="bottom" secondItem="qi4-xC-fNq" secondAttribute="bottom" id="VCt-d5-ekr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SgQ-Me-Gr0"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <connections>
-                        <outlet property="loginButton" destination="pRE-ZZ-DF8" id="Cf6-Rn-byw"/>
-                        <outlet property="newUserButton" destination="5v0-gf-GFS" id="ove-2T-A7P"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTt-u2-YSS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

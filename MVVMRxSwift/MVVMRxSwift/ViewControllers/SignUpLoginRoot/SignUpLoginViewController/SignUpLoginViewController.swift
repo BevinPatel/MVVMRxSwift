@@ -9,8 +9,7 @@
 import UIKit
 
 class SignUpLoginViewController: BaseViewController {
-    @IBOutlet var loginButton: UIButton!
-    @IBOutlet var newUserButton: UIButton!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +19,8 @@ class SignUpLoginViewController: BaseViewController {
     }
     override func setEventBinding() {
         super.setEventBinding()
-        self.loginButton.rx.tap.bind(onNext : self.myViewModel(type: SignUpLoginViewModel.self).onTapLogin).disposed(by: disposeBag)
-        self.newUserButton.rx.tap.bind(onNext : self.myViewModel(type: SignUpLoginViewModel.self).onTapSignUp).disposed(by: disposeBag)
+         //self.loginButton.rx.tap.bind(onNext : self.myViewModel(type: SignUpLoginViewModel.self).onTapLogin).disposed(by: disposeBag)
+        //self.newUserButton.rx.tap.bind(onNext : self.myViewModel(type: SignUpLoginViewModel.self).onTapSignUp).disposed(by: disposeBag)
     }
     override func setDataBinding() {
         super.setDataBinding()
