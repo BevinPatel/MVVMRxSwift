@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class SignInViewModel: BaseViewModel {
+    let email    : BehaviorRelay<String>  = BehaviorRelay(value: "")
+    let password : BehaviorRelay<String>  = BehaviorRelay(value: "")
     
+    required init() {
+        super.init()
+    }
     override func controllerType() -> UIViewController.Type {
         return SignInViewController.self
     }
