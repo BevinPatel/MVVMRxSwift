@@ -9,6 +9,7 @@
 import UIKit
 
 class SignInViewModel: BaseViewModel {
+    
     override func controllerType() -> UIViewController.Type {
         return SignInViewController.self
     }

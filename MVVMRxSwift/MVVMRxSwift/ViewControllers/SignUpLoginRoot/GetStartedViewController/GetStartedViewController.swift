@@ -13,14 +13,14 @@ class GetStartedViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    override func setUI() {
-        super.setUI()
+    override func setUI<T>(viewModel: T) where T : GetStartedViewModel {
+        super.setUI(viewModel: viewModel)
     }
-    override func setEventBinding() {
-        super.setEventBinding()
-        self.getStartedButton.rx.tap.bind(onNext : self.viewModel(type: GetStartedViewModel.self).getStarted).disposed(by: disposeBag)
+    override func setEventBinding<T>(viewModel: T) where T : GetStartedViewModel {
+        super.setEventBinding(viewModel: viewModel)
+        self.getStartedButton.rx.tap.bind(onNext : viewModel.getStarted).disposed(by: disposeBag)
     }
-    override func setDataBinding() {
-        super.setDataBinding()
+    override func setDataBinding<T>(viewModel: T) where T : GetStartedViewModel {
+        super.setDataBinding(viewModel: viewModel)
     }
 }
