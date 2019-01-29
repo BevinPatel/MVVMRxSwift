@@ -8,12 +8,13 @@
 
 import Foundation
 import UIKit
-
+import RxSwift
 enum ControllerStackAction {
     case present(viewModel: BaseViewModel, animated : Bool)
     case dismiss(animated : Bool)
 }
 class BaseViewModel{
+    let disposeBag = DisposeBag()
     required init() {
     }
     func initController<T:BaseViewController>()->T?{

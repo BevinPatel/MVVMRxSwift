@@ -12,7 +12,7 @@ import RxCocoa
 
 class BaseViewController : UIViewController {
     let disposeBag = DisposeBag()
-    var viewModel : BaseViewModel?
+    var baseViewModel : BaseViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +20,8 @@ class BaseViewController : UIViewController {
         self.setEventBinding()
         self.setDataBinding()
     }
-    func myViewModel<T:BaseViewModel>(type : T.Type)->T{
-        return viewModel as! T
+    func viewModel<T:BaseViewModel>(type : T.Type)->T{
+        return baseViewModel as! T
     }
     // Will called after viewdidload of superclass. We will do UI related code in this override function
     func setUI(){

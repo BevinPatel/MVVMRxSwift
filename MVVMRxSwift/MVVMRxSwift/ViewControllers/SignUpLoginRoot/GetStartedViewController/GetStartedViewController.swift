@@ -1,5 +1,5 @@
 //
-//  SignUpLoginViewController.swift
+//  GetStartedViewController.swift
 //  MVVMRxSwift
 //
 //  Created by MAC193 on 1/28/19.
@@ -8,9 +8,8 @@
 
 import UIKit
 
-class SignUpLoginViewController: BaseViewController {
-   
-    
+class GetStartedViewController: BaseViewController {    
+    @IBOutlet var getStartedButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,8 +18,7 @@ class SignUpLoginViewController: BaseViewController {
     }
     override func setEventBinding() {
         super.setEventBinding()
-         //self.loginButton.rx.tap.bind(onNext : self.myViewModel(type: SignUpLoginViewModel.self).onTapLogin).disposed(by: disposeBag)
-        //self.newUserButton.rx.tap.bind(onNext : self.myViewModel(type: SignUpLoginViewModel.self).onTapSignUp).disposed(by: disposeBag)
+        self.getStartedButton.rx.tap.bind(onNext : self.viewModel(type: GetStartedViewModel.self).getStarted).disposed(by: disposeBag)
     }
     override func setDataBinding() {
         super.setDataBinding()

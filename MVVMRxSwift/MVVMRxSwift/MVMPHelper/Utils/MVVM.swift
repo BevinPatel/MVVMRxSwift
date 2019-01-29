@@ -10,7 +10,7 @@ import UIKit
 class MVVM {
     class func navigationController<T:BaseNavigationModel,M:BaseNavigationController>(model : T)->M?{
         let controller = model.initController()
-        controller?.viewModel = model
+        controller?.baseNavigationModel = model
         if let genericController = controller as? M {
             return genericController
         }
@@ -20,7 +20,7 @@ class MVVM {
     }
     class func viewController<T : BaseViewModel,M:BaseViewController>(model : T)->M?{
         let controller = model.initController()
-        controller?.viewModel = model
+        controller?.baseViewModel = model
         if let genericCntroller = controller as? M {
             return genericCntroller
         }

@@ -17,6 +17,7 @@ enum NavigationStackAction {
     case dismiss(animated : Bool,completion: (() -> Swift.Void)?)
 }
 class BaseNavigationModel{
+    let disposeBag = DisposeBag()
     lazy var navigationActions = BehaviorSubject<NavigationStackAction>(value: .set(viewModels: [self.rootModel()], animated: true))
     required init() {
         

@@ -17,6 +17,13 @@ class SignUpLoginNavigationModel : BaseNavigationModel{
         return UIStoryboard.main
     }
     override func rootModel() -> BaseViewModel {
-        return SignUpLoginViewModel();
+        let getStartedViewModel = GetStartedViewModel()
+        getStartedViewModel.events.subscribe(onNext: { [weak self] event in
+            self?.showSignIn()
+        }).disposed(by: disposeBag)
+        return getStartedViewModel
+    }
+    private func showSignIn(){
+        self.navigationActions.onNext(NavigationStackAction.push(viewModel: SignInViewModel(), animated: true))
     }
 }

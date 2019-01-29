@@ -11,15 +11,14 @@ import RxSwift
 
 class BaseNavigationController: UINavigationController {
     let disposeBag = DisposeBag()
-    var viewModel : BaseNavigationModel?
+    var baseNavigationModel : BaseNavigationModel!
     
-    func myViewModel<T:BaseNavigationModel>(_ modelType : T.Type) -> T? {
-        return viewModel as? T
+    func viewModel<T:BaseNavigationModel>(_ modelType : T.Type) -> T? {
+        return baseNavigationModel as? T
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let model = self.myViewModel(BaseNavigationModel.self);
-        model?.navigationActions.subscribe(onNext: { [weak self] action in
+        self.baseNavigationModel.navigationActions.subscribe(onNext: { [weak self] action in
             switch action{
             case .set(let viewModels, let animated):
                 let controllers = viewModels.compactMap { MVVM.viewController(model: $0)}
