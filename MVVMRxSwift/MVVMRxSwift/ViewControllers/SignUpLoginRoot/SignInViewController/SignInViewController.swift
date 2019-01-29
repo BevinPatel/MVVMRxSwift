@@ -10,6 +10,12 @@ import UIKit
 
 class SignInViewController: BaseViewController {
 
+    @IBOutlet var emailTextField        : UITextField!
+    @IBOutlet var passwordTextField     : UITextField!
+    @IBOutlet var signInButton          : UIButton!
+    @IBOutlet var forgotPasswordButton  : UIButton!
+    @IBOutlet var dontHaveAcButton      : UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -18,6 +24,10 @@ class SignInViewController: BaseViewController {
     }
     override func setEventBinding<T>(viewModel: T) where T : SignInViewModel {
         super.setEventBinding(viewModel: viewModel)
+        
+        self.signInButton.rx.tap.bind(onNext:(viewModel.signIn)).disposed(by: disposeBag)
+        self.forgotPasswordButton.rx.tap.bind(onNext:(viewModel.forgotPassword)).disposed(by: disposeBag)
+        self.dontHaveAcButton.rx.tap.bind(onNext:(viewModel.dontHaveAccount)).disposed(by: disposeBag)
     }
     override func setDataBinding<T>(viewModel: T) where T : SignInViewModel {
         super.setDataBinding(viewModel: viewModel)

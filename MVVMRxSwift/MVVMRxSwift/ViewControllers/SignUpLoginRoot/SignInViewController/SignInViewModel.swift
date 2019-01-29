@@ -16,4 +16,13 @@ class SignInViewModel: BaseViewModel {
     override func controllerStoryBoard() -> UIStoryboard {
         return UIStoryboard.main
     }
+    func signIn(){
+        
+    }
+    func forgotPassword(){
+        
+    }
+    func dontHaveAccount(){
+        
+    }
 }
