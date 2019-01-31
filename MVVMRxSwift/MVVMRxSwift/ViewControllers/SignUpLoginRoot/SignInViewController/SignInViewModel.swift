@@ -13,9 +13,16 @@ import RxCocoa
 class SignInViewModel: BaseViewModel {
     let email    : BehaviorRelay<String>  = BehaviorRelay(value: "")
     let password : BehaviorRelay<String>  = BehaviorRelay(value: "")
+    let isEnable : BehaviorRelay<Bool>  = BehaviorRelay(value: false)
     
     required init() {
         super.init()
+        email.subscribe(onNext:{[weak self] value in
+            self?.isEnable.accept((value == "bevinpatel20" && self?.password.value == "1234"))
+        }).disposed(by: disposeBag)
+        password.subscribe(onNext:{[weak self] value in
+            self?.isEnable.accept((value == "1234" && self?.email.value == "bevinpatel20"))
+        }).disposed(by: disposeBag)
     }
     override func controllerType() -> UIViewController.Type {
         return SignInViewController.self
