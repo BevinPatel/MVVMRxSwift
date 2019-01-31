@@ -10,18 +10,22 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+enum Event{
+    case onSignIn
+    case onForgotPassword
+    case onCreateAccount
+}
 class SignInViewModel: BaseViewModel {
+    
+    var event : PublishSubject<Event> = PublishSubject()
     let email    : BehaviorRelay<String>  = BehaviorRelay(value: "")
     let password : BehaviorRelay<String>  = BehaviorRelay(value: "")
     let isEnable : BehaviorRelay<Bool>  = BehaviorRelay(value: false)
     
     required init() {
         super.init()
-        email.subscribe(onNext:{[weak self] value in
-            self?.isEnable.accept((value == "bevinpatel20" && self?.password.value == "1234"))
-        }).disposed(by: disposeBag)
-        password.subscribe(onNext:{[weak self] value in
-            self?.isEnable.accept((value == "1234" && self?.email.value == "bevinpatel20"))
+        Observable.combineLatest(email,password).subscribe(onNext: {[weak self] emailText, passwordText in
+            self?.isEnable.accept(emailText == "bevinpatel20@gmail.com" && passwordText == "1234")
         }).disposed(by: disposeBag)
     }
     override func controllerType() -> UIViewController.Type {
@@ -31,12 +35,12 @@ class SignInViewModel: BaseViewModel {
         return UIStoryboard.main
     }
     func signIn(){
-        
+        event.onNext(.onSignIn)
     }
     func forgotPassword(){
-        
+        event.onNext(.onForgotPassword)
     }
     func dontHaveAccount(){
-        
+        event.onNext(.onCreateAccount)
     }
 }

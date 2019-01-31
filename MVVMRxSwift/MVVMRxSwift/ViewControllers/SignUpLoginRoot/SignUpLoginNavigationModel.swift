@@ -19,11 +19,36 @@ class SignUpLoginNavigationModel : BaseNavigationModel{
     override func rootModel() -> BaseViewModel {
         let getStartedViewModel = GetStartedViewModel()
         getStartedViewModel.events.subscribe(onNext: { [weak self] event in
-            self?.showSignIn()
+            self?.onGetStart()
         }).disposed(by: disposeBag)
         return getStartedViewModel
     }
-    private func showSignIn(){
-        self.navigationActions.onNext(NavigationStackAction.push(viewModel: SignInViewModel(), animated: true))
+    private func onGetStart(){
+        self.navigationActions.onNext(NavigationStackAction.push(viewModel: self.signInViewModel(), animated: true))
+    }
+    private func signInViewModel()->SignInViewModel{
+        let signInModel = SignInViewModel()
+        signInModel.event.subscribe(onNext:{[weak self] event in
+            switch (event){
+                case .onSignIn:
+                    self?.onHomeScreen()
+                    break;
+                case .onForgotPassword:
+                    self?.onForgotPassword()
+                    break;
+                case .onCreateAccount:
+                    self?.onCreateAccount()
+            }
+        }).disposed(by: disposeBag)
+        return signInModel
+    }
+    private func onHomeScreen(){
+        //self.navigationActions.onNext(NavigationStackAction.push(viewModel: self.signInViewModel(), animated: true))
+    }
+    private func onForgotPassword(){
+        //self.navigationActions.onNext(NavigationStackAction.push(viewModel: self.signInViewModel(), animated: true))
+    }
+    private func onCreateAccount(){
+        //self.navigationActions.onNext(NavigationStackAction.push(viewModel: self.signInViewModel(), animated: true))
     }
 }
