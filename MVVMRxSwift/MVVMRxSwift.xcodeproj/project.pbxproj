@@ -19,6 +19,7 @@
 		520CD3B7220481AA0039BF5B /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520CD3AD220481A90039BF5B /* ForgotPasswordViewModel.swift */; };
 		520CD3BB220485F00039BF5B /* UpdatePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520CD3B9220485EF0039BF5B /* UpdatePasswordViewModel.swift */; };
 		520CD3BC220485F00039BF5B /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520CD3BA220485EF0039BF5B /* UpdatePasswordViewController.swift */; };
+		520CD3C022048BDC0039BF5B /* TSValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520CD3BE22048BDC0039BF5B /* TSValidation.swift */; };
 		52E0E77721FF250700FF8D86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E0E77621FF250700FF8D86 /* AppDelegate.swift */; };
 		52E0E77C21FF250700FF8D86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E0E77A21FF250700FF8D86 /* Main.storyboard */; };
 		52E0E77E21FF250800FF8D86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E0E77D21FF250800FF8D86 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		520CD3AD220481A90039BF5B /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		520CD3B9220485EF0039BF5B /* UpdatePasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewModel.swift; sourceTree = "<group>"; };
 		520CD3BA220485EF0039BF5B /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
+		520CD3BE22048BDC0039BF5B /* TSValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSValidation.swift; sourceTree = "<group>"; };
 		52E0E77321FF250700FF8D86 /* MVVMRxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMRxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E0E77621FF250700FF8D86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52E0E77B21FF250700FF8D86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,6 +134,14 @@
 			path = UpdatePasswordViewController;
 			sourceTree = "<group>";
 		};
+		520CD3BD22048BDC0039BF5B /* BKRegexValidator */ = {
+			isa = PBXGroup;
+			children = (
+				520CD3BE22048BDC0039BF5B /* TSValidation.swift */,
+			);
+			path = BKRegexValidator;
+			sourceTree = "<group>";
+		};
 		52E0E76A21FF250700FF8D86 = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +179,7 @@
 				52E0E78921FF25C500FF8D86 /* BaseNavigationController */,
 				52E0E78F21FF25C500FF8D86 /* BaseViewController */,
 				52E0E78C21FF25C500FF8D86 /* Utils */,
+				520CD3BD22048BDC0039BF5B /* BKRegexValidator */,
 			);
 			path = MVMPHelper;
 			sourceTree = "<group>";
@@ -374,6 +385,7 @@
 				52E0E79721FF25C500FF8D86 /* BaseViewModel.swift in Sources */,
 				520CD3B0220481AA0039BF5B /* CreateAccountViewModel.swift in Sources */,
 				52E0E79621FF25C500FF8D86 /* BaseViewController.swift in Sources */,
+				520CD3C022048BDC0039BF5B /* TSValidation.swift in Sources */,
 				520CD3B3220481AA0039BF5B /* SignInViewController.swift in Sources */,
 				520CD3B5220481AA0039BF5B /* GetStartedViewModel.swift in Sources */,
 				520CD3BB220485F00039BF5B /* UpdatePasswordViewModel.swift in Sources */,

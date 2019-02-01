@@ -43,7 +43,7 @@ class SignUpLoginNavigationModel : BaseNavigationModel{
         return signInModel
     }
     private func onHomeScreen(){
-        self.navigationActions.onNext(NavigationStackAction.push(viewModel: HomeScreenViewModel(), animated: true))
+        self.navigationActions.onNext(NavigationStackAction.present(viewModel: HomeScreenViewModel(), animated: true, completion: nil))
     }
     private func onForgotPassword(){
         self.navigationActions.onNext(NavigationStackAction.push(viewModel: ForgotPasswordViewModel(), animated: true))

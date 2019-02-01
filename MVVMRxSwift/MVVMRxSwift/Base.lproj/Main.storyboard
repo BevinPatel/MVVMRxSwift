@@ -13,10 +13,12 @@
         <!--Sign Up Login Navigation Controller-->
         <scene sceneID="moi-nP-ce2">
             <objects>
-                <navigationController storyboardIdentifier="SignUpLoginNavigationController" navigationBarHidden="YES" id="aCk-5X-maU" customClass="SignUpLoginNavigationController" customModule="MVVMRxSwift" customModuleProvider="target" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
+                <navigationController storyboardIdentifier="SignUpLoginNavigationController" id="aCk-5X-maU" customClass="SignUpLoginNavigationController" customModule="MVVMRxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="RXr-VU-mIu">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.94509803920000002" green="0.94117647059999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
