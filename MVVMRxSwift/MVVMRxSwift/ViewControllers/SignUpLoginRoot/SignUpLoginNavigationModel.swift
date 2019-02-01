@@ -43,12 +43,12 @@ class SignUpLoginNavigationModel : BaseNavigationModel{
         return signInModel
     }
     private func onHomeScreen(){
-        //self.navigationActions.onNext(NavigationStackAction.push(viewModel: self.signInViewModel(), animated: true))
+        self.navigationActions.onNext(NavigationStackAction.push(viewModel: HomeScreenViewModel(), animated: true))
     }
     private func onForgotPassword(){
-        //self.navigationActions.onNext(NavigationStackAction.push(viewModel: self.signInViewModel(), animated: true))
+        self.navigationActions.onNext(NavigationStackAction.push(viewModel: ForgotPasswordViewModel(), animated: true))
     }
     private func onCreateAccount(){
-        //self.navigationActions.onNext(NavigationStackAction.push(viewModel: self.signInViewModel(), animated: true))
+        self.navigationActions.onNext(NavigationStackAction.push(viewModel: CreateAccountViewModel(), animated: true))
     }
 }
