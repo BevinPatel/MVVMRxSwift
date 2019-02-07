@@ -34,6 +34,8 @@
 		52E0E79F21FF273700FF8D86 /* SignUpLoginNavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E0E79E21FF273700FF8D86 /* SignUpLoginNavigationModel.swift */; };
 		52F1E36A220C577000F5C660 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F1E369220C577000F5C660 /* Colors.xcassets */; };
 		52F1E36C220C5AE300F5C660 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F1E36B220C5AE300F5C660 /* Enums.swift */; };
+		52F1E370220C6FB500F5C660 /* TermsOfUseNavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F1E36F220C6FB500F5C660 /* TermsOfUseNavigationModel.swift */; };
+		52F1E372220C6FD600F5C660 /* TemsOfUseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F1E371220C6FD600F5C660 /* TemsOfUseNavigationController.swift */; };
 		AC1F2F56DDF74D4A248F3843 /* Pods_MVVMRxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550AF4CBF9F9CAD3D5DD2D39 /* Pods_MVVMRxSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,8 @@
 		52E0E79E21FF273700FF8D86 /* SignUpLoginNavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLoginNavigationModel.swift; sourceTree = "<group>"; };
 		52F1E369220C577000F5C660 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		52F1E36B220C5AE300F5C660 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		52F1E36F220C6FB500F5C660 /* TermsOfUseNavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseNavigationModel.swift; sourceTree = "<group>"; };
+		52F1E371220C6FD600F5C660 /* TemsOfUseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemsOfUseNavigationController.swift; sourceTree = "<group>"; };
 		550AF4CBF9F9CAD3D5DD2D39 /* Pods_MVVMRxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMRxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B37F7D88C2813E8D789F2E /* Pods-MVVMRxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMRxSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMRxSwift/Pods-MVVMRxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,6 +226,7 @@
 			children = (
 				52E0E77621FF250700FF8D86 /* AppDelegate.swift */,
 				52E0E79B21FF271800FF8D86 /* SignUpLoginRoot */,
+				52F1E36D220C6F6F00F5C660 /* TemsOfUseRoot */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -239,6 +244,23 @@
 				520CD39F220481A90039BF5B /* HomeScreenViewController */,
 			);
 			path = SignUpLoginRoot;
+			sourceTree = "<group>";
+		};
+		52F1E36D220C6F6F00F5C660 /* TemsOfUseRoot */ = {
+			isa = PBXGroup;
+			children = (
+				52F1E36F220C6FB500F5C660 /* TermsOfUseNavigationModel.swift */,
+				52F1E371220C6FD600F5C660 /* TemsOfUseNavigationController.swift */,
+				52F1E36E220C6F7E00F5C660 /* TermsOFUseViewController */,
+			);
+			path = TemsOfUseRoot;
+			sourceTree = "<group>";
+		};
+		52F1E36E220C6F7E00F5C660 /* TermsOFUseViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TermsOFUseViewController;
 			sourceTree = "<group>";
 		};
 		8BCF59E6C89BA34A61A32EB5 /* Frameworks */ = {
@@ -389,8 +411,10 @@
 				520CD3B7220481AA0039BF5B /* ForgotPasswordViewModel.swift in Sources */,
 				520CD3BC220485F00039BF5B /* UpdatePasswordViewController.swift in Sources */,
 				520CD3B4220481AA0039BF5B /* GetStartedViewController.swift in Sources */,
+				52F1E372220C6FD600F5C660 /* TemsOfUseNavigationController.swift in Sources */,
 				520CD3AF220481AA0039BF5B /* HomeScreenViewModel.swift in Sources */,
 				52E0E79721FF25C500FF8D86 /* BaseViewModel.swift in Sources */,
+				52F1E370220C6FB500F5C660 /* TermsOfUseNavigationModel.swift in Sources */,
 				520CD3B0220481AA0039BF5B /* CreateAccountViewModel.swift in Sources */,
 				52E0E79621FF25C500FF8D86 /* BaseViewController.swift in Sources */,
 				520CD3C022048BDC0039BF5B /* TSValidation.swift in Sources */,
