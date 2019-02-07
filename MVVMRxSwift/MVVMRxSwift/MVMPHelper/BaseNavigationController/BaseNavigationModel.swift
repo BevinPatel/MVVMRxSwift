@@ -39,4 +39,20 @@ class BaseNavigationModel{
     func rootModel()->BaseViewModel{
         fatalError("Subclasses need to implement the `rootModel()` method.")
     }
+    //Navigation methods
+    func setViewModels(viewModels: [BaseViewModel], animated: Bool){
+        self.navigationActions.onNext(.set(viewModels: viewModels, animated: animated))
+    }
+    func push(viewModel: BaseViewModel, animated: Bool){
+        self.navigationActions.onNext(.push(viewModel: viewModel, animated: animated))
+    }
+    func pop(animated: Bool){
+        self.navigationActions.onNext(.pop(animated: animated))
+    }
+    func present(viewModel: BaseViewModel, animated: Bool,completion: (() -> Swift.Void)? = nil){
+        self.navigationActions.onNext(.present(viewModel: viewModel, animated: animated, completion: completion))
+    }
+    func dismiss(animated : Bool,completion: (() -> Swift.Void)?){
+        self.navigationActions.onNext(.dismiss(animated: animated, completion: completion))
+    }
 }

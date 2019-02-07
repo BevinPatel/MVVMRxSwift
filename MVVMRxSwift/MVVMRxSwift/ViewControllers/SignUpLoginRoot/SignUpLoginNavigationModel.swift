@@ -24,7 +24,7 @@ class SignUpLoginNavigationModel : BaseNavigationModel{
         return getStartedViewModel
     }
     private func onGetStart(){
-        self.navigationActions.onNext(NavigationStackAction.push(viewModel: self.signInViewModel(), animated: true))
+        self.push(viewModel: self.signInViewModel(), animated: true)
     }
     private func signInViewModel()->SignInViewModel{
         let signInModel = SignInViewModel()
@@ -43,12 +43,31 @@ class SignUpLoginNavigationModel : BaseNavigationModel{
         return signInModel
     }
     private func onHomeScreen(){
-        self.navigationActions.onNext(NavigationStackAction.present(viewModel: HomeScreenViewModel(), animated: true, completion: nil))
+        self.present(viewModel: HomeScreenViewModel(), animated: true, completion: nil)
     }
     private func onForgotPassword(){
-        self.navigationActions.onNext(NavigationStackAction.push(viewModel: ForgotPasswordViewModel(), animated: true))
+        self.push(viewModel: ForgotPasswordViewModel(), animated: true)
     }
     private func onCreateAccount(){
-        self.navigationActions.onNext(NavigationStackAction.push(viewModel: CreateAccountViewModel(), animated: true))
+        self.push(viewModel:createAccountViewModel(), animated: true)
+    }
+    private func createAccountViewModel()->CreateAccountViewModel{
+        let createAccountViewModel = CreateAccountViewModel()
+        createAccountViewModel.event.subscribe(onNext:{[weak self] event in
+            switch (event){
+            case .onCreateAccount:
+                self?.onHomeScreen()
+                break;
+            case .onTermsOfUse:
+                self?.onTermsOfUse();
+                break;
+            case .onIHaveAccount:
+                self?.pop(animated: true)
+            }
+        }).disposed(by: disposeBag)
+        return createAccountViewModel
+    }
+    private func onTermsOfUse(){
+        self.push(viewModel: createAccountViewModel(), animated: true)
     }
 }

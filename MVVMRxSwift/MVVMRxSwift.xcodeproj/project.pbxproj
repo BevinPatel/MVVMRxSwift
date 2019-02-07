@@ -32,6 +32,8 @@
 		52E0E79721FF25C500FF8D86 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E0E79121FF25C500FF8D86 /* BaseViewModel.swift */; };
 		52E0E79D21FF271800FF8D86 /* SignUpLoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E0E79C21FF271800FF8D86 /* SignUpLoginNavigationController.swift */; };
 		52E0E79F21FF273700FF8D86 /* SignUpLoginNavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E0E79E21FF273700FF8D86 /* SignUpLoginNavigationModel.swift */; };
+		52F1E36A220C577000F5C660 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F1E369220C577000F5C660 /* Colors.xcassets */; };
+		52F1E36C220C5AE300F5C660 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F1E36B220C5AE300F5C660 /* Enums.swift */; };
 		AC1F2F56DDF74D4A248F3843 /* Pods_MVVMRxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550AF4CBF9F9CAD3D5DD2D39 /* Pods_MVVMRxSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		52E0E79121FF25C500FF8D86 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		52E0E79C21FF271800FF8D86 /* SignUpLoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpLoginNavigationController.swift; sourceTree = "<group>"; };
 		52E0E79E21FF273700FF8D86 /* SignUpLoginNavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLoginNavigationModel.swift; sourceTree = "<group>"; };
+		52F1E369220C577000F5C660 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		52F1E36B220C5AE300F5C660 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		550AF4CBF9F9CAD3D5DD2D39 /* Pods_MVVMRxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMRxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B37F7D88C2813E8D789F2E /* Pods-MVVMRxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMRxSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMRxSwift/Pods-MVVMRxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,8 +170,9 @@
 				52E0E78821FF25C500FF8D86 /* MVMPHelper */,
 				52E0E79A21FF271800FF8D86 /* ViewControllers */,
 				52E0E77A21FF250700FF8D86 /* Main.storyboard */,
-				52E0E77D21FF250800FF8D86 /* Assets.xcassets */,
 				52E0E77F21FF250800FF8D86 /* LaunchScreen.storyboard */,
+				52E0E77D21FF250800FF8D86 /* Assets.xcassets */,
+				52F1E369220C577000F5C660 /* Colors.xcassets */,
 				52E0E78221FF250800FF8D86 /* Info.plist */,
 			);
 			path = MVVMRxSwift;
@@ -198,6 +203,7 @@
 			children = (
 				52E0E78D21FF25C500FF8D86 /* MVVM.swift */,
 				52E0E78E21FF25C500FF8D86 /* Extension.swift */,
+				52F1E36B220C5AE300F5C660 /* Enums.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -313,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52E0E78121FF250800FF8D86 /* LaunchScreen.storyboard in Resources */,
+				52F1E36A220C577000F5C660 /* Colors.xcassets in Resources */,
 				52E0E77E21FF250800FF8D86 /* Assets.xcassets in Resources */,
 				52E0E77C21FF250700FF8D86 /* Main.storyboard in Resources */,
 			);
@@ -377,6 +384,7 @@
 				52E0E79521FF25C500FF8D86 /* Extension.swift in Sources */,
 				520CD3AE220481AA0039BF5B /* HomeScreenViewController.swift in Sources */,
 				52E0E79F21FF273700FF8D86 /* SignUpLoginNavigationModel.swift in Sources */,
+				52F1E36C220C5AE300F5C660 /* Enums.swift in Sources */,
 				52E0E77721FF250700FF8D86 /* AppDelegate.swift in Sources */,
 				520CD3B7220481AA0039BF5B /* ForgotPasswordViewModel.swift in Sources */,
 				520CD3BC220485F00039BF5B /* UpdatePasswordViewController.swift in Sources */,

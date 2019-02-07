@@ -10,14 +10,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-enum Event{
+enum SignInEvent{
     case onSignIn
     case onForgotPassword
     case onCreateAccount
 }
 class SignInViewModel: BaseViewModel {
     
-    var event    : PublishSubject<Event> = PublishSubject()
+    var event    : PublishSubject<SignInEvent> = PublishSubject()
     let email    : BehaviorRelay<String>  = BehaviorRelay(value: "")
     let password : BehaviorRelay<String>  = BehaviorRelay(value: "")
     let isEnable : BehaviorRelay<Bool>  = BehaviorRelay(value: false)

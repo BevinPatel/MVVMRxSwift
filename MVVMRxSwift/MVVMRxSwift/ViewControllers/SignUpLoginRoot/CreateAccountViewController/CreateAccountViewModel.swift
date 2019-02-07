@@ -10,7 +10,13 @@ import UIKit
 import RxCocoa
 import RxSwift
 
+enum CreateACEvent{
+    case onCreateAccount
+    case onTermsOfUse
+    case onIHaveAccount
+}
 class CreateAccountViewModel: BaseViewModel {
+    var event           : PublishSubject<CreateACEvent> = PublishSubject()
     let name            : PublishSubject<String> = PublishSubject()
     let email           : PublishSubject<String> = PublishSubject()
     let pan             : PublishSubject<String> = PublishSubject()
@@ -35,5 +41,14 @@ class CreateAccountViewModel: BaseViewModel {
     }
     override func controllerStoryBoard() -> UIStoryboard {
         return UIStoryboard.main
+    }
+    func createAccount(){
+        event.onNext(.onCreateAccount)
+    }
+    func termsOfUse(){
+        event.onNext(.onTermsOfUse)
+    }
+    func iHaveAccount(){
+        event.onNext(.onIHaveAccount)
     }
 }

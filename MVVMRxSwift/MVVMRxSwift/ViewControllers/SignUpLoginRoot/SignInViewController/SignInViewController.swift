@@ -28,13 +28,13 @@ class SignInViewController: BaseViewController {
         self.emailTextField.rx.text.orEmpty.bind(to:viewModel.email).disposed(by: disposeBag)
         self.passwordTextField.rx.text.orEmpty.bind(to:viewModel.password).disposed(by: disposeBag)
         
-        self.signInButton.rx.tap.bind(onNext:(viewModel.signIn)).disposed(by: disposeBag)
-        self.forgotPasswordButton.rx.tap.bind(onNext:(viewModel.forgotPassword)).disposed(by: disposeBag)
-        self.dontHaveAcButton.rx.tap.bind(onNext:(viewModel.dontHaveAccount)).disposed(by: disposeBag)
+        self.signInButton.rx.tap.bind(onNext:viewModel.signIn).disposed(by: disposeBag)
+        self.forgotPasswordButton.rx.tap.bind(onNext:viewModel.forgotPassword).disposed(by: disposeBag)
+        self.dontHaveAcButton.rx.tap.bind(onNext:viewModel.dontHaveAccount).disposed(by: disposeBag)
         
         viewModel.isEnable.bind(to: signInButton.rx.isEnabled).disposed(by: disposeBag)
         viewModel.isEnable.subscribe(onNext: {[weak self] value  in
-            self?.signInButton.backgroundColor = value ? UIColor(red: 233.0/255.0, green: 29.0/255.0, blue: 41.0/255.0, alpha: 1.0) : UIColor.gray
+            self?.signInButton.backgroundColor = value ? AppColor.HEX_E91D29.color : AppColor.HEX_969694.color
         }).disposed(by: disposeBag)
     }
     override func setDataBinding<T>(viewModel: T) where T : SignInViewModel {
