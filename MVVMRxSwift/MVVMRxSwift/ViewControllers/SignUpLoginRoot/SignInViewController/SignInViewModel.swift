@@ -17,7 +17,7 @@ enum Event{
 }
 class SignInViewModel: BaseViewModel {
     
-    var event : PublishSubject<Event> = PublishSubject()
+    var event    : PublishSubject<Event> = PublishSubject()
     let email    : BehaviorRelay<String>  = BehaviorRelay(value: "")
     let password : BehaviorRelay<String>  = BehaviorRelay(value: "")
     let isEnable : BehaviorRelay<Bool>  = BehaviorRelay(value: false)

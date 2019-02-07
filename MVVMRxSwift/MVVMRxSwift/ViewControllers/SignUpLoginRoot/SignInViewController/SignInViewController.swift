@@ -36,7 +36,6 @@ class SignInViewController: BaseViewController {
         viewModel.isEnable.subscribe(onNext: {[weak self] value  in
             self?.signInButton.backgroundColor = value ? UIColor(red: 233.0/255.0, green: 29.0/255.0, blue: 41.0/255.0, alpha: 1.0) : UIColor.gray
         }).disposed(by: disposeBag)
-
     }
     override func setDataBinding<T>(viewModel: T) where T : SignInViewModel {
         super.setDataBinding(viewModel: viewModel)

@@ -14,6 +14,7 @@ enum BKRegex : NSString{
     case userName       = "^[a-zA-Z0-9]{4,}$"
     case password       = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
     case zipCode        = "^\\d.{4,10}$"
+    case panNumber      = "^\\d.{9,9}$"
     case phoneNumber    = "^\\([0-9]{3}\\) [0-9]{3}-[0-9]{4}$"
     case webSite        = "^(0{0}|((https?://)?([a-z0-9]+([\\-_\\.][a-z0-9]+)*)\\.[a-z]{1,12})\\S*)$"
     case emailId        = "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$"
@@ -33,13 +34,13 @@ extension NSRegularExpression {
             return false
         }
     }
-    static func regularExpresionForPattern(_ pattrn : NSString)->NSRegularExpression{
+    class func regularExpresionForPattern(_ pattrn : NSString)->NSRegularExpression{
         let regularExp : NSRegularExpression = try! NSRegularExpression(pattern: pattrn as String, options: NSRegularExpression.Options.caseInsensitive);
         return regularExp;
     }
 }
-extension UITextField{
+extension String{
     func isValid(type : BKRegex) -> Bool{
-        return type.isValid(string: self.text)
+        return type.isValid(string: self)
     }
 }

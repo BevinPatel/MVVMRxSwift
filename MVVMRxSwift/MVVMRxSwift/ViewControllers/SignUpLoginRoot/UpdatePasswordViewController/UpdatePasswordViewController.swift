@@ -12,7 +12,17 @@ class UpdatePasswordViewController: BaseViewController {
     @IBOutlet var passwordTextField         : UITextField!
     @IBOutlet var confirmPasswordTextField  : UITextField!
     @IBOutlet var savePasswordButton        : UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func setUI<T>(viewModel: T) where T : BaseViewModel {
+        super.setUI(viewModel: viewModel)
+    }
+    override func setEventBinding<T>(viewModel: T) where T : BaseViewModel {
+        super.setEventBinding(viewModel: viewModel)
+    }
+    override func setDataBinding<T>(viewModel: T) where T : BaseViewModel {
+        super.setDataBinding(viewModel: viewModel)
     }
 }
