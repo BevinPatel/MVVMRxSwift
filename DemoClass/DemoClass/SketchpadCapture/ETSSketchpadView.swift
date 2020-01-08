@@ -69,6 +69,8 @@ open class ETSSketchpadView : UIView
             self.controlPoint += 1
             self.sketchLayers.append(layer)
             self.addSubview(layer)
+            self.sketchLayers = Array(self.sketchLayers[0 ... self.controlPoint])
+            self.controlPoint += 0// just for update undo redo button
         }
     }
     
@@ -80,6 +82,8 @@ open class ETSSketchpadView : UIView
             self.controlPoint += 1
             self.sketchLayers.append(layer)
             self.addSubview(layer)
+            self.sketchLayers = Array(self.sketchLayers[0 ... self.controlPoint])
+            self.controlPoint += 0// just for update undo redo button
         }
     }
     
