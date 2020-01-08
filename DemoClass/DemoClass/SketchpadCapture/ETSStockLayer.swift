@@ -93,11 +93,12 @@ class ETSStockLayer : ETSSketchLayer
         if let sketchStock = self.drawable as? ETSDrawableStock
         {
             stockLayer.frame = CGRect(x: -sketchStock.bezierPath.bounds.origin.x , y: -sketchStock.bezierPath.bounds.origin.y, width: sketchStock.bezierPath.bounds.size.width, height: sketchStock.bezierPath.bounds.height)
-            stockLayer.path = sketchStock.bezierPath.cgPath
             stockLayer.lineWidth = sketchStock.bezierPath.lineWidth
             stockLayer.strokeColor = sketchStock.tintColor.cgColor
+            stockLayer.fillColor = UIColor.clear.cgColor
             stockLayer.lineCap = .round
             stockLayer.lineJoin = .round
+            stockLayer.path = sketchStock.bezierPath.cgPath
             layer.addSublayer(stockLayer)
         }
     }
