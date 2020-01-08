@@ -67,7 +67,7 @@ open class ETSSketchpadView : UIView
     
     private func addStockInSketch(bezierPath : UIBezierPath?, touchable : Bool)
     {
-        if let bezierPath = bezierPath, let layer = ETSStockLayer(frame: self.bounds, drawable : ETSDrawableStock(bezierPath: bezierPath, tintColor: self.strokeColor))
+        if let bezierPath = bezierPath, let layer = ETSStockLayer(frame: bezierPath.bounds, drawable : ETSDrawableStock(bezierPath: bezierPath, tintColor: self.strokeColor))
         {
             self.controlPoint += 1
             self.sketchLayers.append(layer)
@@ -98,6 +98,8 @@ open class ETSSketchpadView : UIView
             bezierCounter = 0
             bezierPath = UIBezierPath()
             bezierPath?.lineWidth = self.strokeWidth
+            bezierPath?.lineCapStyle = .round
+            bezierPath?.lineJoinStyle = .round
         }
     }
     
@@ -129,6 +131,7 @@ open class ETSSketchpadView : UIView
         self.addStockInSketch(bezierPath: self.bezierPath, touchable: true)
         self.bezierPath = nil
         self.bezierCounter = 0
+        self.bezierPoints = [CGPoint](repeating : CGPoint(), count : 5)
         self.setNeedsDisplay()
     }
     

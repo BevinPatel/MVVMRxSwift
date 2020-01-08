@@ -15,7 +15,9 @@ class ETSStockLayer : ETSSketchLayer
     private lazy var topRightCorner = CAShapeLayer()
     private lazy var bottomLeftCorner = CAShapeLayer()
     private lazy var bottomRightCorner = CAShapeLayer()
-     
+    private lazy var stockLayer = CAShapeLayer()
+    
+    
     required init?(coder: NSCoder)
     {
         return nil
@@ -28,7 +30,7 @@ class ETSStockLayer : ETSSketchLayer
         if (drawable.touchable)
         {
             self.initGestureRecognizers()
-            ETSSketchLayer.setSelected(newLayer: self)
+            ETSSketchLayer.setSelected(newLayer: nil)
         }
     }
     
@@ -111,8 +113,13 @@ class ETSStockLayer : ETSSketchLayer
         
         if let sketchStock = self.drawable as? ETSDrawableStock
         {
-            sketchStock.tintColor.setStroke()
-            sketchStock.bezierPath.stroke()
+            stockLayer.frame = CGRect(x: -sketchStock.bezierPath.bounds.origin.x , y: -sketchStock.bezierPath.bounds.origin.y, width: sketchStock.bezierPath.bounds.size.width, height: sketchStock.bezierPath.bounds.height)
+            stockLayer.path = sketchStock.bezierPath.cgPath
+            stockLayer.lineWidth = sketchStock.bezierPath.lineWidth
+            stockLayer.strokeColor = sketchStock.tintColor.cgColor
+            stockLayer.lineCap = .round
+            stockLayer.lineJoin = .round
+            layer.addSublayer(stockLayer)
         }
     }
     

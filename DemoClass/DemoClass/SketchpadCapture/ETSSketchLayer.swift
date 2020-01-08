@@ -21,7 +21,7 @@ class ETSSketchLayer : UIView
     {
         self.drawable = drawable
         super.init(frame: frame)
-        self.backgroundColor = .clear
+        self.backgroundColor = UIColor.red.withAlphaComponent(CGFloat(0.2))
     }
     
     private(set) static var selected : ETSSketchLayer?
@@ -63,6 +63,6 @@ struct ETSDrawableStock : ETSDrawable
     let tintColor       : UIColor
     var touchable: Bool
     {
-        return false
+        return true
     }
 }
