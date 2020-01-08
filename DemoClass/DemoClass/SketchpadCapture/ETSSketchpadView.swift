@@ -24,6 +24,14 @@ open class ETSSketchpadView : UIView
     fileprivate var bezierPoints = [CGPoint](repeating : CGPoint(), count : 5)
     fileprivate var bezierCounter : Int = 0
     
+    private lazy var stockLayer : CAShapeLayer = {
+        let stockLayer =  CAShapeLayer()
+        stockLayer.fillColor = UIColor.clear.cgColor
+        stockLayer.lineCap = .round
+        stockLayer.lineJoin = .round
+        return stockLayer
+    }()
+    
     @IBOutlet weak var delegate : ETSSketchpadViewDelegate?
     
     fileprivate var sketchLayers = [ETSSketchLayer]()
@@ -78,8 +86,15 @@ open class ETSSketchpadView : UIView
     
     override open func draw(_ rect : CGRect)
     {
-        strokeColor.setStroke()
-        bezierPath?.stroke()
+        stockLayer.removeFromSuperlayer()
+        if let bezierPath = self.bezierPath
+        {
+            stockLayer.frame = rect
+            stockLayer.lineWidth = bezierPath.lineWidth
+            stockLayer.strokeColor = strokeColor.cgColor
+            stockLayer.path = bezierPath.cgPath
+            self.layer.addSublayer(stockLayer)
+        }
     }
     
     
