@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3xB-UN-OAL">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--First View Controller-->
+        <scene sceneID="VZ5-Zi-orp">
+            <objects>
+                <viewController id="lEf-35-M9k" customClass="FirstViewController" customModule="DemoClass" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mDf-Pp-ZiX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zXc-oX-00w">
+                                <rect key="frame" x="0.0" y="88" width="375" height="375"/>
+                                <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zXc-oX-00w" secondAttribute="height" id="l7b-N3-JYs"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ufy-gs-bpv" appends="YES" id="OcC-GD-dOw"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zXc-oX-00w" firstAttribute="leading" secondItem="PrL-cB-Kmq" secondAttribute="leading" id="8kE-3w-Ls1"/>
+                            <constraint firstItem="PrL-cB-Kmq" firstAttribute="trailing" secondItem="zXc-oX-00w" secondAttribute="trailing" id="YXJ-Wp-0Dn"/>
+                            <constraint firstItem="zXc-oX-00w" firstAttribute="top" secondItem="PrL-cB-Kmq" secondAttribute="top" id="cGQ-bP-F0k"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PrL-cB-Kmq"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ICk-9m-SZt"/>
+                    <connections>
+                        <outlet property="sketchpadView" destination="zXc-oX-00w" id="e9Y-6K-Rfs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PB0-dX-dsM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ufy-gs-bpv">
+                    <connections>
+                        <action selector="onDrawShapesWithTapGesture:" destination="lEf-35-M9k" id="5zc-JL-lBr"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-378.39999999999998" y="-560.09852216748766"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ev9-MR-mSE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3xB-UN-OAL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NJu-9Y-iet">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lEf-35-M9k" kind="relationship" relationship="rootViewController" id="LpS-Z9-SeH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3fP-A5-Dvx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1162" y="-560"/>
+        </scene>
+    </scenes>
+</document>
