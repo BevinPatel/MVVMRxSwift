@@ -20,6 +20,10 @@ open class ETSSketchpadView : UIView
     open var strokeColor = UIColor.black
     open var strokeWidth : CGFloat = 2.0
         
+    fileprivate var bezierPath : UIBezierPath?
+    fileprivate var bezierPoints = [CGPoint](repeating : CGPoint(), count : 5)
+    fileprivate var bezierCounter : Int = 0
+    
     @IBOutlet weak var delegate : ETSSketchpadViewDelegate?
     
     fileprivate var sketchLayers = [ETSSketchLayer]()
@@ -39,6 +43,7 @@ open class ETSSketchpadView : UIView
         self.setupView()
     }
 
+    
     private func setupView()
     {
         self.backgroundColor = UIColor.clear
@@ -57,6 +62,84 @@ open class ETSSketchpadView : UIView
             self.sketchLayers.append(layer)
             self.addSubview(layer)
         }
+    }
+    
+    
+    private func addStockInSketch(bezierPath : UIBezierPath?, touchable : Bool)
+    {
+        if let bezierPath = bezierPath, let layer = ETSStockLayer(frame: self.bounds, drawable : ETSDrawableStock(bezierPath: bezierPath, tintColor: self.strokeColor))
+        {
+            self.controlPoint += 1
+            self.sketchLayers.append(layer)
+            self.addSubview(layer)
+        }
+    }
+    
+    
+    override open func draw(_ rect : CGRect)
+    {
+        strokeColor.setStroke()
+        bezierPath?.stroke()
+    }
+    
+    
+    // To prevent ios13 present controller default gesture to dismiss screen while draw signature.
+    open override func gestureRecognizerShouldBegin(_ gestureRecognizer : UIGestureRecognizer) -> Bool
+    {
+        return (gestureRecognizer.view == self)
+    }
+    
+    
+    override open func touchesBegan(_ touches : Set<UITouch>, with event : UIEvent?)
+    {
+        if let currentPoint = touchPoint(touches)
+        {
+            bezierPoints[0] = currentPoint
+            bezierCounter = 0
+            bezierPath = UIBezierPath()
+            bezierPath?.lineWidth = self.strokeWidth
+        }
+    }
+    
+    
+    override open func touchesMoved(_ touches : Set<UITouch>, with event : UIEvent?)
+    {
+        if let currentPoint = touchPoint(touches)
+        {
+            bezierCounter += 1
+            bezierPoints[bezierCounter] = currentPoint
+
+            //Smoothing is done by Bezier Equations where curves are calculated based on four concurrent  points drawn
+            if (bezierCounter == 4)
+            {
+                bezierPoints[3] = CGPoint(x: (bezierPoints[2].x + bezierPoints[4].x) / 2 , y: (bezierPoints[2].y + bezierPoints[4].y) / 2)
+                bezierPath?.move(to : bezierPoints[0])
+                bezierPath?.addCurve(to : bezierPoints[3], controlPoint1 : bezierPoints[1], controlPoint2 : bezierPoints[2])
+                setNeedsDisplay()
+                bezierPoints[0] = bezierPoints[3]
+                bezierPoints[1] = bezierPoints[4]
+                bezierCounter = 1
+            }
+        }
+    }
+    
+    
+    override open func touchesEnded(_ touches : Set<UITouch>, with event : UIEvent?)
+    {
+        self.addStockInSketch(bezierPath: self.bezierPath, touchable: true)
+        self.bezierPath = nil
+        self.bezierCounter = 0
+        self.setNeedsDisplay()
+    }
+    
+    
+    func touchPoint(_ touches : Set<UITouch>) -> CGPoint?
+    {
+        if let touch = touches.first
+        {
+            return touch.location(in: self)
+        }
+        return nil
     }
     
     
