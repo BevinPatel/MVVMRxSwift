@@ -63,6 +63,6 @@ struct ETSDrawableStock : ETSDrawable
     let tintColor       : UIColor
     var touchable: Bool
     {
-        return true
+        return false
     }
 }
