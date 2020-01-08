@@ -27,7 +27,7 @@ class ETSSketchLayer : UIView
         self.drawable = drawable
         super.init(frame: frame)
         self.initGestureRecognizers()
-        self.backgroundColor = UIColor.red.withAlphaComponent(CGFloat(0.2))
+        self.backgroundColor = .clear
     }
     
     private func initGestureRecognizers()
@@ -85,8 +85,35 @@ extension ETSSketchLayer
 
 extension ETSSketchLayer
 {
+    // To prevent ios13 present controller default gesture to dismiss screen while draw signature.
+    open override func gestureRecognizerShouldBegin(_ gestureRecognizer : UIGestureRecognizer) -> Bool
+    {
+        if (self.tapGesture == gestureRecognizer)
+        {
+            return true// always work for select deselect
+        }
+        else
+        {
+            if (ETSSketchLayer.selected == self)
+            {
+                if ((self.panGesture == gestureRecognizer) || (self.pinchGesture == gestureRecognizer) || (self.rotateGesture == gestureRecognizer))
+                {
+                    return true
+                }
+                else
+                {
+                    return false
+                }
+            }
+            else
+            {
+                return false
+            }
+        }
+    }
+    
     //MARK: Gesture Method
-    @objc func didTap(_ panGR: UITapGestureRecognizer)
+    @objc fileprivate func didTap(_ panGR: UITapGestureRecognizer)
     {
         if (ETSSketchLayer.selected == self)
         {
@@ -99,7 +126,7 @@ extension ETSSketchLayer
     }
     
     
-    @objc func didPan(_ panGR: UIPanGestureRecognizer)
+    @objc fileprivate func didPan(_ panGR: UIPanGestureRecognizer)
     {
         if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
         {
@@ -113,7 +140,7 @@ extension ETSSketchLayer
     }
     
     
-    @objc func didPinch(_ pinchGR: UIPinchGestureRecognizer)
+    @objc fileprivate func didPinch(_ pinchGR: UIPinchGestureRecognizer)
     {
         if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
         {
@@ -130,7 +157,7 @@ extension ETSSketchLayer
     }
     
     
-    @objc func didRotate(_ rotationGR: UIRotationGestureRecognizer)
+    @objc fileprivate func didRotate(_ rotationGR: UIRotationGestureRecognizer)
     {
         if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
         {

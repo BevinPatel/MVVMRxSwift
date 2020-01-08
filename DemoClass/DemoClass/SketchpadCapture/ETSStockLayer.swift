@@ -26,6 +26,8 @@ class ETSStockLayer : ETSSketchLayer
     init?(frame : CGRect, drawable : ETSDrawableStock)
     {
         super.init(frame : frame, drawable : drawable)
+        
+        ETSSketchLayer.setSelected(newLayer: nil)
     }
     
     override func draw(_ rect: CGRect)
