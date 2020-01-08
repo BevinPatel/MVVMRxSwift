@@ -43,9 +43,6 @@ class ETSStockLayer : ETSSketchLayer
         let panGR = UIPanGestureRecognizer(target: self, action: #selector(ETSImageLayer.didPan(_:)))
         addGestureRecognizer(panGR)
         
-        let pinchGR = UIPinchGestureRecognizer(target: self, action: #selector(ETSImageLayer.didPinch(_:)))
-        addGestureRecognizer(pinchGR)
-        
         let rotationGR = UIRotationGestureRecognizer(target: self, action: #selector(ETSImageLayer.didRotate(_:)))
         addGestureRecognizer(rotationGR)
     }
@@ -150,24 +147,7 @@ class ETSStockLayer : ETSSketchLayer
             panGR.setTranslation(CGPoint.zero, in: self)
         }
     }
-    
-    
-    @objc func didPinch(_ pinchGR: UIPinchGestureRecognizer)
-    {
-        if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
-        {
-            self.superview!.bringSubviewToFront(self)
-            let scale = pinchGR.scale
-            
-            let center = self.center;
-            let size = CGSize(width: self.bounds.size.width*scale, height: self.bounds.size.height*scale)
-            self.bounds = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
-            self.center = center;
-            self.setNeedsDisplay();
-            pinchGR.scale = 1.0
-        }
-    }
-    
+
     
     @objc func didRotate(_ rotationGR: UIRotationGestureRecognizer)
     {
