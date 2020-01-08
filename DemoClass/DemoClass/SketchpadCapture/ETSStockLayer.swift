@@ -17,7 +17,6 @@ class ETSStockLayer : ETSSketchLayer
     private lazy var bottomRightCorner = CAShapeLayer()
     private lazy var stockLayer = CAShapeLayer()
     
-    
     required init?(coder: NSCoder)
     {
         return nil
@@ -27,26 +26,7 @@ class ETSStockLayer : ETSSketchLayer
     init?(frame : CGRect, drawable : ETSDrawableStock)
     {
         super.init(frame : frame, drawable : drawable)
-        if (drawable.touchable)
-        {
-            self.initGestureRecognizers()
-            ETSSketchLayer.setSelected(newLayer: nil)
-        }
     }
-    
-    
-    private func initGestureRecognizers()
-    {
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(ETSImageLayer.didTap(_:)))
-        addGestureRecognizer(tapGR)
-        
-        let panGR = UIPanGestureRecognizer(target: self, action: #selector(ETSImageLayer.didPan(_:)))
-        addGestureRecognizer(panGR)
-        
-        let rotationGR = UIRotationGestureRecognizer(target: self, action: #selector(ETSImageLayer.didRotate(_:)))
-        addGestureRecognizer(rotationGR)
-    }
-    
     
     override func draw(_ rect: CGRect)
     {
@@ -117,46 +97,6 @@ class ETSStockLayer : ETSSketchLayer
             stockLayer.lineCap = .round
             stockLayer.lineJoin = .round
             layer.addSublayer(stockLayer)
-        }
-    }
-    
-    
-    //MARK: Gesture Method
-    @objc func didTap(_ panGR: UITapGestureRecognizer)
-    {
-        if (ETSSketchLayer.selected == self)
-        {
-            ETSImageLayer.setSelected(newLayer: nil)
-        }
-        else
-        {
-            ETSImageLayer.setSelected(newLayer: self)
-        }
-    }
-    
-    
-    @objc func didPan(_ panGR: UIPanGestureRecognizer)
-    {
-        if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
-        {
-            self.superview!.bringSubviewToFront(self)
-            var translation = panGR.translation(in: self)
-            translation = translation.applying(self.transform)
-            self.center.x += translation.x
-            self.center.y += translation.y
-            panGR.setTranslation(CGPoint.zero, in: self)
-        }
-    }
-
-    
-    @objc func didRotate(_ rotationGR: UIRotationGestureRecognizer)
-    {
-        if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
-        {
-            self.superview!.bringSubviewToFront(self)
-            let rotation = rotationGR.rotation
-            self.transform = self.transform.rotated(by: rotation)
-            rotationGR.rotation = 0.0
         }
     }
 }

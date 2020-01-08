@@ -15,7 +15,7 @@ class ETSImageLayer : ETSSketchLayer
     private lazy var topRightCorner = CAShapeLayer()
     private lazy var bottomLeftCorner = CAShapeLayer()
     private lazy var bottomRightCorner = CAShapeLayer()
-     
+
     required init?(coder: NSCoder)
     {
         return nil
@@ -37,7 +37,6 @@ class ETSImageLayer : ETSSketchLayer
         
         if drawable.touchable
         {
-            self.initGestureRecognizers()
             ETSSketchLayer.setSelected(newLayer: self)
         }
     }
@@ -50,22 +49,6 @@ class ETSImageLayer : ETSSketchLayer
         {
             self.frame = superView.bounds
         }
-    }
-    
-    
-    private func initGestureRecognizers()
-    {
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(ETSImageLayer.didTap(_:)))
-        addGestureRecognizer(tapGR)
-        
-        let panGR = UIPanGestureRecognizer(target: self, action: #selector(ETSImageLayer.didPan(_:)))
-        addGestureRecognizer(panGR)
-        
-        let pinchGR = UIPinchGestureRecognizer(target: self, action: #selector(ETSImageLayer.didPinch(_:)))
-        addGestureRecognizer(pinchGR)
-        
-        let rotationGR = UIRotationGestureRecognizer(target: self, action: #selector(ETSImageLayer.didRotate(_:)))
-        addGestureRecognizer(rotationGR)
     }
     
     
@@ -132,63 +115,6 @@ class ETSImageLayer : ETSSketchLayer
         if let sketchImage = self.drawable as? ETSDrawableImage
         {
             sketchImage.image.draw(in : rect)
-        }
-    }
-    
-    
-    //MARK: Gesture Method
-    @objc func didTap(_ panGR: UITapGestureRecognizer)
-    {
-        if (ETSSketchLayer.selected == self)
-        {
-            ETSImageLayer.setSelected(newLayer: nil)
-        }
-        else
-        {
-            ETSImageLayer.setSelected(newLayer: self)
-        }
-    }
-    
-    
-    @objc func didPan(_ panGR: UIPanGestureRecognizer)
-    {
-        if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
-        {
-            self.superview!.bringSubviewToFront(self)
-            var translation = panGR.translation(in: self)
-            translation = translation.applying(self.transform)
-            self.center.x += translation.x
-            self.center.y += translation.y
-            panGR.setTranslation(CGPoint.zero, in: self)
-        }
-    }
-    
-    
-    @objc func didPinch(_ pinchGR: UIPinchGestureRecognizer)
-    {
-        if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
-        {
-            self.superview!.bringSubviewToFront(self)
-            let scale = pinchGR.scale
-            
-            let center = self.center;
-            let size = CGSize(width: self.bounds.size.width*scale, height: self.bounds.size.height*scale)
-            self.bounds = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
-            self.center = center;
-            self.setNeedsDisplay();
-            pinchGR.scale = 1.0
-        }
-    }
-    
-    
-    @objc func didRotate(_ rotationGR: UIRotationGestureRecognizer)
-    {
-        if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
-        {
-            self.superview!.bringSubviewToFront(self)
-            let rotation = rotationGR.rotation
-            self.transform = self.transform.rotated(by: rotation)
-            rotationGR.rotation = 0.0
         }
     }
 }
