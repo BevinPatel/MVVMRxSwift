@@ -114,6 +114,7 @@
                                 <constraint firstAttribute="height" constant="45" id="8Ng-LV-Wdw"/>
                                 <constraint firstAttribute="width" secondItem="zJk-RL-NKe" secondAttribute="height" id="nfh-Um-qUB"/>
                             </constraints>
+                            <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                             <state key="normal" image="solidLine"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="radious">
@@ -137,6 +138,7 @@
                                 <constraint firstAttribute="width" secondItem="jT6-zN-xfc" secondAttribute="height" id="nrh-lS-Kxj"/>
                                 <constraint firstAttribute="height" constant="45" id="tC1-F0-2xa"/>
                             </constraints>
+                            <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                             <state key="normal" image="dashLine"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="radious">
