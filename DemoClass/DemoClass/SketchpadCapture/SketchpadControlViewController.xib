@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SketchpadControlViewController" customModule="ETSFormsManager" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SketchpadControlViewController" customModule="DemoClass" customModuleProvider="target">
             <connections>
                 <outlet property="colorButton" destination="lch-R6-mOD" id="dLW-Ea-zsh"/>
                 <outlet property="eraseButton" destination="Yk9-uz-PaY" id="NEV-n0-GQW"/>
@@ -25,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="1366" height="974"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqA-vO-9gH" customClass="ETSSketchpadView" customModule="ETSFormsManager" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqA-vO-9gH" customClass="ETSSketchpadView" customModule="DemoClass" customModuleProvider="target">
                     <rect key="frame" x="20" y="20" width="934" height="934"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="fqA-vO-9gH" secondAttribute="height" multiplier="1:1" id="bw5-Ki-b8p"/>
@@ -106,8 +106,96 @@
                         <constraint firstAttribute="height" constant="45" id="dTf-v8-wb3"/>
                     </constraints>
                 </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DGp-vD-Hrj">
+                    <rect key="frame" x="964" y="75" width="210" height="45"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJk-RL-NKe">
+                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="8Ng-LV-Wdw"/>
+                                <constraint firstAttribute="width" secondItem="zJk-RL-NKe" secondAttribute="height" id="nfh-Um-qUB"/>
+                            </constraints>
+                            <state key="normal" image="solidLine"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="radious">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderwidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="bordercolor">
+                                    <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jT6-zN-xfc">
+                            <rect key="frame" x="55" y="0.0" width="45" height="45"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="jT6-zN-xfc" secondAttribute="height" id="nrh-lS-Kxj"/>
+                                <constraint firstAttribute="height" constant="45" id="tC1-F0-2xa"/>
+                            </constraints>
+                            <state key="normal" image="dashLine"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="radious">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderwidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="bordercolor">
+                                    <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhD-gK-4rb">
+                            <rect key="frame" x="110" y="0.0" width="45" height="45"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="BhD-gK-4rb" secondAttribute="height" id="b1L-Et-mGT"/>
+                                <constraint firstAttribute="height" constant="45" id="iWd-b7-8jY"/>
+                            </constraints>
+                            <state key="normal" image="solidArrow"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="radious">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderwidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="bordercolor">
+                                    <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMT-jh-xuI">
+                            <rect key="frame" x="165" y="0.0" width="45" height="45"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="QMT-jh-xuI" secondAttribute="height" id="Paw-Qi-YLL"/>
+                                <constraint firstAttribute="height" constant="45" id="cgn-A4-piw"/>
+                            </constraints>
+                            <state key="normal" image="dashArrow"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="radious">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderwidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="bordercolor">
+                                    <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="fUd-FW-Jv5"/>
+                    </constraints>
+                </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="k9L-Xt-1TO">
-                    <rect key="frame" x="964" y="75" width="255" height="45"/>
+                    <rect key="frame" x="964" y="130" width="255" height="45"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lch-R6-mOD">
                             <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
@@ -147,7 +235,7 @@
                     </constraints>
                 </stackView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6WN-WZ-7hF">
-                    <rect key="frame" x="974" y="140" width="372" height="794"/>
+                    <rect key="frame" x="974" y="195" width="372" height="739"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aGd-Ae-Lwu">
                         <size key="itemSize" width="50" height="50"/>
@@ -164,16 +252,18 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="k9L-Xt-1TO" firstAttribute="leading" secondItem="fqA-vO-9gH" secondAttribute="trailing" constant="10" id="42F-uc-jzV"/>
+                <constraint firstItem="k9L-Xt-1TO" firstAttribute="top" secondItem="DGp-vD-Hrj" secondAttribute="bottom" constant="10" id="489-Ol-CGP"/>
                 <constraint firstAttribute="bottom" secondItem="fqA-vO-9gH" secondAttribute="bottom" constant="20" id="DGW-ra-jq5"/>
                 <constraint firstItem="fqA-vO-9gH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Fqg-3x-b0a"/>
                 <constraint firstItem="6WN-WZ-7hF" firstAttribute="top" secondItem="k9L-Xt-1TO" secondAttribute="bottom" constant="20" id="RJA-uv-bsI"/>
                 <constraint firstItem="fqA-vO-9gH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="SRP-xc-57Q"/>
                 <constraint firstItem="n5w-sg-Q5u" firstAttribute="leading" secondItem="fqA-vO-9gH" secondAttribute="trailing" constant="10" id="YvI-PW-Ft5"/>
-                <constraint firstItem="k9L-Xt-1TO" firstAttribute="top" secondItem="n5w-sg-Q5u" secondAttribute="bottom" constant="10" id="hSZ-4n-MeG"/>
+                <constraint firstItem="DGp-vD-Hrj" firstAttribute="leading" secondItem="fqA-vO-9gH" secondAttribute="trailing" constant="10" id="abW-SE-YoD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6WN-WZ-7hF" secondAttribute="trailing" constant="20" id="hUo-0Q-KA1"/>
                 <constraint firstItem="n5w-sg-Q5u" firstAttribute="top" secondItem="fqA-vO-9gH" secondAttribute="top" id="p1v-21-eGW"/>
                 <constraint firstItem="6WN-WZ-7hF" firstAttribute="leading" secondItem="fqA-vO-9gH" secondAttribute="trailing" constant="20" id="rwl-dv-TWl"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="6WN-WZ-7hF" secondAttribute="bottom" constant="20" id="ukC-mG-IKi"/>
+                <constraint firstItem="DGp-vD-Hrj" firstAttribute="top" secondItem="n5w-sg-Q5u" secondAttribute="bottom" constant="10" id="zCh-Tk-hH9"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -181,8 +271,12 @@
         </view>
     </objects>
     <resources>
+        <image name="dashArrow" width="123" height="123"/>
+        <image name="dashLine" width="123" height="123"/>
         <image name="ic-eraser" width="30" height="30"/>
         <image name="iconRedo" width="30" height="30"/>
         <image name="iconUndo" width="30" height="30"/>
+        <image name="solidArrow" width="123" height="123"/>
+        <image name="solidLine" width="123" height="123"/>
     </resources>
 </document>
