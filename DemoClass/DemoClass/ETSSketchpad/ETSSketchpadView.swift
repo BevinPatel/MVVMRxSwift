@@ -96,9 +96,9 @@ open class ETSSketchpadView : UIView
     }
     
     
-    private func addStockInSketch(bezierPath : UIBezierPath?, touchable : Bool)
+    private func addStockInSketch(bezierPath : UIBezierPath?, touchable : Bool, twoPoints : [CGPoint]?)
     {
-        if let bezierPath = bezierPath, let layer = ETSStockLayer(frame: bezierPath.bounds, drawable : ETSDrawableStock(bezierPath : bezierPath, tintColor : self.strokeColor, stockType : self.stockType))
+        if let bezierPath = bezierPath, let layer = ETSStockLayer(frame : bezierPath.bounds, drawable : ETSDrawableStock(bezierPath : bezierPath, lastPoint: twoPoints, tintColor : self.strokeColor, stockType : self.stockType))
         {
             self.controlPoint += 1
             self.sketchLayers.append(layer)
@@ -168,7 +168,7 @@ open class ETSSketchpadView : UIView
     
     override open func touchesEnded(_ touches : Set<UITouch>, with event : UIEvent?)
     {
-        self.addStockInSketch(bezierPath : self.bezierPath, touchable : true)
+        self.addStockInSketch(bezierPath : self.bezierPath, touchable : true, twoPoints : ((self.bezierPoints.count > 1) ? (Array(self.bezierPoints[self.bezierPoints.count-2 ... self.bezierPoints.count - 1])) : nil))
         self.bezierPath = nil
         self.bezierCounter = 0
         self.bezierPoints = [CGPoint](repeating : CGPoint(), count : 5)

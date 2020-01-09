@@ -195,6 +195,7 @@ struct ETSDrawableImage : ETSDrawable
 struct ETSDrawableStock : ETSDrawable
 {
     let bezierPath  : UIBezierPath
+    let lastPoint   : [CGPoint]?
     let tintColor   : UIColor
     let stockType   : LineType
     var touchable   : Bool
