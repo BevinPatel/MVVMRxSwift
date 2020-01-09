@@ -17,7 +17,7 @@ protocol SketchpadControlViewControllerDelegate : class
 
 class SketchpadControlViewController : UIViewController
 {
-    @IBOutlet private var sketchpadView : ETSSketchpadView?
+    @IBOutlet fileprivate var sketchpadView : ETSSketchpadView?
     
     @IBOutlet fileprivate var undoButton    : UIButton?
     @IBOutlet fileprivate var redoButton    : UIButton?
@@ -29,23 +29,28 @@ class SketchpadControlViewController : UIViewController
     weak var delegate : SketchpadControlViewControllerDelegate?
     var sketchImage : UIImage?
     
-    @IBOutlet fileprivate var vectorCollectioNView : UICollectionView?
-    fileprivate let vectorNames = ["bicycle","electric-pole","gasoline","high-electric-pole","house","pointer","warning"]
+    @IBOutlet fileprivate var vectorCollectionView : UICollectionView?
+    fileprivate let vectorNames = ["crossWays", "electricPoleA", "electricPoleB", "gasoline", "house", "road", "splitWays", "tree", "trees", "tunnel", "warning"]
     
     lazy var colorPickerController : ColorPickerViewController? =
     {
-        let colorPickerViewController = ColorPickerViewController()
-        colorPickerViewController.color = self.colorButton?.backgroundColor
-        colorPickerViewController.delegate = self
-        colorPickerViewController.preferredContentSize = CGSize(width: 300.0, height: 500.0)
-        return colorPickerViewController
+        if let colorPickerViewController = Bundle.loadNib(ColorPickerViewController.self)
+        {
+            colorPickerViewController.color = self.colorButton?.backgroundColor
+            colorPickerViewController.delegate = self
+            colorPickerViewController.preferredContentSize = CGSize(width: 300.0, height: 500.0)
+            return colorPickerViewController
+        }
+        else
+        {
+            return nil
+        }
     }()
+    
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        let nib = UINib(nibName: "VectorImageCollectionViewCell", bundle: Bundle.main)
-        self.vectorCollectioNView?.register(nib, forCellWithReuseIdentifier: "VectorImageCollectionViewCell")
         self.prepareView()
     }
     
@@ -53,12 +58,12 @@ class SketchpadControlViewController : UIViewController
     private func prepareView()
     {
         self.sketchpadView?.delegate = self
-        self.sketchpadView?.addImageInSketch(image: self.sketchImage, touchable: false)
+        self.sketchpadView?.addImageInSketch(image : self.sketchImage, touchable : false)
 
-        let rightbutton = UIBarButtonItem.init(title : "Save", style : .plain, target : self, action : #selector(self.onSaveSketch(sender : )))
+        let rightbutton = UIBarButtonItem.init(title : Text.label.save, style : .plain, target : self, action : #selector(self.onSaveSketch(sender : )))
         self.navigationItem.rightBarButtonItem = rightbutton
        
-        let leftbutton = UIBarButtonItem.init(title : "Cancel", style : .plain, target : self, action : #selector(self.onCancelSketch(sender : )))
+        let leftbutton = UIBarButtonItem.init(title : Text.label.cancel, style : .plain, target : self, action : #selector(self.onCancelSketch(sender : )))
         self.navigationItem.leftBarButtonItem = leftbutton
     }
     
@@ -181,17 +186,17 @@ extension SketchpadControlViewController : UICollectionViewDataSource, UICollect
     
     func collectionView(_ collectionView : UICollectionView, cellForItemAt indexPath : IndexPath) -> UICollectionViewCell
     {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VectorImageCollectionViewCell", for: indexPath) as! VectorImageCollectionViewCell
+        let cell : VectorImageCollectionViewCell = self.vectorCollectionView!.dequeueReusableCell(for : indexPath)
         cell.imageView?.image = UIImage(named: vectorNames[indexPath.row])
         return cell
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    func collectionView(_ collectionView : UICollectionView, didSelectItemAt indexPath : IndexPath)
     {
         if let image = UIImage(named: vectorNames[indexPath.row])
         {
-            self.sketchpadView?.addImageInSketch(image: image, touchable: true)
+            self.sketchpadView?.addImageInSketch(image : image, touchable : true)
         }
     }
 }

@@ -10,24 +10,24 @@
 		1EB1E5FA470C1ADA829058B5 /* Pods_DemoClassTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BCBBFF1162BA6A1A23490D /* Pods_DemoClassTests.framework */; };
 		4A306D860F768EFCF270B467 /* Pods_DemoClassUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C716C3B5C4C96471ED8C7FB /* Pods_DemoClassUITests.framework */; };
 		500693E028D101EF970F7A27 /* Pods_DemoClass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A81D4C70F25193A6DF9F04F /* Pods_DemoClass.framework */; };
-		52784BCD23C5BF7C00D0688E /* ETSStockLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52784BCC23C5BF7C00D0688E /* ETSStockLayer.swift */; };
+		520B209723C70A1C004B3897 /* ETSImageLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B209323C70A1C004B3897 /* ETSImageLayer.swift */; };
+		520B209823C70A1C004B3897 /* ETSSketchpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B209423C70A1C004B3897 /* ETSSketchpadView.swift */; };
+		520B209923C70A1C004B3897 /* ETSSketchLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B209523C70A1C004B3897 /* ETSSketchLayer.swift */; };
+		520B209A23C70A1C004B3897 /* ETSStockLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B209623C70A1C004B3897 /* ETSStockLayer.swift */; };
+		520B20A423C70A24004B3897 /* SketchpadNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B209F23C70A24004B3897 /* SketchpadNavigationController.swift */; };
+		520B20A523C70A24004B3897 /* SketchpadControlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520B20A023C70A24004B3897 /* SketchpadControlViewController.xib */; };
+		520B20A623C70A24004B3897 /* SketchpadControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B20A123C70A24004B3897 /* SketchpadControlViewController.swift */; };
+		520B20AA23C70A5D004B3897 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B20A823C70A5D004B3897 /* ColorPickerViewController.swift */; };
+		520B20AB23C70A5D004B3897 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520B20A923C70A5D004B3897 /* ColorPickerViewController.xib */; };
+		520B20AF23C70B1A004B3897 /* VectorImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520B20AD23C70B1A004B3897 /* VectorImageCollectionViewCell.xib */; };
+		520B20B023C70B1A004B3897 /* VectorImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B20AE23C70B1A004B3897 /* VectorImageCollectionViewCell.swift */; };
 		5292F67022A95A7D009EFC98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292F66F22A95A7D009EFC98 /* AppDelegate.swift */; };
 		5292F67522A95A7D009EFC98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5292F67322A95A7D009EFC98 /* Main.storyboard */; };
 		5292F67722A95A7D009EFC98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5292F67622A95A7D009EFC98 /* Assets.xcassets */; };
 		5292F67A22A95A7D009EFC98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5292F67822A95A7D009EFC98 /* LaunchScreen.storyboard */; };
 		5292F68522A95A7D009EFC98 /* DemoClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292F68422A95A7D009EFC98 /* DemoClassTests.swift */; };
 		5292F69022A95A7E009EFC98 /* DemoClassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292F68F22A95A7E009EFC98 /* DemoClassUITests.swift */; };
-		52B94F7D23C4A010007F5200 /* VectorImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B94F7B23C4A010007F5200 /* VectorImageCollectionViewCell.swift */; };
-		52B94F7E23C4A010007F5200 /* VectorImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52B94F7C23C4A010007F5200 /* VectorImageCollectionViewCell.xib */; };
-		52B94F8023C4AC91007F5200 /* ETSImageLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B94F7F23C4AC91007F5200 /* ETSImageLayer.swift */; };
-		52B94F8223C4C212007F5200 /* ETSSketchLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B94F8123C4C212007F5200 /* ETSSketchLayer.swift */; };
-		52F7F0BD23C45A44000D2F38 /* SketchpadControlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F7F0BB23C45A44000D2F38 /* SketchpadControlViewController.xib */; };
-		52F7F0BE23C45A44000D2F38 /* SketchpadControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F7F0BC23C45A44000D2F38 /* SketchpadControlViewController.swift */; };
 		52F7F0C023C45B02000D2F38 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F7F0BF23C45B02000D2F38 /* FirstViewController.swift */; };
-		52F7F0CF23C46006000D2F38 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F7F0CD23C46006000D2F38 /* ColorPickerViewController.swift */; };
-		52F7F0D023C46006000D2F38 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F7F0CE23C46006000D2F38 /* ColorPickerViewController.xib */; };
-		52F7F0D223C46013000D2F38 /* ETSSketchpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F7F0D123C46013000D2F38 /* ETSSketchpadView.swift */; };
-		52F7F0D623C47035000D2F38 /* SketchpadNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F7F0D523C47035000D2F38 /* SketchpadNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +51,17 @@
 		0C716C3B5C4C96471ED8C7FB /* Pods_DemoClassUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoClassUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		466441ED7FE1E0EFF74D9029 /* Pods-DemoClassTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoClassTests.debug.xcconfig"; path = "Target Support Files/Pods-DemoClassTests/Pods-DemoClassTests.debug.xcconfig"; sourceTree = "<group>"; };
 		51D950B245982F76E4183E7A /* Pods-DemoClassUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoClassUITests.release.xcconfig"; path = "Target Support Files/Pods-DemoClassUITests/Pods-DemoClassUITests.release.xcconfig"; sourceTree = "<group>"; };
+		520B209323C70A1C004B3897 /* ETSImageLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETSImageLayer.swift; sourceTree = "<group>"; };
+		520B209423C70A1C004B3897 /* ETSSketchpadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETSSketchpadView.swift; sourceTree = "<group>"; };
+		520B209523C70A1C004B3897 /* ETSSketchLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETSSketchLayer.swift; sourceTree = "<group>"; };
+		520B209623C70A1C004B3897 /* ETSStockLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETSStockLayer.swift; sourceTree = "<group>"; };
+		520B209F23C70A24004B3897 /* SketchpadNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SketchpadNavigationController.swift; sourceTree = "<group>"; };
+		520B20A023C70A24004B3897 /* SketchpadControlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SketchpadControlViewController.xib; sourceTree = "<group>"; };
+		520B20A123C70A24004B3897 /* SketchpadControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SketchpadControlViewController.swift; sourceTree = "<group>"; };
+		520B20A823C70A5D004B3897 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		520B20A923C70A5D004B3897 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
+		520B20AD23C70B1A004B3897 /* VectorImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VectorImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		520B20AE23C70B1A004B3897 /* VectorImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		525E85E62355EA0E002111B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		525E85E82355EA0E002111B9 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
 		525E85EA2355EA0E002111B9 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +70,6 @@
 		525E85F12355EA0F002111B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		525E85F42355EA0F002111B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		525E85F62355EA0F002111B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52784BCC23C5BF7C00D0688E /* ETSStockLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETSStockLayer.swift; sourceTree = "<group>"; };
 		5292F66C22A95A7D009EFC98 /* DemoClass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoClass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5292F66F22A95A7D009EFC98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5292F67422A95A7D009EFC98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,17 +90,7 @@
 		52A826562355E2DE0063445D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52A826592355E2DE0063445D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52A8265B2355E2DE0063445D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52B94F7B23C4A010007F5200 /* VectorImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		52B94F7C23C4A010007F5200 /* VectorImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VectorImageCollectionViewCell.xib; sourceTree = "<group>"; };
-		52B94F7F23C4AC91007F5200 /* ETSImageLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETSImageLayer.swift; sourceTree = "<group>"; };
-		52B94F8123C4C212007F5200 /* ETSSketchLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETSSketchLayer.swift; sourceTree = "<group>"; };
-		52F7F0BB23C45A44000D2F38 /* SketchpadControlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SketchpadControlViewController.xib; sourceTree = "<group>"; };
-		52F7F0BC23C45A44000D2F38 /* SketchpadControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SketchpadControlViewController.swift; sourceTree = "<group>"; };
 		52F7F0BF23C45B02000D2F38 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		52F7F0CD23C46006000D2F38 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
-		52F7F0CE23C46006000D2F38 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
-		52F7F0D123C46013000D2F38 /* ETSSketchpadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETSSketchpadView.swift; sourceTree = "<group>"; };
-		52F7F0D523C47035000D2F38 /* SketchpadNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SketchpadNavigationController.swift; sourceTree = "<group>"; };
 		57BCBBFF1162BA6A1A23490D /* Pods_DemoClassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoClassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A81D4C70F25193A6DF9F04F /* Pods_DemoClass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoClass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7331EE402F7535F192C502B3 /* Pods-DemoClass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoClass.release.xcconfig"; path = "Target Support Files/Pods-DemoClass/Pods-DemoClass.release.xcconfig"; sourceTree = "<group>"; };
@@ -140,6 +140,45 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		520B209223C70A1C004B3897 /* ETSSketchpad */ = {
+			isa = PBXGroup;
+			children = (
+				520B209323C70A1C004B3897 /* ETSImageLayer.swift */,
+				520B209523C70A1C004B3897 /* ETSSketchLayer.swift */,
+				520B209623C70A1C004B3897 /* ETSStockLayer.swift */,
+				520B209423C70A1C004B3897 /* ETSSketchpadView.swift */,
+			);
+			path = ETSSketchpad;
+			sourceTree = "<group>";
+		};
+		520B209E23C70A24004B3897 /* SketchpadCapture */ = {
+			isa = PBXGroup;
+			children = (
+				520B209F23C70A24004B3897 /* SketchpadNavigationController.swift */,
+				520B20A023C70A24004B3897 /* SketchpadControlViewController.xib */,
+				520B20A123C70A24004B3897 /* SketchpadControlViewController.swift */,
+			);
+			path = SketchpadCapture;
+			sourceTree = "<group>";
+		};
+		520B20A723C70A5D004B3897 /* ColorPickerController */ = {
+			isa = PBXGroup;
+			children = (
+				520B20A823C70A5D004B3897 /* ColorPickerViewController.swift */,
+				520B20A923C70A5D004B3897 /* ColorPickerViewController.xib */,
+			);
+			path = ColorPickerController;
+			sourceTree = "<group>";
+		};
+		520B20AC23C70B1A004B3897 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				520B20AD23C70B1A004B3897 /* VectorImageCollectionViewCell.xib */,
+				520B20AE23C70B1A004B3897 /* VectorImageCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		525E85E52355EA0E002111B9 /* Document */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,8 +221,10 @@
 		5292F66E22A95A7D009EFC98 /* DemoClass */ = {
 			isa = PBXGroup;
 			children = (
-				52F7F0CC23C46006000D2F38 /* ColorPickerController */,
-				52F7F0BA23C45A44000D2F38 /* SketchpadCapture */,
+				520B20A723C70A5D004B3897 /* ColorPickerController */,
+				520B209E23C70A24004B3897 /* SketchpadCapture */,
+				520B209223C70A1C004B3897 /* ETSSketchpad */,
+				520B20AC23C70B1A004B3897 /* Cell */,
 				5292F66F22A95A7D009EFC98 /* AppDelegate.swift */,
 				52F7F0BF23C45B02000D2F38 /* FirstViewController.swift */,
 				5292F67322A95A7D009EFC98 /* Main.storyboard */,
@@ -225,31 +266,6 @@
 				52A8265B2355E2DE0063445D /* Info.plist */,
 			);
 			path = TestDoc;
-			sourceTree = "<group>";
-		};
-		52F7F0BA23C45A44000D2F38 /* SketchpadCapture */ = {
-			isa = PBXGroup;
-			children = (
-				52B94F8123C4C212007F5200 /* ETSSketchLayer.swift */,
-				52B94F7F23C4AC91007F5200 /* ETSImageLayer.swift */,
-				52784BCC23C5BF7C00D0688E /* ETSStockLayer.swift */,
-				52F7F0D123C46013000D2F38 /* ETSSketchpadView.swift */,
-				52F7F0D523C47035000D2F38 /* SketchpadNavigationController.swift */,
-				52F7F0BC23C45A44000D2F38 /* SketchpadControlViewController.swift */,
-				52F7F0BB23C45A44000D2F38 /* SketchpadControlViewController.xib */,
-				52B94F7B23C4A010007F5200 /* VectorImageCollectionViewCell.swift */,
-				52B94F7C23C4A010007F5200 /* VectorImageCollectionViewCell.xib */,
-			);
-			path = SketchpadCapture;
-			sourceTree = "<group>";
-		};
-		52F7F0CC23C46006000D2F38 /* ColorPickerController */ = {
-			isa = PBXGroup;
-			children = (
-				52F7F0CD23C46006000D2F38 /* ColorPickerViewController.swift */,
-				52F7F0CE23C46006000D2F38 /* ColorPickerViewController.xib */,
-			);
-			path = ColorPickerController;
 			sourceTree = "<group>";
 		};
 		5F16DDE93E6F65C5F4DB91F3 /* Frameworks */ = {
@@ -371,12 +387,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52F7F0D023C46006000D2F38 /* ColorPickerViewController.xib in Resources */,
+				520B20AB23C70A5D004B3897 /* ColorPickerViewController.xib in Resources */,
 				5292F67A22A95A7D009EFC98 /* LaunchScreen.storyboard in Resources */,
 				5292F67722A95A7D009EFC98 /* Assets.xcassets in Resources */,
-				52F7F0BD23C45A44000D2F38 /* SketchpadControlViewController.xib in Resources */,
+				520B20A523C70A24004B3897 /* SketchpadControlViewController.xib in Resources */,
 				5292F67522A95A7D009EFC98 /* Main.storyboard in Resources */,
-				52B94F7E23C4A010007F5200 /* VectorImageCollectionViewCell.xib in Resources */,
+				520B20AF23C70B1A004B3897 /* VectorImageCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,16 +503,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52B94F7D23C4A010007F5200 /* VectorImageCollectionViewCell.swift in Sources */,
-				52B94F8223C4C212007F5200 /* ETSSketchLayer.swift in Sources */,
-				52F7F0D623C47035000D2F38 /* SketchpadNavigationController.swift in Sources */,
+				520B20AA23C70A5D004B3897 /* ColorPickerViewController.swift in Sources */,
+				520B20B023C70B1A004B3897 /* VectorImageCollectionViewCell.swift in Sources */,
+				520B209723C70A1C004B3897 /* ETSImageLayer.swift in Sources */,
 				52F7F0C023C45B02000D2F38 /* FirstViewController.swift in Sources */,
 				5292F67022A95A7D009EFC98 /* AppDelegate.swift in Sources */,
-				52F7F0CF23C46006000D2F38 /* ColorPickerViewController.swift in Sources */,
-				52F7F0BE23C45A44000D2F38 /* SketchpadControlViewController.swift in Sources */,
-				52B94F8023C4AC91007F5200 /* ETSImageLayer.swift in Sources */,
-				52F7F0D223C46013000D2F38 /* ETSSketchpadView.swift in Sources */,
-				52784BCD23C5BF7C00D0688E /* ETSStockLayer.swift in Sources */,
+				520B209823C70A1C004B3897 /* ETSSketchpadView.swift in Sources */,
+				520B20A623C70A24004B3897 /* SketchpadControlViewController.swift in Sources */,
+				520B20A423C70A24004B3897 /* SketchpadNavigationController.swift in Sources */,
+				520B209923C70A1C004B3897 /* ETSSketchLayer.swift in Sources */,
+				520B209A23C70A1C004B3897 /* ETSStockLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

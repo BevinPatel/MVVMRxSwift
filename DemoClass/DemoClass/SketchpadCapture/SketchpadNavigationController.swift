@@ -8,17 +8,21 @@
 
 import UIKit
 
-class SketchpadNavigationController: UINavigationController
+class SketchpadNavigationController : UINavigationController
 {
     override func viewDidLoad()
     {
         super.viewDidLoad()
     }
-    override var shouldAutorotate: Bool
+    
+    
+    override var shouldAutorotate : Bool
     {
         return true
     }
-    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation
+    
+    
+    override var preferredInterfaceOrientationForPresentation : UIInterfaceOrientation
     {
         switch UIDevice.current.orientation
         {
@@ -30,7 +34,9 @@ class SketchpadNavigationController: UINavigationController
             return .landscapeLeft
         }
     }
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask
+    
+    
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask
     {
         return .landscape
     }

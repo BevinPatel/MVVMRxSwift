@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SketchpadControlViewController" customModule="DemoClass" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SketchpadControlViewController" customModule="ETSFormsManager" customModuleProvider="target">
             <connections>
                 <outlet property="colorButton" destination="lch-R6-mOD" id="dLW-Ea-zsh"/>
                 <outlet property="eraseButton" destination="Yk9-uz-PaY" id="NEV-n0-GQW"/>
@@ -16,7 +16,7 @@
                 <outlet property="sketchpadView" destination="fqA-vO-9gH" id="byf-o5-Nsg"/>
                 <outlet property="stockSizeSlider" destination="gFS-Ht-J0h" id="1Zu-g6-ZNN"/>
                 <outlet property="undoButton" destination="xQn-t4-CJf" id="bBI-Nq-UIL"/>
-                <outlet property="vectorCollectioNView" destination="MuU-Vf-1EJ" id="OLF-Yv-Q7p"/>
+                <outlet property="vectorCollectionView" destination="6WN-WZ-7hF" id="YCB-Ef-a0d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="1366" height="974"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqA-vO-9gH" customClass="ETSSketchpadView" customModule="DemoClass" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqA-vO-9gH" customClass="ETSSketchpadView" customModule="ETSFormsManager" customModuleProvider="target">
                     <rect key="frame" x="20" y="20" width="934" height="934"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="fqA-vO-9gH" secondAttribute="height" multiplier="1:1" id="bw5-Ki-b8p"/>
@@ -102,6 +102,7 @@
                         </button>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="width" constant="155" id="V8u-oX-ALw"/>
                         <constraint firstAttribute="height" constant="45" id="dTf-v8-wb3"/>
                     </constraints>
                 </stackView>
@@ -141,41 +142,42 @@
                         </slider>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="width" constant="255" id="5R4-No-7T0"/>
                         <constraint firstAttribute="height" constant="45" id="LUV-1s-4ip"/>
                     </constraints>
                 </stackView>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="MuU-Vf-1EJ">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6WN-WZ-7hF">
                     <rect key="frame" x="974" y="140" width="372" height="794"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MzS-jG-GqA">
-                        <size key="itemSize" width="70" height="70"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aGd-Ae-Lwu">
+                        <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="boe-qv-qSN"/>
-                        <outlet property="delegate" destination="-1" id="QvG-Pg-8rd"/>
+                        <outlet property="dataSource" destination="-1" id="phm-Xx-14g"/>
+                        <outlet property="delegate" destination="-1" id="MlA-cL-aHG"/>
                     </connections>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="k9L-Xt-1TO" firstAttribute="leading" secondItem="fqA-vO-9gH" secondAttribute="trailing" constant="10" id="42F-uc-jzV"/>
                 <constraint firstAttribute="bottom" secondItem="fqA-vO-9gH" secondAttribute="bottom" constant="20" id="DGW-ra-jq5"/>
                 <constraint firstItem="fqA-vO-9gH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Fqg-3x-b0a"/>
+                <constraint firstItem="6WN-WZ-7hF" firstAttribute="top" secondItem="k9L-Xt-1TO" secondAttribute="bottom" constant="20" id="RJA-uv-bsI"/>
                 <constraint firstItem="fqA-vO-9gH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="SRP-xc-57Q"/>
-                <constraint firstItem="MuU-Vf-1EJ" firstAttribute="top" secondItem="k9L-Xt-1TO" secondAttribute="bottom" constant="20" id="WzI-0c-sOW"/>
-                <constraint firstItem="MuU-Vf-1EJ" firstAttribute="leading" secondItem="fqA-vO-9gH" secondAttribute="trailing" constant="20" id="XaX-S5-rAT"/>
                 <constraint firstItem="n5w-sg-Q5u" firstAttribute="leading" secondItem="fqA-vO-9gH" secondAttribute="trailing" constant="10" id="YvI-PW-Ft5"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MuU-Vf-1EJ" secondAttribute="bottom" constant="20" id="dab-IL-tsQ"/>
                 <constraint firstItem="k9L-Xt-1TO" firstAttribute="top" secondItem="n5w-sg-Q5u" secondAttribute="bottom" constant="10" id="hSZ-4n-MeG"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MuU-Vf-1EJ" secondAttribute="trailing" constant="20" id="jON-K3-6OS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6WN-WZ-7hF" secondAttribute="trailing" constant="20" id="hUo-0Q-KA1"/>
                 <constraint firstItem="n5w-sg-Q5u" firstAttribute="top" secondItem="fqA-vO-9gH" secondAttribute="top" id="p1v-21-eGW"/>
+                <constraint firstItem="6WN-WZ-7hF" firstAttribute="leading" secondItem="fqA-vO-9gH" secondAttribute="trailing" constant="20" id="rwl-dv-TWl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="6WN-WZ-7hF" secondAttribute="bottom" constant="20" id="ukC-mG-IKi"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-130" y="-110"/>
+            <point key="canvasLocation" x="-130.01464128843338" y="-124.80468749999999"/>
         </view>
     </objects>
     <resources>

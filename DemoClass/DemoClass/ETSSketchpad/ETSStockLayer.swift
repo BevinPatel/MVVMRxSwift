@@ -1,5 +1,5 @@
 //
-//  ETSImageLayer.swift
+//  ETSStockLayer.swift
 //  ETSFormsManager
 //
 //  Created by MAC193 on 1/7/20.
@@ -9,58 +9,42 @@
 import UIKit
 import CoreGraphics
 
-class ETSImageLayer : ETSSketchLayer
+class ETSStockLayer : ETSSketchLayer
 {
     private lazy var topLeftCorner = CAShapeLayer()
     private lazy var topRightCorner = CAShapeLayer()
     private lazy var bottomLeftCorner = CAShapeLayer()
     private lazy var bottomRightCorner = CAShapeLayer()
-
+    private lazy var stockLayer : CAShapeLayer = {
+        let stockLayer =  CAShapeLayer()
+        stockLayer.fillColor = UIColor.clear.cgColor
+        stockLayer.lineCap = .round
+        stockLayer.lineJoin = .round
+        return stockLayer
+    }()
+    
     required init?(coder: NSCoder)
     {
         return nil
     }
     
     
-    init?(frame : CGRect, drawable : ETSDrawableImage)
+    init?(frame : CGRect, drawable : ETSDrawableStock)
     {
-        if (drawable.touchable)
-        {
-            let size = CGSize(width: drawable.image.size.width * 0.2, height: drawable.image.size.height * 0.2)
-            let frame = CGRect(origin : CGPoint(x : (frame.width - size.width)/2, y : (frame.height - size.height)/2), size : size)
-            super.init(frame : frame, drawable : drawable)
-        }
-        else
-        {
-            super.init(frame : frame, drawable : drawable)
-        }
-        
-        if drawable.touchable
-        {
-            ETSSketchLayer.setSelected(newLayer: self)
-        }
+        super.init(frame : frame, drawable : drawable)
+        ETSSketchLayer.setSelected(newLayer : nil)
     }
     
     
-    override open func layoutSubviews()
+    override func draw(_ rect : CGRect)
     {
-        super.layoutSubviews()
-        if (!drawable.touchable), let superView = superview
-        {
-            self.frame = superView.bounds
-        }
-    }
-    
-    
-    override func draw(_ rect: CGRect)
-    {
-        if ((self.drawable.touchable) && (ETSSketchLayer.selected == self))
+        if (ETSSketchLayer.selected == self)
         {
             let topLeftPath = UIBezierPath()
             topLeftPath.lineWidth = 3.0
-            topLeftPath.move(to:       CGPoint(x:rect.origin.x+10, y:rect.origin.y));
-            topLeftPath.addLine(to:    CGPoint(x:rect.origin.x, y:rect.origin.y));
-            topLeftPath.addLine(to:    CGPoint(x:rect.origin.x, y:rect.origin.y+10));
+            topLeftPath.move(to :       CGPoint(x : rect.origin.x + 10, y : rect.origin.y));
+            topLeftPath.addLine(to :    CGPoint(x : rect.origin.x,      y : rect.origin.y));
+            topLeftPath.addLine(to :    CGPoint(x : rect.origin.x,      y : rect.origin.y + 10));
             UIColor.darkGray.setStroke()
             topLeftPath.stroke()
             topLeftCorner.path = topLeftPath.cgPath
@@ -70,9 +54,9 @@ class ETSImageLayer : ETSSketchLayer
             
             let topRightPath = UIBezierPath()
             topRightPath.lineWidth = 3.0
-            topRightPath.move(to:       CGPoint(x:rect.size.width-10, y:rect.origin.y));
-            topRightPath.addLine(to:    CGPoint(x:rect.size.width, y:rect.origin.y));
-            topRightPath.addLine(to:    CGPoint(x:rect.size.width, y:rect.origin.y+10));
+            topRightPath.move(to :      CGPoint(x : rect.size.width - 10,   y : rect.origin.y));
+            topRightPath.addLine(to :   CGPoint(x : rect.size.width,        y : rect.origin.y));
+            topRightPath.addLine(to :   CGPoint(x : rect.size.width,        y : rect.origin.y + 10));
             UIColor.darkGray.setStroke()
             topRightPath.stroke()
             topRightCorner.path = topRightPath.cgPath
@@ -82,9 +66,9 @@ class ETSImageLayer : ETSSketchLayer
             
             let bottomLeftPath = UIBezierPath()
             bottomLeftPath.lineWidth = 3.0
-            bottomLeftPath.move(to:       CGPoint(x:rect.origin.x+10, y:rect.size.height));
-            bottomLeftPath.addLine(to:    CGPoint(x:rect.origin.x,    y:rect.size.height));
-            bottomLeftPath.addLine(to:    CGPoint(x:rect.origin.x, y:rect.size.height-10));
+            bottomLeftPath.move(to :    CGPoint(x : rect.origin.x + 10, y : rect.size.height));
+            bottomLeftPath.addLine(to : CGPoint(x : rect.origin.x,      y : rect.size.height));
+            bottomLeftPath.addLine(to : CGPoint(x : rect.origin.x,      y : rect.size.height - 10));
             UIColor.darkGray.setStroke()
             bottomLeftPath.stroke()
             bottomLeftCorner.path = bottomLeftPath.cgPath
@@ -94,9 +78,9 @@ class ETSImageLayer : ETSSketchLayer
             
             let bottomRightPath = UIBezierPath()
             bottomRightPath.lineWidth = 3.0
-            bottomRightPath.move(to:       CGPoint(x:rect.size.width, y:rect.size.height-10));
-            bottomRightPath.addLine(to:    CGPoint(x:rect.size.width, y:rect.size.height));
-            bottomRightPath.addLine(to:    CGPoint(x:rect.size.width-10, y:rect.size.height));
+            bottomRightPath.move(to :       CGPoint(x : rect.size.width,     y : rect.size.height - 10));
+            bottomRightPath.addLine(to  :   CGPoint(x : rect.size.width,     y : rect.size.height));
+            bottomRightPath.addLine(to  :   CGPoint(x : rect.size.width - 10,  y : rect.size.height));
             UIColor.darkGray.setStroke()
             bottomRightPath.stroke()
             bottomRightCorner.path = bottomRightPath.cgPath
@@ -112,9 +96,13 @@ class ETSImageLayer : ETSSketchLayer
             bottomRightCorner.removeFromSuperlayer();
         }
         
-        if let sketchImage = self.drawable as? ETSDrawableImage
+        if let sketchStock = self.drawable as? ETSDrawableStock
         {
-            sketchImage.image.draw(in : rect)
+            stockLayer.frame = CGRect(origin: CGPoint(x: -sketchStock.bezierPath.bounds.origin.x, y: -sketchStock.bezierPath.bounds.origin.y), size: sketchStock.bezierPath.bounds.size)
+            stockLayer.lineWidth = sketchStock.bezierPath.lineWidth
+            stockLayer.strokeColor = sketchStock.tintColor.cgColor
+            stockLayer.path = sketchStock.bezierPath.cgPath
+            self.layer.addSublayer(stockLayer)
         }
     }
 }

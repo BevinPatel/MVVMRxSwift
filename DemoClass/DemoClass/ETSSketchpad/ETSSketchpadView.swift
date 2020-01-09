@@ -55,7 +55,7 @@ open class ETSSketchpadView : UIView
     private func setupView()
     {
         self.backgroundColor = UIColor.clear
-        self.layer.borderColor = UIColor.purple.cgColor
+        self.layer.borderColor = UIColor.Form.inputFieldBorderColor.cgColor
         self.layer.cornerRadius = 4.0
         self.layer.borderWidth = 1
         self.clipsToBounds = true
@@ -147,7 +147,16 @@ open class ETSSketchpadView : UIView
     
     override open func touchesEnded(_ touches : Set<UITouch>, with event : UIEvent?)
     {
-        self.addStockInSketch(bezierPath: self.bezierPath, touchable: true)
+        self.addStockInSketch(bezierPath : self.bezierPath, touchable : true)
+        self.bezierPath = nil
+        self.bezierCounter = 0
+        self.bezierPoints = [CGPoint](repeating : CGPoint(), count : 5)
+        self.setNeedsDisplay()
+    }
+    
+    
+    open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
         self.bezierPath = nil
         self.bezierCounter = 0
         self.bezierPoints = [CGPoint](repeating : CGPoint(), count : 5)

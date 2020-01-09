@@ -22,13 +22,15 @@ class ETSSketchLayer : UIView
         return nil
     }
     
+    
     init(frame : CGRect, drawable : ETSDrawable)
     {
         self.drawable = drawable
-        super.init(frame: frame)
+        super.init(frame : frame)
         self.initGestureRecognizers()
         self.backgroundColor = .clear
     }
+    
     
     private func initGestureRecognizers()
     {
@@ -112,35 +114,36 @@ extension ETSSketchLayer
         }
     }
     
+    
     //MARK: Gesture Method
-    @objc fileprivate func didTap(_ panGR: UITapGestureRecognizer)
+    @objc fileprivate func didTap(_ panGR : UITapGestureRecognizer)
     {
         if (ETSSketchLayer.selected == self)
         {
-            ETSImageLayer.setSelected(newLayer: nil)
+            ETSImageLayer.setSelected(newLayer : nil)
         }
         else
         {
-            ETSImageLayer.setSelected(newLayer: self)
+            ETSImageLayer.setSelected(newLayer : self)
         }
     }
     
     
-    @objc fileprivate func didPan(_ panGR: UIPanGestureRecognizer)
+    @objc fileprivate func didPan(_ panGR : UIPanGestureRecognizer)
     {
         if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
         {
             self.superview!.bringSubviewToFront(self)
-            var translation = panGR.translation(in: self)
+            var translation = panGR.translation(in : self)
             translation = translation.applying(self.transform)
             self.center.x += translation.x
             self.center.y += translation.y
-            panGR.setTranslation(CGPoint.zero, in: self)
+            panGR.setTranslation(CGPoint.zero, in : self)
         }
     }
     
     
-    @objc fileprivate func didPinch(_ pinchGR: UIPinchGestureRecognizer)
+    @objc fileprivate func didPinch(_ pinchGR : UIPinchGestureRecognizer)
     {
         if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
         {
@@ -148,7 +151,7 @@ extension ETSSketchLayer
             let scale = pinchGR.scale
             
             let center = self.center;
-            let size = CGSize(width: self.bounds.size.width*scale, height: self.bounds.size.height*scale)
+            let size = CGSize(width : self.bounds.size.width * scale, height : self.bounds.size.height * scale)
             self.bounds = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
             self.center = center;
             self.setNeedsDisplay();
@@ -157,7 +160,7 @@ extension ETSSketchLayer
     }
     
     
-    @objc fileprivate func didRotate(_ rotationGR: UIRotationGestureRecognizer)
+    @objc fileprivate func didRotate(_ rotationGR : UIRotationGestureRecognizer)
     {
         if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
         {
@@ -179,10 +182,10 @@ protocol ETSDrawable
 
 struct ETSDrawableImage : ETSDrawable
 {
-    let image           : UIImage
-    let tintColor       : UIColor
-    let touchable       : Bool
-    var isVector        : Bool
+    let image       : UIImage
+    let tintColor   : UIColor
+    let touchable   : Bool
+    var isVector    : Bool
     {
         return true
     }
@@ -191,13 +194,13 @@ struct ETSDrawableImage : ETSDrawable
 
 struct ETSDrawableStock : ETSDrawable
 {
-    let bezierPath      : UIBezierPath
-    let tintColor       : UIColor
-    var touchable: Bool
+    let bezierPath  : UIBezierPath
+    let tintColor   : UIColor
+    var touchable   : Bool
     {
         return true
     }
-    var isVector         : Bool
+    var isVector    : Bool
     {
         return false
     }

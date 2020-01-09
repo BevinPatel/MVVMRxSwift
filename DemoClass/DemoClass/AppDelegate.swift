@@ -7,6 +7,7 @@
 //
 
 import UIKit
+typealias Text  = ETSText
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -360,5 +361,214 @@ extension String
             return matchedStrings
         }
         return []
+    }
+}
+extension Bundle
+{
+    static func loadNib<T:UIViewController>(_ identifier : T.Type) -> T?
+    {
+        return T.init(nibName: String(describing: identifier), bundle: nil)
+    }
+}
+struct ETSText
+{
+    static let label        :   ETSLabel        =   ETSLabel()
+    static let message      :   ETSMessage      =   ETSMessage()
+    
+    //Localize all these texts of Label for support multilanguage
+    struct ETSLabel
+    {
+        let no = "No"
+        let noDataFound = "No data found"
+        let ok = "OK"
+        let confirm = "Confirm"
+        let cancel = "Cancel"
+        let yes = "Yes"
+        let savedDraft = "Saved Draft"
+        let newForm = "New Form"
+        let viewList = "View List"
+        let categoryTab = "Categories"
+        let savedDraftTab = "Saved Drafts"
+        let submittedTab = "Submitted"
+        let saveAndExit = "Save and exit"
+        let exitWithoutSaving = "Exit without saving"
+        let save = "Save"
+        let delete = "Delete"
+        let done = "Done"
+        let search = "Search"
+        let address = "Address"
+        let back = "Back"
+        let submit = "Submit"
+    }
+    
+    //Localize all these texts of Message for support multilanguage
+    struct ETSMessage
+    {
+        let noInternet = "Please check your Internet connection"
+        let unknownError = "Server is not responding due to some error. Please try later."
+        let successful = "Successful"
+        let requestSubmitted = "Your form has been submitted succesfully."
+        let askingAboutSavePartially = "Are you sure you want to save partially filled form for later use?"
+        let askingAboutSubmitForm = "Are you sure you want to submit form?"
+        let saveDraftMessage = " The form has been saved. It will be delivered to the server when connectivity is available."
+        let allFormsSubmittedToServer = "All your pending  forms has been submitted to the server."
+        let askForSavedDraftAndNewForm = "There are already forms waiting in the saved drafts."
+        let noDraftInstancesAvailable = "No drafted instances available."
+        let noSubmittedInstancesAvailable = "No submitted instances available."
+        let noInstancesAvailable = "No instances available."
+        let cameraSupport = "Camera is not supported in your device."
+        let photoPermission = "Please allow ETS to access your photos."
+        let cameraPermission = "Please allow ETS to access your device camera."
+    }
+}
+extension UICollectionView
+{
+    func register<T: UICollectionViewCell>(_ : T.Type) where T : ReusableView
+    {
+        register(T.self, forCellWithReuseIdentifier : T.defaultReuseIdentifier)
+    }
+    
+    
+    func register<T : UICollectionReusableView>(_ : T.Type, forSupplementaryViewOfKind kind : String) where T : ReusableView
+    {
+        register(T.self, forSupplementaryViewOfKind : kind, withReuseIdentifier : T.defaultReuseIdentifier)
+    }
+    
+    
+    func register<T : UICollectionViewCell>(_ : T.Type) where T : ReusableView, T : NibLoadableView
+    {
+        let bundle = Bundle(for : T.self)
+        let nib = UINib(nibName : T.nibName, bundle : bundle)
+        register(nib, forCellWithReuseIdentifier : T.defaultReuseIdentifier)
+    }
+    
+    
+    func dequeueReusableCell<T : UICollectionViewCell>(for indexPath : IndexPath) -> T where T : ReusableView
+    {
+        register(T.self)
+        guard let cell = dequeueReusableCell(withReuseIdentifier : T.defaultReuseIdentifier, for : indexPath) as? T else
+        {
+            fatalError("Could not dequeue cell with identifier: \(T.defaultReuseIdentifier)")
+        }
+        return cell
+    }
+    
+    
+    func dequeueReusableCell<T : UICollectionViewCell>(for indexPath : IndexPath) -> T where T : ReusableView, T : NibLoadableView
+    {
+        register(T.self)
+        guard let cell = dequeueReusableCell(withReuseIdentifier : T.defaultReuseIdentifier, for : indexPath) as? T else
+        {
+            fatalError("Could not dequeue cell with identifier: \(T.defaultReuseIdentifier)")
+        }
+        return cell
+    }
+    
+    
+    func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofKind kind : String, for indexPath : IndexPath) -> T where T : ReusableView
+    {
+        register(T.self, forSupplementaryViewOfKind : kind)
+        guard let cell = dequeueReusableSupplementaryView(ofKind : kind, withReuseIdentifier : T.defaultReuseIdentifier, for : indexPath) as? T else
+        {
+            fatalError("Could not dequeue reusable supplementaryView with identifier: \(T.defaultReuseIdentifier)")
+        }
+        return cell
+    }
+}
+
+
+public protocol ReusableView : class
+{
+    static var defaultReuseIdentifier : String { get }
+}
+
+
+extension ReusableView where Self : UIView
+{
+    public static var defaultReuseIdentifier : String
+    {
+        return String(describing: self)
+    }
+}
+
+
+public protocol NibLoadableView : class
+{
+    static var nibName : String { get }
+}
+
+
+extension NibLoadableView where Self : UIView
+{
+    static var nibName : String
+    {
+        return String(describing: self)
+    }
+}
+extension UIColor
+{
+    struct HexCode
+    {
+        static let pinTintColor = "#800080" //pink color
+    }
+    
+    struct Form
+    {
+        static let toolTipTextColor = UIColor.init(hexString : "#212121")
+        static let inputFieldBorderColor = UIColor.init(hexString : "#A7A8A9")
+        static let draftTagBackgroundColor = UIColor.init(hexString : "#D6A634")
+        static let submittedTagBackgroundColor = UIColor.init(hexString : "#4DB941")
+        static let disableFieldColor = UIColor.init(hexString : "#E9ECEF")
+    }
+    
+    struct FileIcon
+    {
+        static let pdfColor = UIColor.init(hexString : "#F13A1D") // red
+        static let docColor = UIColor.init(hexString : "#438F30") // dark green
+        static let htmColor = UIColor.init(hexString : "#ADE982") // light green
+        static let zipColor = UIColor.init(hexString : "#2CC777") // green
+        static let rtfColor = UIColor.init(hexString : "#6599A5") // CadetBlue
+        static let xlsColor = UIColor.init(hexString : "#581508") // brown
+        static let txtColor = UIColor.init(hexString : "#719B35") // olive green
+    }
+    
+    struct Map
+    {
+        static let pinTintColor = UIColor.init(hexString : HexCode.pinTintColor)
+        static let overlayCircleFillColor = UIColor.black.withAlphaComponent(0.5)
+        static let overlayPolygonStrokeColor = UIColor.black
+        static let overlayPolylineStrokeColor = UIColor.orange
+    }
+
+    
+    static let rgb = { (red : CGFloat, green : CGFloat, blue : CGFloat, alpha : CGFloat) -> UIColor in
+        return UIColor(red:red / 255.0, green:green / 255.0, blue:blue / 255.0, alpha:alpha)
+    }
+
+    
+    convenience init(hexString : String)
+    {
+        let hex = hexString.trimmingCharacters(in : CharacterSet.alphanumerics.inverted)
+        var int = UInt32()
+        Scanner(string : hex).scanHexInt32(&int)
+        let a, r, g, b : UInt32
+        switch hex.count
+        {
+        case 3: // RGB (12-bit)
+            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+        case 6: // RGB (24-bit)
+            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+        case 8: // ARGB (32-bit)
+            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+        default:
+            (a, r, g, b) = (0, 0, 0, 0)
+        }
+        self.init(red : CGFloat(r) / 255, green : CGFloat(g) / 255, blue : CGFloat(b) / 255, alpha : CGFloat(a) / 255)
+    }
+    
+
+    static func colorWithRGB(red : CGFloat, green : CGFloat, blue : CGFloat, alpha : CGFloat) -> UIColor
+    {
+        return UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: alpha)
     }
 }

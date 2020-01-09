@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VectorImageCollectionViewCell: UICollectionViewCell
+class VectorImageCollectionViewCell : UICollectionViewCell, ReusableView, NibLoadableView
 {
     @IBOutlet var imageView : UIImageView?
     
