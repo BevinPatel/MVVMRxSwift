@@ -216,6 +216,7 @@ open class ETSSketchpadView : UIView
     /*Returns the drawn path as Image. Adding subview to this view will also get returned in this image.*/
     open func getSketchImage() -> UIImage?
     {
+        ETSStockLayer.setSelected(newLayer: nil)
         UIGraphicsBeginImageContext(CGSize(width : self.bounds.size.width, height : self.bounds.size.height))
         self.layer.render(in : UIGraphicsGetCurrentContext()!)
         let sketch : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
