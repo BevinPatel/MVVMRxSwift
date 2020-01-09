@@ -25,8 +25,6 @@ class SketchpadControlViewController : UIViewController
     
     @IBOutlet fileprivate var solidLineButton   : UIButton?
     @IBOutlet fileprivate var dottedLineButton  : UIButton?
-    @IBOutlet fileprivate var solidArrowButton  : UIButton?
-    @IBOutlet fileprivate var dottedArrowButton : UIButton?
     
     @IBOutlet fileprivate var colorButton       : UIButton?
     @IBOutlet fileprivate var stockSizeSlider   : UISlider?
@@ -114,17 +112,9 @@ extension SketchpadControlViewController
         {
             self.sketchpadView?.stockType = .solidLine
         }
-        else if (sender == dottedLineButton)
-        {
-            self.sketchpadView?.stockType = .dottedLine
-        }
-        else if (sender == solidArrowButton)
-        {
-            self.sketchpadView?.stockType = .solidArrow
-        }
         else
         {
-            self.sketchpadView?.stockType = .dottedArrow
+            self.sketchpadView?.stockType = .dottedLine
         }
         self.selectLineType(sender)
     }
@@ -134,13 +124,9 @@ extension SketchpadControlViewController
     {
         self.solidLineButton?.borderwidth = (sender == self.solidLineButton) ? 2 : 0.5
         self.dottedLineButton?.borderwidth = (sender == self.dottedLineButton) ? 2 : 0.5
-        self.solidArrowButton?.borderwidth = (sender == self.solidArrowButton) ? 2 : 0.5
-        self.dottedArrowButton?.borderwidth = (sender == self.dottedArrowButton) ? 2 : 0.5
         
         self.solidLineButton?.bordercolor = (sender == self.solidLineButton) ? UIColor.black : UIColor.lightGray
         self.dottedLineButton?.bordercolor = (sender == self.dottedLineButton) ? UIColor.black : UIColor.lightGray
-        self.solidArrowButton?.bordercolor = (sender == self.solidArrowButton) ? UIColor.black : UIColor.lightGray
-        self.dottedArrowButton?.bordercolor = (sender == self.dottedArrowButton) ? UIColor.black : UIColor.lightGray
     }
     
     

@@ -11,12 +11,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SketchpadControlViewController" customModule="DemoClass" customModuleProvider="target">
             <connections>
                 <outlet property="colorButton" destination="lch-R6-mOD" id="dLW-Ea-zsh"/>
-                <outlet property="dottedArrowButton" destination="QMT-jh-xuI" id="kHC-oD-qxm"/>
                 <outlet property="dottedLineButton" destination="jT6-zN-xfc" id="e1U-P2-qaM"/>
                 <outlet property="eraseButton" destination="Yk9-uz-PaY" id="NEV-n0-GQW"/>
                 <outlet property="redoButton" destination="bcs-nL-pr0" id="m58-4y-z3Z"/>
                 <outlet property="sketchpadView" destination="fqA-vO-9gH" id="byf-o5-Nsg"/>
-                <outlet property="solidArrowButton" destination="BhD-gK-4rb" id="xw5-mW-ro8"/>
                 <outlet property="solidLineButton" destination="zJk-RL-NKe" id="EzQ-RE-ONr"/>
                 <outlet property="stockSizeSlider" destination="gFS-Ht-J0h" id="1Zu-g6-ZNN"/>
                 <outlet property="undoButton" destination="xQn-t4-CJf" id="bBI-Nq-UIL"/>
@@ -107,7 +105,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DGp-vD-Hrj">
-                    <rect key="frame" x="974" y="75" width="210" height="45"/>
+                    <rect key="frame" x="974" y="75" width="100" height="45"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJk-RL-NKe">
                             <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
@@ -153,52 +151,6 @@
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="onChangeLineType:" destination="-1" eventType="touchUpInside" id="W8u-PX-J9c"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhD-gK-4rb">
-                            <rect key="frame" x="110" y="0.0" width="45" height="45"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="BhD-gK-4rb" secondAttribute="height" id="b1L-Et-mGT"/>
-                                <constraint firstAttribute="height" constant="45" id="iWd-b7-8jY"/>
-                            </constraints>
-                            <state key="normal" image="solidArrow"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="radious">
-                                    <real key="value" value="2"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="borderwidth">
-                                    <real key="value" value="0.5"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="bordercolor">
-                                    <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="onChangeLineType:" destination="-1" eventType="touchUpInside" id="woB-Wc-7YW"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMT-jh-xuI">
-                            <rect key="frame" x="165" y="0.0" width="45" height="45"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="QMT-jh-xuI" secondAttribute="height" id="Paw-Qi-YLL"/>
-                                <constraint firstAttribute="height" constant="45" id="cgn-A4-piw"/>
-                            </constraints>
-                            <state key="normal" image="dashArrow"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="radious">
-                                    <real key="value" value="2"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="borderwidth">
-                                    <real key="value" value="0.5"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="bordercolor">
-                                    <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="onChangeLineType:" destination="-1" eventType="touchUpInside" id="Wsb-l0-2je"/>
                             </connections>
                         </button>
                     </subviews>
@@ -276,12 +228,10 @@
         </view>
     </objects>
     <resources>
-        <image name="dashArrow" width="123" height="123"/>
         <image name="dashLine" width="123" height="123"/>
         <image name="ic-eraser" width="30" height="30"/>
         <image name="iconRedo" width="30" height="30"/>
         <image name="iconUndo" width="30" height="30"/>
-        <image name="solidArrow" width="123" height="123"/>
         <image name="solidLine" width="123" height="123"/>
     </resources>
 </document>

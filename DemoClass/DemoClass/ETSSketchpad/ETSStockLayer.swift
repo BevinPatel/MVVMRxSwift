@@ -30,12 +30,6 @@ class ETSStockLayer : ETSSketchLayer
             case .dottedLine:
                 stockLayer.lineDashPhase = 5
                 stockLayer.lineDashPattern = [5,5]
-            case .solidArrow:
-                stockLayer.lineDashPhase = 0
-                stockLayer.lineDashPattern = []
-            case .dottedArrow:
-                stockLayer.lineDashPhase = 5
-                stockLayer.lineDashPattern = [5,5]
             }
         }
         return stockLayer
@@ -119,19 +113,8 @@ class ETSStockLayer : ETSSketchLayer
             stockLayer.frame = CGRect(origin: CGPoint(x: -sketchStock.bezierPath.bounds.origin.x, y: -sketchStock.bezierPath.bounds.origin.y), size: sketchStock.bezierPath.bounds.size)
             stockLayer.lineWidth = sketchStock.bezierPath.lineWidth
             stockLayer.strokeColor = sketchStock.tintColor.cgColor
-            
-            if let start = sketchStock.lastPoint?.first, let end = sketchStock.lastPoint?.last
-            {
-                let arrowPath = self.getArrowFor(start : start, end : end)
-                arrowPath.append(sketchStock.bezierPath)
-                stockLayer.path = arrowPath.cgPath
-                self.layer.addSublayer(stockLayer)
-            }
-            else
-            {
-                stockLayer.path = sketchStock.bezierPath.cgPath
-                self.layer.addSublayer(stockLayer)
-            }
+            stockLayer.path = sketchStock.bezierPath.cgPath
+            self.layer.addSublayer(stockLayer)
         }
     }
     

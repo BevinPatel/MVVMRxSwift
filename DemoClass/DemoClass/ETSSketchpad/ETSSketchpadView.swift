@@ -31,12 +31,6 @@ open class ETSSketchpadView : UIView
                 case .dottedLine:
                     self.stockLayer.lineDashPhase = 5
                     self.stockLayer.lineDashPattern = [5,5]
-                case .solidArrow:
-                    self.stockLayer.lineDashPhase = 0
-                    self.stockLayer.lineDashPattern = []
-                case .dottedArrow:
-                    self.stockLayer.lineDashPhase = 5
-                    self.stockLayer.lineDashPattern = [5,5]
                 }
             }
     }
@@ -98,7 +92,7 @@ open class ETSSketchpadView : UIView
     
     private func addStockInSketch(bezierPath : UIBezierPath?, touchable : Bool, twoPoints : [CGPoint]?)
     {
-        if let bezierPath = bezierPath, let layer = ETSStockLayer(frame : bezierPath.bounds, drawable : ETSDrawableStock(bezierPath : bezierPath, lastPoint: twoPoints, tintColor : self.strokeColor, stockType : self.stockType))
+        if let bezierPath = bezierPath, let layer = ETSStockLayer(frame : bezierPath.bounds, drawable : ETSDrawableStock(bezierPath : bezierPath, tintColor : self.strokeColor, stockType : self.stockType))
         {
             self.controlPoint += 1
             self.sketchLayers.append(layer)
@@ -235,6 +229,4 @@ public enum LineType
 {
     case solidLine
     case dottedLine
-    case solidArrow
-    case dottedArrow
 }
