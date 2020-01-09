@@ -19,6 +19,27 @@ open class ETSSketchpadView : UIView
 {
     open var strokeColor = UIColor.black
     open var strokeWidth : CGFloat = 2.0
+    open var stockType : LineType = .solidLine
+    {
+            didSet
+            {
+                switch self.stockType
+                {
+                case .solidLine:
+                    self.stockLayer.lineDashPhase = 0
+                    self.stockLayer.lineDashPattern = []
+                case .dottedLine:
+                    self.stockLayer.lineDashPhase = 5
+                    self.stockLayer.lineDashPattern = [5,5]
+                case .solidArrow:
+                    self.stockLayer.lineDashPhase = 0
+                    self.stockLayer.lineDashPattern = []
+                case .dottedArrow:
+                    self.stockLayer.lineDashPhase = 5
+                    self.stockLayer.lineDashPattern = [5,5]
+                }
+            }
+    }
         
     fileprivate var bezierPath : UIBezierPath?
     fileprivate var bezierPoints = [CGPoint](repeating : CGPoint(), count : 5)
@@ -207,4 +228,13 @@ open class ETSSketchpadView : UIView
         UIGraphicsEndImageContext()
         return sketch
     }
+}
+
+
+public enum LineType
+{
+    case solidLine
+    case dottedLine
+    case solidArrow
+    case dottedArrow
 }

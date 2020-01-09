@@ -23,6 +23,11 @@ class SketchpadControlViewController : UIViewController
     @IBOutlet fileprivate var redoButton    : UIButton?
     @IBOutlet fileprivate var eraseButton   : UIButton?
     
+    @IBOutlet fileprivate var solidLineButton   : UIButton?
+    @IBOutlet fileprivate var dottedLineButton  : UIButton?
+    @IBOutlet fileprivate var solidArrowButton  : UIButton?
+    @IBOutlet fileprivate var dottedArrowButton : UIButton?
+    
     @IBOutlet fileprivate var colorButton       : UIButton?
     @IBOutlet fileprivate var stockSizeSlider   : UISlider?
         
@@ -30,7 +35,7 @@ class SketchpadControlViewController : UIViewController
     var sketchImage : UIImage?
     
     @IBOutlet fileprivate var vectorCollectionView : UICollectionView?
-    fileprivate let vectorNames = ["crossWays", "electricPoleA", "electricPoleB", "gasoline", "house", "road", "splitWays", "tree", "trees", "tunnel", "warning"]
+    fileprivate let vectorNames = ["grass", "tree", "trees", "house", "digging", "dog", "down-arrow", "right-arrow", "left-arrow", "up-arrow", "car", "gasoline_A", "gasoline_B", "pointer", "speed-limit", "split", "stop", "traffic-cone", "warning", "smartphone", "electric-pole_A", "electric-pole_B", "high-electric-pole", "bridge", "barbed-wire", "heavy-vehicle", "noun_Wood Chipper", "tipper-truckA", "tipper-truckB"]
     
     lazy var colorPickerController : ColorPickerViewController? =
     {
@@ -65,6 +70,8 @@ class SketchpadControlViewController : UIViewController
        
         let leftbutton = UIBarButtonItem.init(title : Text.label.cancel, style : .plain, target : self, action : #selector(self.onCancelSketch(sender : )))
         self.navigationItem.leftBarButtonItem = leftbutton
+        
+        self.selectLineType(self.solidLineButton!)
     }
     
     
@@ -98,6 +105,42 @@ extension SketchpadControlViewController
     @IBAction func onClearSketch(_ sender : UIButton)
     {
         self.sketchpadView?.clear()
+    }
+    
+    
+    @IBAction func onChangeLineType(_ sender : UIButton)
+    {
+        if (sender == solidLineButton)
+        {
+            self.sketchpadView?.stockType = .solidLine
+        }
+        else if (sender == dottedLineButton)
+        {
+            self.sketchpadView?.stockType = .dottedLine
+        }
+        else if (sender == solidArrowButton)
+        {
+            self.sketchpadView?.stockType = .solidArrow
+        }
+        else
+        {
+            self.sketchpadView?.stockType = .dottedArrow
+        }
+        self.selectLineType(sender)
+    }
+    
+    
+    private func selectLineType(_ sender : UIButton)
+    {
+        self.solidLineButton?.borderwidth = (sender == self.solidLineButton) ? 2 : 0.5
+        self.dottedLineButton?.borderwidth = (sender == self.dottedLineButton) ? 2 : 0.5
+        self.solidArrowButton?.borderwidth = (sender == self.solidArrowButton) ? 2 : 0.5
+        self.dottedArrowButton?.borderwidth = (sender == self.dottedArrowButton) ? 2 : 0.5
+        
+        self.solidLineButton?.bordercolor = (sender == self.solidLineButton) ? UIColor.black : UIColor.lightGray
+        self.dottedLineButton?.bordercolor = (sender == self.dottedLineButton) ? UIColor.black : UIColor.lightGray
+        self.solidArrowButton?.bordercolor = (sender == self.solidArrowButton) ? UIColor.black : UIColor.lightGray
+        self.dottedArrowButton?.bordercolor = (sender == self.dottedArrowButton) ? UIColor.black : UIColor.lightGray
     }
     
     
