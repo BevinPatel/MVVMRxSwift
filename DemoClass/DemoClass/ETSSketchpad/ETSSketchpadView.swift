@@ -98,7 +98,7 @@ open class ETSSketchpadView : UIView
     
     private func addStockInSketch(bezierPath : UIBezierPath?, touchable : Bool)
     {
-        if let bezierPath = bezierPath, let layer = ETSStockLayer(frame: bezierPath.bounds, drawable : ETSDrawableStock(bezierPath: bezierPath, tintColor: self.strokeColor))
+        if let bezierPath = bezierPath, let layer = ETSStockLayer(frame: bezierPath.bounds, drawable : ETSDrawableStock(bezierPath : bezierPath, tintColor : self.strokeColor, stockType : self.stockType))
         {
             self.controlPoint += 1
             self.sketchLayers.append(layer)

@@ -20,6 +20,24 @@ class ETSStockLayer : ETSSketchLayer
         stockLayer.fillColor = UIColor.clear.cgColor
         stockLayer.lineCap = .round
         stockLayer.lineJoin = .round
+        if let sketchStock = self.drawable as? ETSDrawableStock
+        {
+            switch sketchStock.stockType
+            {
+            case .solidLine:
+                stockLayer.lineDashPhase = 0
+                stockLayer.lineDashPattern = []
+            case .dottedLine:
+                stockLayer.lineDashPhase = 5
+                stockLayer.lineDashPattern = [5,5]
+            case .solidArrow:
+                stockLayer.lineDashPhase = 0
+                stockLayer.lineDashPattern = []
+            case .dottedArrow:
+                stockLayer.lineDashPhase = 5
+                stockLayer.lineDashPattern = [5,5]
+            }
+        }
         return stockLayer
     }()
     

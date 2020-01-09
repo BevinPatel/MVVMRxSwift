@@ -196,6 +196,7 @@ struct ETSDrawableStock : ETSDrawable
 {
     let bezierPath  : UIBezierPath
     let tintColor   : UIColor
+    let stockType   : LineType
     var touchable   : Bool
     {
         return true

@@ -143,8 +143,8 @@
 		520B209223C70A1C004B3897 /* ETSSketchpad */ = {
 			isa = PBXGroup;
 			children = (
-				520B209323C70A1C004B3897 /* ETSImageLayer.swift */,
 				520B209523C70A1C004B3897 /* ETSSketchLayer.swift */,
+				520B209323C70A1C004B3897 /* ETSImageLayer.swift */,
 				520B209623C70A1C004B3897 /* ETSStockLayer.swift */,
 				520B209423C70A1C004B3897 /* ETSSketchpadView.swift */,
 			);
