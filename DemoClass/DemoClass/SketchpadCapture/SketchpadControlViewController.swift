@@ -56,7 +56,7 @@ class SketchpadControlViewController : UIViewController
                                     "svg_tree",
                                     "svg_trees",
                                     "svg_up_arrow",
-                                    "svg_warning"]
+                                    "svg_warning","tipper-truck1"]
     
     lazy var colorPickerController : ColorPickerViewController? =
     {

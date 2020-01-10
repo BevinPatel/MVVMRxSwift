@@ -51,6 +51,7 @@
 		52AA425123C886C400BDDE9A /* svg_warning.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA423A23C886C300BDDE9A /* svg_warning.svg */; };
 		52AA425223C886C400BDDE9A /* svg_right_arrow.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA423B23C886C300BDDE9A /* svg_right_arrow.svg */; };
 		52AA425323C886C400BDDE9A /* svg_electric_pole.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA423C23C886C400BDDE9A /* svg_electric_pole.svg */; };
+		52AA426323C88E5000BDDE9A /* tipper-truck1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA426223C88E5000BDDE9A /* tipper-truck1.svg */; };
 		52F7F0C023C45B02000D2F38 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F7F0BF23C45B02000D2F38 /* FirstViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +139,7 @@
 		52AA423A23C886C300BDDE9A /* svg_warning.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = svg_warning.svg; sourceTree = "<group>"; };
 		52AA423B23C886C300BDDE9A /* svg_right_arrow.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = svg_right_arrow.svg; sourceTree = "<group>"; };
 		52AA423C23C886C400BDDE9A /* svg_electric_pole.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = svg_electric_pole.svg; sourceTree = "<group>"; };
+		52AA426223C88E5000BDDE9A /* tipper-truck1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "tipper-truck1.svg"; sourceTree = "<group>"; };
 		52F7F0BF23C45B02000D2F38 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		57BCBBFF1162BA6A1A23490D /* Pods_DemoClassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoClassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A81D4C70F25193A6DF9F04F /* Pods_DemoClass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoClass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -344,6 +346,7 @@
 				52AA422823C886C100BDDE9A /* svg_trees.svg */,
 				52AA422C23C886C200BDDE9A /* svg_up_arrow.svg */,
 				52AA423A23C886C300BDDE9A /* svg_warning.svg */,
+				52AA426223C88E5000BDDE9A /* tipper-truck1.svg */,
 			);
 			path = svgs;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				52AA424E23C886C400BDDE9A /* svg_transmission_line.svg in Resources */,
 				52AA424323C886C400BDDE9A /* svg_up_arrow.svg in Resources */,
 				5292F67A22A95A7D009EFC98 /* LaunchScreen.storyboard in Resources */,
+				52AA426323C88E5000BDDE9A /* tipper-truck1.svg in Resources */,
 				52AA424F23C886C400BDDE9A /* svg_tree.svg in Resources */,
 				5292F67722A95A7D009EFC98 /* Assets.xcassets in Resources */,
 				52AA425223C886C400BDDE9A /* svg_right_arrow.svg in Resources */,
