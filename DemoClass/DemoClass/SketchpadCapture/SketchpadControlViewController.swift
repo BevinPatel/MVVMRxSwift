@@ -155,15 +155,33 @@ extension SketchpadControlViewController
     }
     
     
-    @objc private func dismissController()
-    {
-        self.dismiss(animated : true, completion : nil)
-    }
-    
-    
     @IBAction func onChangeStockSketch(_ sender : UISlider)
     {
         self.sketchpadView?.strokeWidth = CGFloat(sender.value)
+    }
+    
+    
+    @IBAction func onFlipHorizontally(_ sender : UISlider)
+    {
+        self.sketchpadView?.flipHSelected()
+    }
+    
+    
+    @IBAction func onFlipVertically(_ sender : UISlider)
+    {
+        self.sketchpadView?.flipVSelected()
+    }
+    
+    
+    @IBAction func onDeleteSelected(_ sender : UISlider)
+    {
+        self.sketchpadView?.deleteSelected()
+    }
+    
+    
+    @objc private func dismissController()
+    {
+        self.dismiss(animated : true, completion : nil)
     }
 }
 
@@ -249,8 +267,11 @@ extension SketchpadControlViewController : UICollectionViewDataSource, UICollect
         if let url = Bundle.main.url(forResource: vectorNames[indexPath.row], withExtension: "svg")
         {
             CALayer(SVGURL: url) { (layer) in
-                layer.resizeToFit(cell.contentView.bounds)
-                cell.contentView.layer.addSublayer(layer)
+                if let myLayer = layer.svgLayerCopy
+                {
+                    myLayer.resizeToFit(cell.contentView.bounds)
+                    cell.contentView.layer.addSublayer(myLayer)
+                }
             }
         }
         return cell

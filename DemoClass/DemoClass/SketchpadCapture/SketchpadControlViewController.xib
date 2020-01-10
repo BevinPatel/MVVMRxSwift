@@ -221,6 +221,9 @@
                                     <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onFlipHorizontally:" destination="-1" eventType="touchUpInside" id="KWi-lG-LBN"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRY-jC-hBf">
                             <rect key="frame" x="55" y="0.0" width="45" height="45"/>
@@ -241,6 +244,9 @@
                                     <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onFlipVertically:" destination="-1" eventType="touchUpInside" id="VdE-J7-eFf"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZj-XM-Ich">
                             <rect key="frame" x="110" y="0.0" width="45" height="45"/>
@@ -261,6 +267,9 @@
                                     <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onDeleteSelected:" destination="-1" eventType="touchUpInside" id="tSA-Jp-fF2"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -302,7 +311,7 @@
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-130.01464128843338" y="-124.80468749999999"/>
+            <point key="canvasLocation" x="-334" y="-226"/>
         </view>
     </objects>
     <resources>

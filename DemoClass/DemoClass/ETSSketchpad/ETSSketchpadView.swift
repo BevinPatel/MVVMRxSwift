@@ -211,11 +211,10 @@ open class ETSSketchpadView : UIView
     
     //MARK: Utility Methods
     /*Clears the drawn paths in the canvas*/
-    open func clear()
+    open func undo()
     {
-        self.sketchLayers.removeAll()
-        self.subviews.forEach { $0.removeFromSuperview() }
-        self.controlPoint = -1
+        self.sketchLayers[controlPoint].removeFromSuperview()
+        self.controlPoint -= 1
     }
     
     
@@ -226,10 +225,40 @@ open class ETSSketchpadView : UIView
     }
     
     
-    open func undo()
+    open func clear()
     {
-        self.sketchLayers[controlPoint].removeFromSuperview()
-        self.controlPoint -= 1
+        self.sketchLayers.removeAll()
+        self.subviews.forEach { $0.removeFromSuperview() }
+        self.controlPoint = -1
+    }
+    
+    
+    open func flipHSelected()
+    {
+        if let selected = self.selected
+        {
+            selected.transform = CGAffineTransform(scaleX: -selected.transform.a, y: selected.transform.d)
+        }
+    }
+    
+    
+    open func flipVSelected()
+    {
+        if let selected = self.selected
+        {
+            selected.transform = CGAffineTransform(scaleX: selected.transform.a, y: -selected.transform.d)
+        }
+    }
+    
+    
+    open func deleteSelected()
+    {
+        if let selected = self.selected, let indexOfSelected = self.sketchLayers.index(of : selected)
+        {
+            self.sketchLayers.remove(at : indexOfSelected).removeFromSuperview()
+            self.controlPoint -= 1
+            ETSSketchpadView.shared?.setSelected(newLayer: nil)
+        }
     }
     
     
