@@ -1,1 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500"><style><![CDATA[.B{fill:#fff}.C{fill:#000}.D{fill-rule:nonzero}]]></style><defs><path id="A" d="M4.326.435H21.74V500H4.348z"/><path id="B" d="M8.696.435H26.11V500H8.717z"/><path id="C" d="M6.543 0h17.37v43.478H6.543z"/><path id="D" d="M6.543 3.62h17.37v43.478H6.543z"/><path id="E" d="M6.543 7.25h17.37v43.478H6.543z"/><path id="F" d="M6.543 43.478h17.37V0H6.543z"/></defs><g transform="translate(158)" fill="none" fill-rule="evenodd"><mask id="G" class="B"><use xlink:href="#A"/></mask><path mask="url(#G)" d="M3.913 500h18.26V.435H3.913z" class="C D"/><g transform="translate(152.174)"><mask id="H" class="B"><use xlink:href="#B"/></mask><path mask="url(#H)" d="M8.26 500h18.26V.435H8.26z" class="C D"/></g><g transform="translate(76.087 434.783)"><mask id="I" class="B"><use xlink:href="#C"/></mask><use xlink:href="#F" mask="url(#I)" class="C D"/></g><g transform="translate(76.087 293.478)"><mask id="J" class="B"><use xlink:href="#D"/></mask><path mask="url(#J)" d="M6.543 47.098h17.37V3.62H6.543z" class="C D"/></g><g transform="translate(76.087 86.957)"><mask id="K" class="B"><use xlink:href="#i" href="#D"/></mask><path mask="url(#K)" d="M6.543 47.098h17.37V3.62H6.543z" class="C D"/></g><g transform="translate(76.087 358.696)"><mask id="L" class="B"><use xlink:href="#E"/></mask><path mask="url(#L)" d="M6.543 50.728h17.37V7.25H6.543z" class="C D"/></g><g transform="translate(76.087 152.174)"><mask id="M" class="B"><use xlink:href="#s" href="#E"/></mask><path mask="url(#M)" d="M6.543 50.728h17.37V7.25H6.543z" class="C D"/></g><g transform="translate(76.087 228.261)"><mask id="N" class="B"><use xlink:href="#x" href="#C"/></mask><use xlink:href="#F" mask="url(#N)" class="C D"/></g><g transform="translate(76.087 21.739)"><mask id="O" class="B"><use xlink:href="#AC" href="#C"/></mask><use xlink:href="#F" mask="url(#O)" class="C D"/></g></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500px" height="500px" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="svg_crossroad" transform="translate(160.000000, 0.000000)" fill="#000000" fill-rule="nonzero">
+            <path d="M0.714286,100 L0.714286,491.071429 C0.714286,496.008929 4.714286,500 9.642857,500 C14.571429,500 18.571429,496.008929 18.571429,491.071429 L18.571429,100 L0.714286,100 Z" id="Shape"></path>
+            <path d="M179.285714,339.642857 L179.285714,8.92857143 C179.285714,3.99107143 175.285714,0 170.357143,0 C165.428571,0 161.428571,3.99107143 161.428571,8.92857143 L161.428571,339.642857 L179.285714,339.642857 Z" id="Shape"></path>
+            <path d="M9.642857,0 C4.714286,0 0.714286,3.99107143 0.714286,8.92857143 L0.714286,169.64 L18.571429,169.642857 L18.571429,8.92857143 C18.571429,3.99107143 14.571429,0 9.642857,0 Z" id="Shape"></path>
+            <path d="M161.428571,330.357143 L161.428571,491.071429 C161.428571,496.008929 165.428571,500 170.357143,500 C175.285714,500 179.285714,496.008929 179.285714,491.071429 L179.285714,330.36 L161.428571,330.357143 Z" id="Shape"></path>
+            <rect id="Rectangle-path" x="81.071429" y="455.357143" width="17.8571429" height="44.6428571"></rect>
+            <rect id="Rectangle-path" x="81.071429" y="392.857143" width="17.8571429" height="44.6428571"></rect>
+            <rect id="Rectangle-path" x="81.071429" y="330.357143" width="17.8571429" height="44.6428571"></rect>
+            <rect id="Rectangle-path" x="81.071429" y="190.357143" width="17.8571429" height="44.6428571"></rect>
+            <rect id="Rectangle-path-Copy" x="81.071429" y="260.357143" width="17.8571429" height="44.6428571"></rect>
+            <rect id="Rectangle-path" x="81.071429" y="125" width="17.8571429" height="44.6428571"></rect>
+            <rect id="Rectangle-path" x="81.071429" y="62.5" width="17.8571429" height="44.6428571"></rect>
+            <rect id="Rectangle-path" x="81.071429" y="0" width="17.8571429" height="44.6428571"></rect>
+        </g>
+    </g>
+</svg>
