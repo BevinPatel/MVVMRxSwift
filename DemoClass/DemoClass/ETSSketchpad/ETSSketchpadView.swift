@@ -77,9 +77,22 @@ open class ETSSketchpadView : UIView
     }
     
     
-    public func addImageInSketch(image : UIImage?, touchable : Bool)
+    public func addImageInSketch(image : UIImage?)
     {
-        if let image = image, let layer = ETSImageLayer(frame: self.bounds, drawable : ETSDrawableImage(image: image, tintColor: self.strokeColor, touchable: touchable))
+        if let image = image, let layer = ETSImageLayer(frame: self.bounds, drawable : ETSDrawableImage(image: image))
+        {
+            self.controlPoint += 1
+            self.sketchLayers.insert(layer, at : self.controlPoint)
+            self.addSubview(layer)
+            self.sketchLayers = Array(self.sketchLayers[0 ... self.controlPoint])
+            self.controlPoint += 0// just for update undo redo button
+        }
+    }
+    
+    
+    public func addSVGInSketch(svgLayer : CALayer?)
+    {
+        if let svgLayer = svgLayer, let layer = ETSSVGLayer(frame: self.bounds, drawable: ETSDrawableSVG(layer: svgLayer))
         {
             self.controlPoint += 1
             self.sketchLayers.insert(layer, at : self.controlPoint)

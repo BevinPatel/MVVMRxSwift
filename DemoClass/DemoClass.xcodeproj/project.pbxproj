@@ -58,6 +58,7 @@
 		52AA421D23C85F5C00BDDE9A /* roadLeftRight.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41FE23C85F5B00BDDE9A /* roadLeftRight.svg */; };
 		52AA421E23C85F5C00BDDE9A /* speed-limit.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41FF23C85F5B00BDDE9A /* speed-limit.svg */; };
 		52AA421F23C85F5C00BDDE9A /* grass.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA420023C85F5B00BDDE9A /* grass.svg */; };
+		52AA422123C8671C00BDDE9A /* ETSSVGLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AA422023C8671C00BDDE9A /* ETSSVGLayer.swift */; };
 		52F7F0C023C45B02000D2F38 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F7F0BF23C45B02000D2F38 /* FirstViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -152,6 +153,7 @@
 		52AA41FE23C85F5B00BDDE9A /* roadLeftRight.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = roadLeftRight.svg; sourceTree = "<group>"; };
 		52AA41FF23C85F5B00BDDE9A /* speed-limit.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "speed-limit.svg"; sourceTree = "<group>"; };
 		52AA420023C85F5B00BDDE9A /* grass.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = grass.svg; sourceTree = "<group>"; };
+		52AA422023C8671C00BDDE9A /* ETSSVGLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETSSVGLayer.swift; sourceTree = "<group>"; };
 		52F7F0BF23C45B02000D2F38 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		57BCBBFF1162BA6A1A23490D /* Pods_DemoClassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoClassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A81D4C70F25193A6DF9F04F /* Pods_DemoClass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoClass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +209,7 @@
 			children = (
 				520B209523C70A1C004B3897 /* ETSSketchLayer.swift */,
 				520B209323C70A1C004B3897 /* ETSImageLayer.swift */,
+				52AA422023C8671C00BDDE9A /* ETSSVGLayer.swift */,
 				520B209623C70A1C004B3897 /* ETSStockLayer.swift */,
 				520B209423C70A1C004B3897 /* ETSSketchpadView.swift */,
 			);
@@ -639,6 +642,7 @@
 				520B20B023C70B1A004B3897 /* VectorImageCollectionViewCell.swift in Sources */,
 				520B209723C70A1C004B3897 /* ETSImageLayer.swift in Sources */,
 				52F7F0C023C45B02000D2F38 /* FirstViewController.swift in Sources */,
+				52AA422123C8671C00BDDE9A /* ETSSVGLayer.swift in Sources */,
 				5292F67022A95A7D009EFC98 /* AppDelegate.swift in Sources */,
 				520B209823C70A1C004B3897 /* ETSSketchpadView.swift in Sources */,
 				520B20A623C70A24004B3897 /* SketchpadControlViewController.swift in Sources */,

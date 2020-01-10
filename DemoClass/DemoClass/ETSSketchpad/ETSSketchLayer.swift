@@ -52,13 +52,10 @@ class ETSSketchLayer : UIView
             self.addGestureRecognizer(rotateGesture)
         }
         
-        if (self.drawable.isVector)
+        self.pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(ETSImageLayer.didPinch(_:)))
+        if let pinchGesture = self.pinchGesture
         {
-            self.pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(ETSImageLayer.didPinch(_:)))
-            if let pinchGesture = self.pinchGesture
-            {
-                self.addGestureRecognizer(pinchGesture)
-            }
+            self.addGestureRecognizer(pinchGesture)
         }
     }
 }
@@ -176,16 +173,23 @@ extension ETSSketchLayer
 protocol ETSDrawable
 {
     var touchable : Bool { get }
-    var isVector : Bool { get }
 }
 
 
 struct ETSDrawableImage : ETSDrawable
 {
     let image       : UIImage
-    let tintColor   : UIColor
-    let touchable   : Bool
-    var isVector    : Bool
+    var touchable   : Bool
+    {
+        return false
+    }
+}
+
+
+struct ETSDrawableSVG : ETSDrawable
+{
+    let layer       : CALayer
+    var touchable   : Bool
     {
         return true
     }
@@ -197,12 +201,9 @@ struct ETSDrawableStock : ETSDrawable
     let bezierPath  : UIBezierPath
     let tintColor   : UIColor
     let stockType   : LineType
+    
     var touchable   : Bool
     {
         return true
-    }
-    var isVector    : Bool
-    {
-        return false
     }
 }

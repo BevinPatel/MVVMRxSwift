@@ -62,7 +62,7 @@ class SketchpadControlViewController : UIViewController
     private func prepareView()
     {
         self.sketchpadView?.delegate = self
-        self.sketchpadView?.addImageInSketch(image : self.sketchImage, touchable : false)
+        self.sketchpadView?.addImageInSketch(image : self.sketchImage)
 
         let rightbutton = UIBarButtonItem.init(title : Text.label.save, style : .plain, target : self, action : #selector(self.onSaveSketch(sender : )))
         self.navigationItem.rightBarButtonItem = rightbutton
@@ -229,9 +229,11 @@ extension SketchpadControlViewController : UICollectionViewDataSource, UICollect
     
     func collectionView(_ collectionView : UICollectionView, didSelectItemAt indexPath : IndexPath)
     {
-        if let image = UIImage(named: vectorNames[indexPath.row])
+        if let url = Bundle.main.url(forResource: vectorNames[indexPath.row], withExtension: "svg")
         {
-            self.sketchpadView?.addImageInSketch(image : image, touchable : true)
+            CALayer(SVGURL: url) { (layer) in
+                self.sketchpadView?.addSVGInSketch(svgLayer: layer)
+            }
         }
     }
 }
