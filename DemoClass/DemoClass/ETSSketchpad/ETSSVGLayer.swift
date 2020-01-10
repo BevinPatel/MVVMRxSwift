@@ -31,8 +31,11 @@ class ETSSVGLayer : ETSSketchLayer
         super.init(frame : CGRect(origin: origin, size: ETSSVGLayer.size), drawable : drawable)
         CALayer(SVGData: drawable.svgData)
         {   (layer) in
-            layer.resizeToFit(self.bounds)
-            self.layer.addSublayer(layer)
+            if let myCopy = layer.svgLayerCopy
+            {
+                myCopy.resizeToFit(self.bounds)
+                self.layer.addSublayer(myCopy)
+            }
         }
         ETSSketchLayer.setSelected(newLayer : self)
     }
