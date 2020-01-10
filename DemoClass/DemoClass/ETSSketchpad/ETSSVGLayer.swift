@@ -37,13 +37,13 @@ class ETSSVGLayer : ETSSketchLayer
                 self.layer.addSublayer(myCopy)
             }
         }
-        ETSSketchLayer.setSelected(newLayer : self)
+        ETSSketchpadView.shared?.setSelected(newLayer : self)
     }
     
     
     override func draw(_ rect : CGRect)
     {
-        if ((self.drawable.touchable) && (ETSSketchLayer.selected == self))
+        if ((self.drawable.touchable) && (ETSSketchpadView.shared?.selected == self))
         {
             let topLeftPath = UIBezierPath()
             topLeftPath.lineWidth = 3.0

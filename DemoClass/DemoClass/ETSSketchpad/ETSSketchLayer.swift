@@ -56,7 +56,7 @@ struct ETSDrawableStock : ETSDrawable
 }
 
 
-class ETSSketchLayer : UIView
+open class ETSSketchLayer : UIView
 {
     let drawable : ETSDrawable
     
@@ -65,7 +65,7 @@ class ETSSketchLayer : UIView
     private var pinchGesture    : UIPinchGestureRecognizer?
     private var rotateGesture   : UIRotationGestureRecognizer?
  
-    required init?(coder: NSCoder)
+    required public init?(coder: NSCoder)
     {
         return nil
     }
@@ -111,27 +111,6 @@ class ETSSketchLayer : UIView
 
 extension ETSSketchLayer
 {
-    private(set) static var selected : ETSSketchLayer?
-       
-    public static func setSelected(newLayer : ETSSketchLayer?)
-    {
-        if let oldLayer = ETSSketchLayer.selected
-        {
-            ETSSketchLayer.selected = newLayer
-            oldLayer.setNeedsDisplay()
-            newLayer?.setNeedsDisplay()
-        }
-        else
-        {
-            ETSSketchLayer.selected = newLayer
-            newLayer?.setNeedsDisplay()
-        }
-    }
-}
-
-
-extension ETSSketchLayer
-{
     // To prevent ios13 present controller default gesture to dismiss screen while draw signature.
     open override func gestureRecognizerShouldBegin(_ gestureRecognizer : UIGestureRecognizer) -> Bool
     {
@@ -141,7 +120,7 @@ extension ETSSketchLayer
         }
         else
         {
-            if (ETSSketchLayer.selected == self)
+            if (ETSSketchpadView.shared?.selected == self)
             {
                 if ((self.panGesture == gestureRecognizer) || (self.pinchGesture == gestureRecognizer) || (self.rotateGesture == gestureRecognizer))
                 {
@@ -163,20 +142,20 @@ extension ETSSketchLayer
     //MARK: Gesture Method
     @objc fileprivate func didTap(_ panGR : UITapGestureRecognizer)
     {
-        if (ETSSketchLayer.selected == self)
+        if (ETSSketchpadView.shared?.selected == self)
         {
-            ETSImageLayer.setSelected(newLayer : nil)
+            ETSSketchpadView.shared?.setSelected(newLayer : nil)
         }
         else
         {
-            ETSImageLayer.setSelected(newLayer : self)
+            ETSSketchpadView.shared?.setSelected(newLayer : self)
         }
     }
     
     
     @objc fileprivate func didPan(_ panGR : UIPanGestureRecognizer)
     {
-        if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
+        if ((self.drawable.touchable) && (ETSSketchpadView.shared?.selected == self))
         {
             self.superview!.bringSubviewToFront(self)
             var translation = panGR.translation(in : self)
@@ -190,7 +169,7 @@ extension ETSSketchLayer
     
     @objc fileprivate func didPinch(_ gestureRecognizer : UIPinchGestureRecognizer)
     {
-        if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
+        if ((self.drawable.touchable) && (ETSSketchpadView.shared?.selected == self))
         {
             if gestureRecognizer.state == .began || gestureRecognizer.state == .changed
             {
@@ -203,7 +182,7 @@ extension ETSSketchLayer
     
     @objc fileprivate func didRotate(_ rotationGR : UIRotationGestureRecognizer)
     {
-        if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
+        if ((self.drawable.touchable) && (ETSSketchpadView.shared?.selected == self))
         {
             self.superview!.bringSubviewToFront(self)
             let rotation = rotationGR.rotation
@@ -212,5 +191,3 @@ extension ETSSketchLayer
         }
     }
 }
-
-

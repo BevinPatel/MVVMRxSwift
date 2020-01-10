@@ -36,10 +36,10 @@ open class ETSSketchpadView : UIView
                 }
             }
     }
-        
-    fileprivate var bezierPath : UIBezierPath?
-    fileprivate var bezierPoints = [CGPoint](repeating : CGPoint(), count : 5)
-    fileprivate var bezierCounter : Int = 0
+    private(set)    var selected        : ETSSketchLayer?
+    fileprivate     var bezierPath      : UIBezierPath?
+    fileprivate     var bezierCounter   : Int = 0
+    fileprivate     var bezierPoints    : [CGPoint] = [CGPoint](repeating : CGPoint(), count : 5)
     
     private lazy var stockLayer : CAShapeLayer = {
         let stockLayer =  CAShapeLayer()
@@ -65,6 +65,7 @@ open class ETSSketchpadView : UIView
     required public init?(coder aDecoder: NSCoder)
     {
         super.init(coder : aDecoder)
+        ETSSketchpadView.shared = self
         self.setupView()
     }
 
@@ -235,7 +236,7 @@ open class ETSSketchpadView : UIView
     /*Returns the drawn path as Image. Adding subview to this view will also get returned in this image.*/
     open func getSketchImage() -> UIImage?
     {
-        ETSStockLayer.setSelected(newLayer : nil)
+        ETSSketchpadView.shared?.setSelected(newLayer : nil)
         UIGraphicsBeginImageContext(CGSize(width : self.bounds.size.width, height : self.bounds.size.height))
         self.layer.render(in : UIGraphicsGetCurrentContext()!)
         let sketch : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
@@ -245,3 +246,23 @@ open class ETSSketchpadView : UIView
 }
 
 
+extension ETSSketchpadView
+{
+    private(set) static var shared : ETSSketchpadView?
+
+    public func setSelected(newLayer : ETSSketchLayer?)
+    {
+        if let oldLayer = ETSSketchpadView.shared?.selected
+        {
+            ETSSketchpadView.shared?.selected = newLayer
+            oldLayer.setNeedsDisplay()
+            newLayer?.setNeedsDisplay()
+        }
+        else
+        {
+            ETSSketchpadView.shared?.selected = newLayer
+            newLayer?.setNeedsDisplay()
+        }
+        self.delegate?.shouldEnanleFlipAndDelete(isEnable: (self.selected == nil) ? false : true)
+    }
+}

@@ -46,13 +46,13 @@ class ETSStockLayer : ETSSketchLayer
     init(drawable : ETSDrawableStock)
     {
         super.init(frame : drawable.bezierPath.bounds, drawable : drawable)
-        ETSSketchLayer.setSelected(newLayer : nil)
+        ETSSketchpadView.shared?.setSelected(newLayer : nil)
     }
     
     
     override func draw(_ rect : CGRect)
     {
-        if (ETSSketchLayer.selected == self)
+        if (ETSSketchpadView.shared?.selected == self)
         {
             let topLeftPath = UIBezierPath()
             topLeftPath.lineWidth = 3.0
