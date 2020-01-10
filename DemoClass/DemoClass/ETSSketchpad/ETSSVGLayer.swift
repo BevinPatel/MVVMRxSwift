@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import SwiftSVG
 import CoreGraphics
 
 class ETSSVGLayer : ETSSketchLayer
 {
+    private static let size = CGSize(width : 200, height : 200)
+    
     private lazy var topLeftCorner = CAShapeLayer()
     private lazy var topRightCorner = CAShapeLayer()
     private lazy var bottomLeftCorner = CAShapeLayer()
@@ -22,15 +25,16 @@ class ETSSVGLayer : ETSSketchLayer
     }
     
     
-    init?(frame : CGRect, drawable : ETSDrawableSVG)
+    init(contentSize : CGSize, drawable : ETSDrawableSVG)
     {
-        super.init(frame : frame, drawable : drawable)
-        self.layer.addSublayer(drawable.layer)
-        
-        if drawable.touchable
-        {
-            ETSSketchLayer.setSelected(newLayer : self)
+        let origin = CGPoint(x : (contentSize.width - ETSSVGLayer.size.width) * 0.5, y : (contentSize.height - ETSSVGLayer.size.height) * 0.5)
+        super.init(frame : CGRect(origin: origin, size: ETSSVGLayer.size), drawable : drawable)
+        CALayer(SVGData: drawable.svgData)
+        {   (layer) in
+            layer.resizeToFit(self.bounds)
+            self.layer.addSublayer(layer)
         }
+        ETSSketchLayer.setSelected(newLayer : self)
     }
     
     

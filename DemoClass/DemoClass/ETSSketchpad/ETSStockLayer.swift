@@ -15,6 +15,7 @@ class ETSStockLayer : ETSSketchLayer
     private lazy var topRightCorner = CAShapeLayer()
     private lazy var bottomLeftCorner = CAShapeLayer()
     private lazy var bottomRightCorner = CAShapeLayer()
+   
     private lazy var stockLayer : CAShapeLayer = {
         let stockLayer =  CAShapeLayer()
         stockLayer.fillColor = UIColor.clear.cgColor
@@ -35,15 +36,16 @@ class ETSStockLayer : ETSSketchLayer
         return stockLayer
     }()
     
+    
     required init?(coder: NSCoder)
     {
         return nil
     }
     
     
-    init?(frame : CGRect, drawable : ETSDrawableStock)
+    init(drawable : ETSDrawableStock)
     {
-        super.init(frame : frame, drawable : drawable)
+        super.init(frame : drawable.bezierPath.bounds, drawable : drawable)
         ETSSketchLayer.setSelected(newLayer : nil)
     }
     
@@ -110,7 +112,8 @@ class ETSStockLayer : ETSSketchLayer
         
         if let sketchStock = self.drawable as? ETSDrawableStock
         {
-            stockLayer.frame = CGRect(origin: CGPoint(x: -sketchStock.bezierPath.bounds.origin.x, y: -sketchStock.bezierPath.bounds.origin.y), size: sketchStock.bezierPath.bounds.size)
+            let origin = CGPoint(x: -sketchStock.bezierPath.bounds.origin.x, y: -sketchStock.bezierPath.bounds.origin.y)
+            stockLayer.frame = CGRect(origin : origin, size : sketchStock.bezierPath.bounds.size)
             stockLayer.lineWidth = sketchStock.bezierPath.lineWidth
             stockLayer.strokeColor = sketchStock.tintColor.cgColor
             stockLayer.path = sketchStock.bezierPath.cgPath

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSVG
 
 @objc protocol ETSSketchpadViewDelegate : class
 {
@@ -79,37 +80,37 @@ open class ETSSketchpadView : UIView
     
     public func addImageInSketch(image : UIImage?)
     {
-        if let image = image, let layer = ETSImageLayer(frame: self.bounds, drawable : ETSDrawableImage(image: image))
+        if let image = image
         {
+            let imageLayer = ETSImageLayer(frame: self.bounds, drawable : ETSDrawableImage(image: image))
             self.controlPoint += 1
-            self.sketchLayers.insert(layer, at : self.controlPoint)
-            self.addSubview(layer)
+            self.sketchLayers.insert(imageLayer, at : self.controlPoint)
+            self.addSubview(imageLayer)
             self.sketchLayers = Array(self.sketchLayers[0 ... self.controlPoint])
             self.controlPoint += 0// just for update undo redo button
         }
     }
     
     
-    public func addSVGInSketch(svgLayer : CALayer?)
+    public func addSVGInSketch(svgData : Data)
     {
-        if let svgLayer = svgLayer, let layer = ETSSVGLayer(frame: self.bounds, drawable: ETSDrawableSVG(layer: svgLayer))
-        {
-            self.controlPoint += 1
-            self.sketchLayers.insert(layer, at : self.controlPoint)
-            self.addSubview(layer)
-            self.sketchLayers = Array(self.sketchLayers[0 ... self.controlPoint])
-            self.controlPoint += 0// just for update undo redo button
-        }
+        let svgLayer = ETSSVGLayer(contentSize : self.bounds.size, drawable : ETSDrawableSVG(svgData: svgData))
+        self.controlPoint += 1
+        self.sketchLayers.insert(svgLayer, at : self.controlPoint)
+        self.addSubview(svgLayer)
+        self.sketchLayers = Array(self.sketchLayers[0 ... self.controlPoint])
+        self.controlPoint += 0// just for update undo redo button
     }
     
     
     private func addStockInSketch(bezierPath : UIBezierPath?, touchable : Bool)
     {
-        if let bezierPath = bezierPath, let layer = ETSStockLayer(frame : bezierPath.bounds, drawable : ETSDrawableStock(bezierPath : bezierPath, tintColor : self.strokeColor, stockType : self.stockType))
+        if let bezierPath = bezierPath
         {
+            let stockLayer = ETSStockLayer(drawable : ETSDrawableStock(bezierPath : bezierPath, tintColor : self.strokeColor, stockType : self.stockType))
             self.controlPoint += 1
-            self.sketchLayers.insert(layer, at : self.controlPoint)
-            self.addSubview(layer)
+            self.sketchLayers.insert(stockLayer, at : self.controlPoint)
+            self.addSubview(stockLayer)
             self.sketchLayers = Array(self.sketchLayers[0 ... self.controlPoint])
             self.controlPoint += 0// just for update undo redo button
         }
@@ -239,8 +240,3 @@ open class ETSSketchpadView : UIView
 }
 
 
-public enum LineType
-{
-    case solidLine
-    case dottedLine
-}

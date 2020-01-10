@@ -7,6 +7,54 @@
 //
 
 import UIKit
+import SwiftSVG
+
+
+public enum LineType
+{
+    case solidLine
+    case dottedLine
+}
+
+
+protocol ETSDrawable
+{
+    var touchable : Bool { get }
+}
+
+
+struct ETSDrawableImage : ETSDrawable
+{
+    let image       : UIImage
+    var touchable   : Bool
+    {
+        return false
+    }
+}
+
+
+struct ETSDrawableSVG : ETSDrawable
+{
+    let svgData     : Data
+    var touchable   : Bool
+    {
+        return true
+    }
+}
+
+
+struct ETSDrawableStock : ETSDrawable
+{
+    let bezierPath  : UIBezierPath
+    let tintColor   : UIColor
+    let stockType   : LineType
+    
+    var touchable   : Bool
+    {
+        return true
+    }
+}
+
 
 class ETSSketchLayer : UIView
 {
@@ -140,19 +188,15 @@ extension ETSSketchLayer
     }
     
     
-    @objc fileprivate func didPinch(_ pinchGR : UIPinchGestureRecognizer)
+    @objc fileprivate func didPinch(_ gestureRecognizer : UIPinchGestureRecognizer)
     {
         if ((self.drawable.touchable) && (ETSImageLayer.selected == self))
         {
-            self.superview!.bringSubviewToFront(self)
-            let scale = pinchGR.scale
-            
-            let center = self.center;
-            let size = CGSize(width : self.bounds.size.width * scale, height : self.bounds.size.height * scale)
-            self.bounds = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
-            self.center = center;
-            self.setNeedsDisplay();
-            pinchGR.scale = 1.0
+            if gestureRecognizer.state == .began || gestureRecognizer.state == .changed
+            {
+               gestureRecognizer.view?.transform = (gestureRecognizer.view?.transform.scaledBy(x: gestureRecognizer.scale, y: gestureRecognizer.scale))!
+               gestureRecognizer.scale = 1.0
+            }
         }
     }
     
@@ -170,40 +214,3 @@ extension ETSSketchLayer
 }
 
 
-protocol ETSDrawable
-{
-    var touchable : Bool { get }
-}
-
-
-struct ETSDrawableImage : ETSDrawable
-{
-    let image       : UIImage
-    var touchable   : Bool
-    {
-        return false
-    }
-}
-
-
-struct ETSDrawableSVG : ETSDrawable
-{
-    let layer       : CALayer
-    var touchable   : Bool
-    {
-        return true
-    }
-}
-
-
-struct ETSDrawableStock : ETSDrawable
-{
-    let bezierPath  : UIBezierPath
-    let tintColor   : UIColor
-    let stockType   : LineType
-    
-    var touchable   : Bool
-    {
-        return true
-    }
-}

@@ -220,6 +220,7 @@ extension SketchpadControlViewController : UICollectionViewDataSource, UICollect
         if let url = Bundle.main.url(forResource: vectorNames[indexPath.row], withExtension: "svg")
         {
             CALayer(SVGURL: url) { (layer) in
+                layer.resizeToFit(cell.contentView.bounds)
                 cell.contentView.layer.addSublayer(layer)
             }
         }
@@ -229,10 +230,16 @@ extension SketchpadControlViewController : UICollectionViewDataSource, UICollect
     
     func collectionView(_ collectionView : UICollectionView, didSelectItemAt indexPath : IndexPath)
     {
-        if let url = Bundle.main.url(forResource: vectorNames[indexPath.row], withExtension: "svg")
+        if let svgUrl = Bundle.main.url(forResource: vectorNames[indexPath.row], withExtension: "svg")
         {
-            CALayer(SVGURL: url) { (layer) in
-                self.sketchpadView?.addSVGInSketch(svgLayer: layer)
+            do
+            {
+                let svgData = try Data(contentsOf : svgUrl)
+                self.sketchpadView?.addSVGInSketch(svgData: svgData)
+            }
+            catch
+            {
+                assertionFailure("Not able to get data from svg")
             }
         }
     }
