@@ -13,6 +13,7 @@ import SwiftSVG
 {
     func shouldEnableRedo(isEnable : Bool)
     func shouldEnableUndo(isEnable : Bool)
+    func shouldEnanleFlipAndDelete(isEnable : Bool)
 }
 
 
@@ -88,6 +89,10 @@ open class ETSSketchpadView : UIView
             self.addSubview(imageLayer)
             self.sketchLayers = Array(self.sketchLayers[0 ... self.controlPoint])
             self.controlPoint += 0// just for update undo redo button
+        }
+        else
+        {
+            self.controlPoint = -1
         }
     }
     

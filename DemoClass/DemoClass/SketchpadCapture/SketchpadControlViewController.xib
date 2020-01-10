@@ -13,7 +13,10 @@
                 <outlet property="colorButton" destination="lch-R6-mOD" id="dLW-Ea-zsh"/>
                 <outlet property="dottedLineButton" destination="jT6-zN-xfc" id="e1U-P2-qaM"/>
                 <outlet property="eraseButton" destination="Yk9-uz-PaY" id="NEV-n0-GQW"/>
+                <outlet property="flipHButton" destination="vxp-BO-FbE" id="ELI-YC-Mpf"/>
+                <outlet property="flipVButton" destination="hRY-jC-hBf" id="Gs9-lt-32T"/>
                 <outlet property="redoButton" destination="bcs-nL-pr0" id="m58-4y-z3Z"/>
+                <outlet property="removeButton" destination="TZj-XM-Ich" id="H55-do-8xu"/>
                 <outlet property="sketchpadView" destination="fqA-vO-9gH" id="byf-o5-Nsg"/>
                 <outlet property="solidLineButton" destination="zJk-RL-NKe" id="EzQ-RE-ONr"/>
                 <outlet property="stockSizeSlider" destination="gFS-Ht-J0h" id="1Zu-g6-ZNN"/>
