@@ -32,12 +32,15 @@ class SketchpadControlViewController : UIViewController
         
     weak var delegate : SketchpadControlViewControllerDelegate?
     var sketchImage : UIImage?
-    
     @IBOutlet fileprivate var vectorCollectionView : UICollectionView?
     fileprivate let vectorNames = [ "svg_barbed_wire",
                                     "svg_bridge",
                                     "svg_car",
                                     "svg_crossroad",
+                                    "svg_road_left_right",
+                                    "svg_road_left_turn",
+                                    "svg_road_right_turn",
+                                    "svg_road_straight",
                                     "svg_digging",
                                     "svg_dog",
                                     "svg_down_arrow",

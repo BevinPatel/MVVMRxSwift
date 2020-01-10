@@ -54,6 +54,10 @@
 		52AA426523C88EFF00BDDE9A /* svg_tipper_truck.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA426423C88EFF00BDDE9A /* svg_tipper_truck.svg */; };
 		52AA426923C8933800BDDE9A /* svg_chipper.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA426823C8933800BDDE9A /* svg_chipper.svg */; };
 		52AA426B23C897EF00BDDE9A /* svg_electric_pole_b.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA426A23C897EF00BDDE9A /* svg_electric_pole_b.svg */; };
+		52AA427023C8999600BDDE9A /* svg_road_left_right.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA426C23C8999500BDDE9A /* svg_road_left_right.svg */; };
+		52AA427123C8999600BDDE9A /* svg_road_left_turn.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA426D23C8999500BDDE9A /* svg_road_left_turn.svg */; };
+		52AA427223C8999600BDDE9A /* svg_road_straight.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA426E23C8999500BDDE9A /* svg_road_straight.svg */; };
+		52AA427323C8999600BDDE9A /* svg_road_right_turn.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA426F23C8999600BDDE9A /* svg_road_right_turn.svg */; };
 		52F7F0C023C45B02000D2F38 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F7F0BF23C45B02000D2F38 /* FirstViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +148,10 @@
 		52AA426423C88EFF00BDDE9A /* svg_tipper_truck.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = svg_tipper_truck.svg; sourceTree = "<group>"; };
 		52AA426823C8933800BDDE9A /* svg_chipper.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = svg_chipper.svg; sourceTree = "<group>"; };
 		52AA426A23C897EF00BDDE9A /* svg_electric_pole_b.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = svg_electric_pole_b.svg; sourceTree = "<group>"; };
+		52AA426C23C8999500BDDE9A /* svg_road_left_right.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = svg_road_left_right.svg; sourceTree = "<group>"; };
+		52AA426D23C8999500BDDE9A /* svg_road_left_turn.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = svg_road_left_turn.svg; sourceTree = "<group>"; };
+		52AA426E23C8999500BDDE9A /* svg_road_straight.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = svg_road_straight.svg; sourceTree = "<group>"; };
+		52AA426F23C8999600BDDE9A /* svg_road_right_turn.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = svg_road_right_turn.svg; sourceTree = "<group>"; };
 		52F7F0BF23C45B02000D2F38 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		57BCBBFF1162BA6A1A23490D /* Pods_DemoClassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoClassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A81D4C70F25193A6DF9F04F /* Pods_DemoClass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoClass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -327,6 +335,10 @@
 		52AA41E123C85F5B00BDDE9A /* svgs */ = {
 			isa = PBXGroup;
 			children = (
+				52AA426C23C8999500BDDE9A /* svg_road_left_right.svg */,
+				52AA426D23C8999500BDDE9A /* svg_road_left_turn.svg */,
+				52AA426F23C8999600BDDE9A /* svg_road_right_turn.svg */,
+				52AA426E23C8999500BDDE9A /* svg_road_straight.svg */,
 				52AA426A23C897EF00BDDE9A /* svg_electric_pole_b.svg */,
 				52AA426423C88EFF00BDDE9A /* svg_tipper_truck.svg */,
 				52AA422923C886C100BDDE9A /* svg_barbed_wire.svg */,
@@ -479,6 +491,7 @@
 				52AA424123C886C400BDDE9A /* svg_split.svg in Resources */,
 				52AA424B23C886C400BDDE9A /* svg_gasoline.svg in Resources */,
 				52AA424923C886C400BDDE9A /* svg_traffic_cone.svg in Resources */,
+				52AA427223C8999600BDDE9A /* svg_road_straight.svg in Resources */,
 				52AA424723C886C400BDDE9A /* svg_car.svg in Resources */,
 				52AA424023C886C400BDDE9A /* svg_barbed_wire.svg in Resources */,
 				52AA426523C88EFF00BDDE9A /* svg_tipper_truck.svg in Resources */,
@@ -487,8 +500,10 @@
 				52AA424E23C886C400BDDE9A /* svg_transmission_line.svg in Resources */,
 				52AA424323C886C400BDDE9A /* svg_up_arrow.svg in Resources */,
 				5292F67A22A95A7D009EFC98 /* LaunchScreen.storyboard in Resources */,
+				52AA427323C8999600BDDE9A /* svg_road_right_turn.svg in Resources */,
 				52AA424F23C886C400BDDE9A /* svg_tree.svg in Resources */,
 				5292F67722A95A7D009EFC98 /* Assets.xcassets in Resources */,
+				52AA427023C8999600BDDE9A /* svg_road_left_right.svg in Resources */,
 				52AA425223C886C400BDDE9A /* svg_right_arrow.svg in Resources */,
 				52AA425023C886C400BDDE9A /* svg_left_arrow.svg in Resources */,
 				52AA424223C886C400BDDE9A /* svg_grass.svg in Resources */,
@@ -499,6 +514,7 @@
 				52AA424423C886C400BDDE9A /* svg_speed_limit.svg in Resources */,
 				5292F67522A95A7D009EFC98 /* Main.storyboard in Resources */,
 				52AA424A23C886C400BDDE9A /* svg_house.svg in Resources */,
+				52AA427123C8999600BDDE9A /* svg_road_left_turn.svg in Resources */,
 				52AA423E23C886C400BDDE9A /* svg_digging.svg in Resources */,
 				520B20AF23C70B1A004B3897 /* VectorImageCollectionViewCell.xib in Resources */,
 				52AA425323C886C400BDDE9A /* svg_electric_pole_a.svg in Resources */,
