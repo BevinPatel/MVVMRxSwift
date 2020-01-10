@@ -34,7 +34,29 @@ class SketchpadControlViewController : UIViewController
     var sketchImage : UIImage?
     
     @IBOutlet fileprivate var vectorCollectionView : UICollectionView?
-    fileprivate let vectorNames = ["grass", "tree", "trees", "house", "digging", "dog", "down-arrow", "right-arrow", "left-arrow", "up-arrow", "car", "crossroad", "roadA", "roadLeftRight", "roadLeftTurn", "roadRightTurn", "gasoline_B", "pointer", "speed-limit", "split", "stop", "traffic-cone", "warning", "smartphone", "electric-pole_A", "electric-pole_B", "high-electric-pole", "bridge", "barbed-wire", "noun_Wood Chipper", "tipper-truck"]
+    fileprivate let vectorNames = [ "svg_barbed_wire",
+                                    "svg_bridge",
+                                    "svg_car",
+                                    "svg_crossroad",
+                                    "svg_digging",
+                                    "svg_dog",
+                                    "svg_down_arrow",
+                                    "svg_electric_pole",
+                                    "svg_gasoline",
+                                    "svg_grass",
+                                    "svg_house",
+                                    "svg_left_arrow",
+                                    "svg_right_arrow",
+                                    "svg_smartphone",
+                                    "svg_speed_limit",
+                                    "svg_split",
+                                    "svg_stop",
+                                    "svg_traffic_cone",
+                                    "svg_transmission_line",
+                                    "svg_tree",
+                                    "svg_trees",
+                                    "svg_up_arrow",
+                                    "svg_warning"]
     
     lazy var colorPickerController : ColorPickerViewController? =
     {
