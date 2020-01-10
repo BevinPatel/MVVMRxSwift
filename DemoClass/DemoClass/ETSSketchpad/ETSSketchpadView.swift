@@ -30,7 +30,7 @@ open class ETSSketchpadView : UIView
                     self.stockLayer.lineDashPattern = []
                 case .dottedLine:
                     self.stockLayer.lineDashPhase = 5
-                    self.stockLayer.lineDashPattern = [5,5]
+                    self.stockLayer.lineDashPattern = [5, 5]
                 }
             }
     }
@@ -82,7 +82,7 @@ open class ETSSketchpadView : UIView
         if let image = image, let layer = ETSImageLayer(frame: self.bounds, drawable : ETSDrawableImage(image: image, tintColor: self.strokeColor, touchable: touchable))
         {
             self.controlPoint += 1
-            self.sketchLayers.append(layer)
+            self.sketchLayers.insert(layer, at : self.controlPoint)
             self.addSubview(layer)
             self.sketchLayers = Array(self.sketchLayers[0 ... self.controlPoint])
             self.controlPoint += 0// just for update undo redo button
@@ -90,12 +90,12 @@ open class ETSSketchpadView : UIView
     }
     
     
-    private func addStockInSketch(bezierPath : UIBezierPath?, touchable : Bool, twoPoints : [CGPoint]?)
+    private func addStockInSketch(bezierPath : UIBezierPath?, touchable : Bool)
     {
         if let bezierPath = bezierPath, let layer = ETSStockLayer(frame : bezierPath.bounds, drawable : ETSDrawableStock(bezierPath : bezierPath, tintColor : self.strokeColor, stockType : self.stockType))
         {
             self.controlPoint += 1
-            self.sketchLayers.append(layer)
+            self.sketchLayers.insert(layer, at : self.controlPoint)
             self.addSubview(layer)
             self.sketchLayers = Array(self.sketchLayers[0 ... self.controlPoint])
             self.controlPoint += 0// just for update undo redo button
@@ -162,7 +162,7 @@ open class ETSSketchpadView : UIView
     
     override open func touchesEnded(_ touches : Set<UITouch>, with event : UIEvent?)
     {
-        self.addStockInSketch(bezierPath : self.bezierPath, touchable : true, twoPoints : ((self.bezierPoints.count > 1) ? (Array(self.bezierPoints[self.bezierPoints.count-2 ... self.bezierPoints.count - 1])) : nil))
+        self.addStockInSketch(bezierPath : self.bezierPath, touchable : true)
         self.bezierPath = nil
         self.bezierCounter = 0
         self.bezierPoints = [CGPoint](repeating : CGPoint(), count : 5)
@@ -170,7 +170,7 @@ open class ETSSketchpadView : UIView
     }
     
     
-    open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?)
+    open override func touchesCancelled(_ touches : Set<UITouch>, with event : UIEvent?)
     {
         self.bezierPath = nil
         self.bezierCounter = 0
@@ -216,7 +216,7 @@ open class ETSSketchpadView : UIView
     /*Returns the drawn path as Image. Adding subview to this view will also get returned in this image.*/
     open func getSketchImage() -> UIImage?
     {
-        ETSStockLayer.setSelected(newLayer: nil)
+        ETSStockLayer.setSelected(newLayer : nil)
         UIGraphicsBeginImageContext(CGSize(width : self.bounds.size.width, height : self.bounds.size.height))
         self.layer.render(in : UIGraphicsGetCurrentContext()!)
         let sketch : UIImage = UIGraphicsGetImageFromCurrentImageContext()!

@@ -1,16 +1,20 @@
 PODS:
   - CULColorPicker (0.1.0)
+  - PocketSVG (2.5.0)
 
 DEPENDENCIES:
   - CULColorPicker
+  - PocketSVG (~> 2.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - CULColorPicker
+    - PocketSVG
 
 SPEC CHECKSUMS:
   CULColorPicker: 43417b036b75277029de0c489d94d6d3a7378ddc
+  PocketSVG: 9d9c4bc8e7d8dbbc208bd21e5c92814fd3c6c34d
 
-PODFILE CHECKSUM: 258d798388d7bcb092c497afc07b1def6f3c19a7
+PODFILE CHECKSUM: 094357de61e72748aa00b4bc21ac538362789aed
 
 COCOAPODS: 1.7.5

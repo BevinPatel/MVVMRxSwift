@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-DemoClass/Pods-DemoClass-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/CULColorPicker/CULColorPicker.framework
+${BUILT_PRODUCTS_DIR}/PocketSVG/PocketSVG.framework

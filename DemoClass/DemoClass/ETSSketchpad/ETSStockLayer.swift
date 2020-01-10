@@ -29,7 +29,7 @@ class ETSStockLayer : ETSSketchLayer
                 stockLayer.lineDashPattern = []
             case .dottedLine:
                 stockLayer.lineDashPhase = 5
-                stockLayer.lineDashPattern = [5,5]
+                stockLayer.lineDashPattern = [5, 5]
             }
         }
         return stockLayer
@@ -116,50 +116,5 @@ class ETSStockLayer : ETSSketchLayer
             stockLayer.path = sketchStock.bezierPath.cgPath
             self.layer.addSublayer(stockLayer)
         }
-    }
-    
-    
-    private func getArrowFor(start : CGPoint, end : CGPoint) -> UIBezierPath
-    {
-        let dx = end.x - start.x
-        let dy = end.y - start.y
-        
-        let normal = sqrt(dx*dx + dy*dy)
-        
-        // Convert into unit vectors
-        var udx = dx / normal
-        var udy = dy / normal
-        
-        if normal == 0
-        {
-            udx = 0
-            udy = 0
-        }
-        
-        // Rotate 150 degree clockwise to get first point
-        let ax = (udx * -0.866) - (udy * 0.5)
-        let ay = (udx * 0.5) + (udy * -0.866)
-        
-        // Rotate 150 degree anticlockwise to get second point
-        let bx = (udx * -0.866) + (udy * 0.5)
-        let by = (-1 * udx * 0.5) + (udy * -0.866)
-        
-        // Scale 20 points and then translate to end point for both points
-        let ax0 = end.x + 20 * ax
-        let ay0 = end.y + 20 * ay
-        
-        let ax1 = end.x + 20 * bx
-        let ay1 = end.y + 20 * by
-        
-        let point1 = CGPoint(x: ax0, y: ay0)
-        let point2 = CGPoint(x: ax1, y: ay1)
-        let point3 = CGPoint(x: end.x, y: end.y)
-
-        let path = UIBezierPath()
-        path.move(to: point1)
-        path.addLine(to: point2)
-        path.addLine(to: point3)
-        path.close()
-        return path
     }
 }
