@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSVG
 import CULColorPicker
 
 protocol SketchpadControlViewControllerDelegate : class
@@ -216,7 +217,12 @@ extension SketchpadControlViewController : UICollectionViewDataSource, UICollect
     func collectionView(_ collectionView : UICollectionView, cellForItemAt indexPath : IndexPath) -> UICollectionViewCell
     {
         let cell : VectorImageCollectionViewCell = self.vectorCollectionView!.dequeueReusableCell(for : indexPath)
-        cell.imageView?.image = UIImage(named: vectorNames[indexPath.row])
+        if let url = Bundle.main.url(forResource: vectorNames[indexPath.row], withExtension: "svg")
+        {
+            CALayer(SVGURL: url) { (layer) in
+                cell.contentView.layer.addSublayer(layer)
+            }
+        }
         return cell
     }
     

@@ -9,9 +9,7 @@
 import UIKit
 
 class VectorImageCollectionViewCell : UICollectionViewCell, ReusableView, NibLoadableView
-{
-    @IBOutlet var imageView : UIImageView?
-    
+{    
     override func awakeFromNib()
     {
         super.awakeFromNib()

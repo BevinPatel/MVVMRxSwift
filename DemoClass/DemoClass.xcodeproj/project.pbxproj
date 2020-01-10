@@ -27,6 +27,37 @@
 		5292F67A22A95A7D009EFC98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5292F67822A95A7D009EFC98 /* LaunchScreen.storyboard */; };
 		5292F68522A95A7D009EFC98 /* DemoClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292F68422A95A7D009EFC98 /* DemoClassTests.swift */; };
 		5292F69022A95A7E009EFC98 /* DemoClassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292F68F22A95A7E009EFC98 /* DemoClassUITests.swift */; };
+		52AA420123C85F5C00BDDE9A /* barbed-wire.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41E223C85F5B00BDDE9A /* barbed-wire.svg */; };
+		52AA420223C85F5C00BDDE9A /* digging.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41E323C85F5B00BDDE9A /* digging.svg */; };
+		52AA420323C85F5C00BDDE9A /* house.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41E423C85F5B00BDDE9A /* house.svg */; };
+		52AA420423C85F5C00BDDE9A /* pointer.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41E523C85F5B00BDDE9A /* pointer.svg */; };
+		52AA420523C85F5C00BDDE9A /* right-arrow.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41E623C85F5B00BDDE9A /* right-arrow.svg */; };
+		52AA420623C85F5C00BDDE9A /* smartphone.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41E723C85F5B00BDDE9A /* smartphone.svg */; };
+		52AA420723C85F5C00BDDE9A /* bridge.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41E823C85F5B00BDDE9A /* bridge.svg */; };
+		52AA420823C85F5C00BDDE9A /* electric-pole_B.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41E923C85F5B00BDDE9A /* electric-pole_B.svg */; };
+		52AA420923C85F5C00BDDE9A /* crossroad.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41EA23C85F5B00BDDE9A /* crossroad.svg */; };
+		52AA420A23C85F5C00BDDE9A /* down-arrow.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41EB23C85F5B00BDDE9A /* down-arrow.svg */; };
+		52AA420B23C85F5C00BDDE9A /* electric-pole_A.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41EC23C85F5B00BDDE9A /* electric-pole_A.svg */; };
+		52AA420C23C85F5C00BDDE9A /* gasoline_B.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41ED23C85F5B00BDDE9A /* gasoline_B.svg */; };
+		52AA420D23C85F5C00BDDE9A /* left-arrow.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41EE23C85F5B00BDDE9A /* left-arrow.svg */; };
+		52AA420E23C85F5C00BDDE9A /* stop.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41EF23C85F5B00BDDE9A /* stop.svg */; };
+		52AA420F23C85F5C00BDDE9A /* warning.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41F023C85F5B00BDDE9A /* warning.svg */; };
+		52AA421023C85F5C00BDDE9A /* dog.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41F123C85F5B00BDDE9A /* dog.svg */; };
+		52AA421123C85F5C00BDDE9A /* roadLeftTurn.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41F223C85F5B00BDDE9A /* roadLeftTurn.svg */; };
+		52AA421223C85F5C00BDDE9A /* split.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41F323C85F5B00BDDE9A /* split.svg */; };
+		52AA421323C85F5C00BDDE9A /* up-arrow.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41F423C85F5B00BDDE9A /* up-arrow.svg */; };
+		52AA421423C85F5C00BDDE9A /* trees.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41F523C85F5B00BDDE9A /* trees.svg */; };
+		52AA421523C85F5C00BDDE9A /* traffic-cone.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41F623C85F5B00BDDE9A /* traffic-cone.svg */; };
+		52AA421623C85F5C00BDDE9A /* Untitled.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41F723C85F5B00BDDE9A /* Untitled.svg */; };
+		52AA421723C85F5C00BDDE9A /* tipper-truck.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41F823C85F5B00BDDE9A /* tipper-truck.svg */; };
+		52AA421823C85F5C00BDDE9A /* car.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41F923C85F5B00BDDE9A /* car.svg */; };
+		52AA421923C85F5C00BDDE9A /* tree.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41FA23C85F5B00BDDE9A /* tree.svg */; };
+		52AA421A23C85F5C00BDDE9A /* roadStraight.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41FB23C85F5B00BDDE9A /* roadStraight.svg */; };
+		52AA421B23C85F5C00BDDE9A /* high-electric-pole.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41FC23C85F5B00BDDE9A /* high-electric-pole.svg */; };
+		52AA421C23C85F5C00BDDE9A /* roadRightTurn.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41FD23C85F5B00BDDE9A /* roadRightTurn.svg */; };
+		52AA421D23C85F5C00BDDE9A /* roadLeftRight.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41FE23C85F5B00BDDE9A /* roadLeftRight.svg */; };
+		52AA421E23C85F5C00BDDE9A /* speed-limit.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA41FF23C85F5B00BDDE9A /* speed-limit.svg */; };
+		52AA421F23C85F5C00BDDE9A /* grass.svg in Resources */ = {isa = PBXBuildFile; fileRef = 52AA420023C85F5B00BDDE9A /* grass.svg */; };
 		52F7F0C023C45B02000D2F38 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F7F0BF23C45B02000D2F38 /* FirstViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +121,37 @@
 		52A826562355E2DE0063445D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52A826592355E2DE0063445D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52A8265B2355E2DE0063445D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52AA41E223C85F5B00BDDE9A /* barbed-wire.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "barbed-wire.svg"; sourceTree = "<group>"; };
+		52AA41E323C85F5B00BDDE9A /* digging.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = digging.svg; sourceTree = "<group>"; };
+		52AA41E423C85F5B00BDDE9A /* house.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = house.svg; sourceTree = "<group>"; };
+		52AA41E523C85F5B00BDDE9A /* pointer.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pointer.svg; sourceTree = "<group>"; };
+		52AA41E623C85F5B00BDDE9A /* right-arrow.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "right-arrow.svg"; sourceTree = "<group>"; };
+		52AA41E723C85F5B00BDDE9A /* smartphone.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = smartphone.svg; sourceTree = "<group>"; };
+		52AA41E823C85F5B00BDDE9A /* bridge.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bridge.svg; sourceTree = "<group>"; };
+		52AA41E923C85F5B00BDDE9A /* electric-pole_B.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "electric-pole_B.svg"; sourceTree = "<group>"; };
+		52AA41EA23C85F5B00BDDE9A /* crossroad.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = crossroad.svg; sourceTree = "<group>"; };
+		52AA41EB23C85F5B00BDDE9A /* down-arrow.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "down-arrow.svg"; sourceTree = "<group>"; };
+		52AA41EC23C85F5B00BDDE9A /* electric-pole_A.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "electric-pole_A.svg"; sourceTree = "<group>"; };
+		52AA41ED23C85F5B00BDDE9A /* gasoline_B.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gasoline_B.svg; sourceTree = "<group>"; };
+		52AA41EE23C85F5B00BDDE9A /* left-arrow.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "left-arrow.svg"; sourceTree = "<group>"; };
+		52AA41EF23C85F5B00BDDE9A /* stop.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = stop.svg; sourceTree = "<group>"; };
+		52AA41F023C85F5B00BDDE9A /* warning.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = warning.svg; sourceTree = "<group>"; };
+		52AA41F123C85F5B00BDDE9A /* dog.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = dog.svg; sourceTree = "<group>"; };
+		52AA41F223C85F5B00BDDE9A /* roadLeftTurn.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = roadLeftTurn.svg; sourceTree = "<group>"; };
+		52AA41F323C85F5B00BDDE9A /* split.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = split.svg; sourceTree = "<group>"; };
+		52AA41F423C85F5B00BDDE9A /* up-arrow.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "up-arrow.svg"; sourceTree = "<group>"; };
+		52AA41F523C85F5B00BDDE9A /* trees.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = trees.svg; sourceTree = "<group>"; };
+		52AA41F623C85F5B00BDDE9A /* traffic-cone.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "traffic-cone.svg"; sourceTree = "<group>"; };
+		52AA41F723C85F5B00BDDE9A /* Untitled.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Untitled.svg; sourceTree = "<group>"; };
+		52AA41F823C85F5B00BDDE9A /* tipper-truck.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "tipper-truck.svg"; sourceTree = "<group>"; };
+		52AA41F923C85F5B00BDDE9A /* car.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = car.svg; sourceTree = "<group>"; };
+		52AA41FA23C85F5B00BDDE9A /* tree.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tree.svg; sourceTree = "<group>"; };
+		52AA41FB23C85F5B00BDDE9A /* roadStraight.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = roadStraight.svg; sourceTree = "<group>"; };
+		52AA41FC23C85F5B00BDDE9A /* high-electric-pole.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "high-electric-pole.svg"; sourceTree = "<group>"; };
+		52AA41FD23C85F5B00BDDE9A /* roadRightTurn.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = roadRightTurn.svg; sourceTree = "<group>"; };
+		52AA41FE23C85F5B00BDDE9A /* roadLeftRight.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = roadLeftRight.svg; sourceTree = "<group>"; };
+		52AA41FF23C85F5B00BDDE9A /* speed-limit.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "speed-limit.svg"; sourceTree = "<group>"; };
+		52AA420023C85F5B00BDDE9A /* grass.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = grass.svg; sourceTree = "<group>"; };
 		52F7F0BF23C45B02000D2F38 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		57BCBBFF1162BA6A1A23490D /* Pods_DemoClassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoClassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A81D4C70F25193A6DF9F04F /* Pods_DemoClass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoClass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +259,7 @@
 		5292F66322A95A7D009EFC98 = {
 			isa = PBXGroup;
 			children = (
+				52AA41E123C85F5B00BDDE9A /* svgs */,
 				5292F66E22A95A7D009EFC98 /* DemoClass */,
 				5292F68322A95A7D009EFC98 /* DemoClassTests */,
 				5292F68E22A95A7E009EFC98 /* DemoClassUITests */,
@@ -266,6 +329,44 @@
 				52A8265B2355E2DE0063445D /* Info.plist */,
 			);
 			path = TestDoc;
+			sourceTree = "<group>";
+		};
+		52AA41E123C85F5B00BDDE9A /* svgs */ = {
+			isa = PBXGroup;
+			children = (
+				52AA41E223C85F5B00BDDE9A /* barbed-wire.svg */,
+				52AA41E323C85F5B00BDDE9A /* digging.svg */,
+				52AA41E423C85F5B00BDDE9A /* house.svg */,
+				52AA41E523C85F5B00BDDE9A /* pointer.svg */,
+				52AA41E623C85F5B00BDDE9A /* right-arrow.svg */,
+				52AA41E723C85F5B00BDDE9A /* smartphone.svg */,
+				52AA41E823C85F5B00BDDE9A /* bridge.svg */,
+				52AA41E923C85F5B00BDDE9A /* electric-pole_B.svg */,
+				52AA41EA23C85F5B00BDDE9A /* crossroad.svg */,
+				52AA41EB23C85F5B00BDDE9A /* down-arrow.svg */,
+				52AA41EC23C85F5B00BDDE9A /* electric-pole_A.svg */,
+				52AA41ED23C85F5B00BDDE9A /* gasoline_B.svg */,
+				52AA41EE23C85F5B00BDDE9A /* left-arrow.svg */,
+				52AA41EF23C85F5B00BDDE9A /* stop.svg */,
+				52AA41F023C85F5B00BDDE9A /* warning.svg */,
+				52AA41F123C85F5B00BDDE9A /* dog.svg */,
+				52AA41F223C85F5B00BDDE9A /* roadLeftTurn.svg */,
+				52AA41F323C85F5B00BDDE9A /* split.svg */,
+				52AA41F423C85F5B00BDDE9A /* up-arrow.svg */,
+				52AA41F523C85F5B00BDDE9A /* trees.svg */,
+				52AA41F623C85F5B00BDDE9A /* traffic-cone.svg */,
+				52AA41F723C85F5B00BDDE9A /* Untitled.svg */,
+				52AA41F823C85F5B00BDDE9A /* tipper-truck.svg */,
+				52AA41F923C85F5B00BDDE9A /* car.svg */,
+				52AA41FA23C85F5B00BDDE9A /* tree.svg */,
+				52AA41FB23C85F5B00BDDE9A /* roadStraight.svg */,
+				52AA41FC23C85F5B00BDDE9A /* high-electric-pole.svg */,
+				52AA41FD23C85F5B00BDDE9A /* roadRightTurn.svg */,
+				52AA41FE23C85F5B00BDDE9A /* roadLeftRight.svg */,
+				52AA41FF23C85F5B00BDDE9A /* speed-limit.svg */,
+				52AA420023C85F5B00BDDE9A /* grass.svg */,
+			);
+			path = svgs;
 			sourceTree = "<group>";
 		};
 		5F16DDE93E6F65C5F4DB91F3 /* Frameworks */ = {
@@ -388,11 +489,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				520B20AB23C70A5D004B3897 /* ColorPickerViewController.xib in Resources */,
+				52AA420323C85F5C00BDDE9A /* house.svg in Resources */,
+				52AA420B23C85F5C00BDDE9A /* electric-pole_A.svg in Resources */,
+				52AA421623C85F5C00BDDE9A /* Untitled.svg in Resources */,
+				52AA420523C85F5C00BDDE9A /* right-arrow.svg in Resources */,
 				5292F67A22A95A7D009EFC98 /* LaunchScreen.storyboard in Resources */,
+				52AA420223C85F5C00BDDE9A /* digging.svg in Resources */,
+				52AA421723C85F5C00BDDE9A /* tipper-truck.svg in Resources */,
+				52AA421923C85F5C00BDDE9A /* tree.svg in Resources */,
+				52AA420F23C85F5C00BDDE9A /* warning.svg in Resources */,
+				52AA421823C85F5C00BDDE9A /* car.svg in Resources */,
+				52AA421B23C85F5C00BDDE9A /* high-electric-pole.svg in Resources */,
+				52AA420D23C85F5C00BDDE9A /* left-arrow.svg in Resources */,
+				52AA420623C85F5C00BDDE9A /* smartphone.svg in Resources */,
+				52AA421E23C85F5C00BDDE9A /* speed-limit.svg in Resources */,
+				52AA420123C85F5C00BDDE9A /* barbed-wire.svg in Resources */,
 				5292F67722A95A7D009EFC98 /* Assets.xcassets in Resources */,
+				52AA421C23C85F5C00BDDE9A /* roadRightTurn.svg in Resources */,
+				52AA421023C85F5C00BDDE9A /* dog.svg in Resources */,
+				52AA420C23C85F5C00BDDE9A /* gasoline_B.svg in Resources */,
+				52AA420823C85F5C00BDDE9A /* electric-pole_B.svg in Resources */,
+				52AA420E23C85F5C00BDDE9A /* stop.svg in Resources */,
+				52AA421123C85F5C00BDDE9A /* roadLeftTurn.svg in Resources */,
+				52AA420423C85F5C00BDDE9A /* pointer.svg in Resources */,
 				520B20A523C70A24004B3897 /* SketchpadControlViewController.xib in Resources */,
+				52AA421523C85F5C00BDDE9A /* traffic-cone.svg in Resources */,
+				52AA420923C85F5C00BDDE9A /* crossroad.svg in Resources */,
+				52AA421223C85F5C00BDDE9A /* split.svg in Resources */,
+				52AA421423C85F5C00BDDE9A /* trees.svg in Resources */,
+				52AA421A23C85F5C00BDDE9A /* roadStraight.svg in Resources */,
+				52AA420A23C85F5C00BDDE9A /* down-arrow.svg in Resources */,
 				5292F67522A95A7D009EFC98 /* Main.storyboard in Resources */,
 				520B20AF23C70B1A004B3897 /* VectorImageCollectionViewCell.xib in Resources */,
+				52AA421F23C85F5C00BDDE9A /* grass.svg in Resources */,
+				52AA421D23C85F5C00BDDE9A /* roadLeftRight.svg in Resources */,
+				52AA421323C85F5C00BDDE9A /* up-arrow.svg in Resources */,
+				52AA420723C85F5C00BDDE9A /* bridge.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
