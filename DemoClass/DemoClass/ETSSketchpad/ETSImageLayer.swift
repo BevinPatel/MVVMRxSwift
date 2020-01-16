@@ -17,9 +17,9 @@ class ETSImageLayer : ETSSketchLayer
     }
     
     
-    init(frame : CGRect, drawable : ETSDrawableImage)
+    init(frame : CGRect, drawable : ETSDrawableImage, delegate: ETSSketchLayerDelegate)
     {
-        super.init(frame : frame, drawable : drawable)
+        super.init(frame : frame, drawable : drawable, delegate : delegate)
     }
     
     

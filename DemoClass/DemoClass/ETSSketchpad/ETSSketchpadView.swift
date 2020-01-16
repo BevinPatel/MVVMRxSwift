@@ -17,29 +17,112 @@ import SwiftSVG
 }
 
 
+private enum ETSSketchUndoRedoStack : Equatable
+{
+    case add(ETSSketchLayer, CGPoint, CGAffineTransform)
+    case pan(ETSSketchLayer, CGPoint, CGAffineTransform)
+    case rotate(ETSSketchLayer, CGPoint, CGAffineTransform)
+    case pinch(ETSSketchLayer, CGPoint, CGAffineTransform)
+    case flipH(ETSSketchLayer, CGPoint, CGAffineTransform)
+    case flipV(ETSSketchLayer, CGPoint, CGAffineTransform)
+    case delete(ETSSketchLayer, CGPoint, CGAffineTransform)
+    
+    func mostRecentAction(selfLayer : ETSSketchLayer, fromArray : [ETSSketchUndoRedoStack]) -> (ETSSketchLayer, CGPoint, CGAffineTransform)?
+    {
+        for index in stride(from: fromArray.count-1, through: 0, by: -1)
+        {
+            let action = fromArray[index]
+            switch action
+            {
+            case .add(let layer, let center, let transform):
+                if (layer.isEqual(selfLayer))
+                {
+                    return (layer, center, transform)
+                }
+                break
+            case .pan(let layer, let center, let transform):
+                if (layer.isEqual(selfLayer))
+                {
+                    return (layer, center, transform)
+                }
+                break
+            case .rotate(let layer, let center, let transform):
+                if (layer.isEqual(selfLayer))
+                {
+                    return (layer, center, transform)
+                }
+                break
+            case .pinch(let layer, let center, let transform):
+                if (layer.isEqual(selfLayer))
+                {
+                    return (layer, center, transform)
+                }
+                break
+            case .flipH(let layer, let center, let transform):
+                if (layer.isEqual(selfLayer))
+                {
+                    return (layer, center, transform)
+                }
+                break
+            case .flipV(let layer, let center, let transform):
+                if (layer.isEqual(selfLayer))
+                {
+                    return (layer, center, transform)
+                }
+                break
+            case .delete(let layer, let center, let transform):
+                if (layer.isEqual(selfLayer))
+                {
+                    return (layer, center, transform)
+                }
+                break
+            }
+        }
+        return nil
+    }
+}
+
+
 open class ETSSketchpadView : UIView
 {
+    open var stockType : LineType = .solidLine
+        {
+        didSet
+        {
+            switch self.stockType
+            {
+            case .solidLine:
+                self.stockLayer.lineDashPhase = 0
+                self.stockLayer.lineDashPattern = []
+            case .dottedLine:
+                self.stockLayer.lineDashPhase = 5
+                self.stockLayer.lineDashPattern = [5, 5]
+            }
+        }
+    }
     open var strokeColor = UIColor.black
     open var strokeWidth : CGFloat = 2.0
-    open var stockType : LineType = .solidLine
-    {
-            didSet
-            {
-                switch self.stockType
-                {
-                case .solidLine:
-                    self.stockLayer.lineDashPhase = 0
-                    self.stockLayer.lineDashPattern = []
-                case .dottedLine:
-                    self.stockLayer.lineDashPhase = 5
-                    self.stockLayer.lineDashPattern = [5, 5]
-                }
-            }
-    }
-    private(set)    var selected        : ETSSketchLayer?
-    fileprivate     var bezierPath      : UIBezierPath?
-    fileprivate     var bezierCounter   : Int = 0
-    fileprivate     var bezierPoints    : [CGPoint] = [CGPoint](repeating : CGPoint(), count : 5)
+    @IBOutlet var delegate : ETSSketchpadViewDelegate?
+    
+    //-----For undo and redo--------------------
+    private(set) var selected : ETSSketchLayer?
+    fileprivate  var stackUndoRedo = [ETSSketchUndoRedoStack]()
+    //    fileprivate  var controlPoint : Int = -1
+    //    {
+    //        didSet
+    //        {
+    //            self.delegate?.shouldEnableUndo(isEnable: (self.controlPoint > -1))
+    //            self.delegate?.shouldEnableRedo(isEnable: (self.controlPoint < (self.sketchLayers.count-1)))
+    //        }
+    //    }
+    //------------------------------------------
+    
+    //-----For free hand drawing----------------
+    fileprivate var bezierPath      : UIBezierPath?
+    fileprivate var bezierCounter   : Int = 0
+    fileprivate var bezierPoints    : [CGPoint] = [CGPoint](repeating : CGPoint(), count : 5)
+    //------------------------------------------
+    
     
     private lazy var stockLayer : CAShapeLayer = {
         let stockLayer =  CAShapeLayer()
@@ -49,18 +132,6 @@ open class ETSSketchpadView : UIView
         return stockLayer
     }()
     
-    @IBOutlet weak var delegate : ETSSketchpadViewDelegate?
-    
-    fileprivate var sketchLayers = [ETSSketchLayer]()
-    fileprivate var controlPoint : Int = -1
-    {
-        didSet
-        {
-            self.delegate?.shouldEnableUndo(isEnable: (self.controlPoint > -1))
-            self.delegate?.shouldEnableRedo(isEnable: (self.controlPoint < (self.sketchLayers.count-1)))
-        }
-    }
-    
     
     required public init?(coder aDecoder: NSCoder)
     {
@@ -68,7 +139,7 @@ open class ETSSketchpadView : UIView
         ETSSketchpadView.shared = self
         self.setupView()
     }
-
+    
     
     private func setupView()
     {
@@ -84,28 +155,16 @@ open class ETSSketchpadView : UIView
     {
         if let image = image
         {
-            let imageLayer = ETSImageLayer(frame: self.bounds, drawable : ETSDrawableImage(image: image))
-            self.controlPoint += 1
-            self.sketchLayers.insert(imageLayer, at : self.controlPoint)
-            self.addSubview(imageLayer)
-            self.sketchLayers = Array(self.sketchLayers[0 ... self.controlPoint])
-            self.controlPoint += 0// just for update undo redo button
-        }
-        else
-        {
-            self.controlPoint = -1
+            let imageLayer = ETSImageLayer(frame: self.bounds, drawable : ETSDrawableImage(image: image), delegate : self)
+            imageLayer.addInto(parent: self)
         }
     }
     
     
     public func addSVGInSketch(svgData : Data)
     {
-        let svgLayer = ETSSVGLayer(contentSize : self.bounds.size, drawable : ETSDrawableSVG(svgData: svgData))
-        self.controlPoint += 1
-        self.sketchLayers.insert(svgLayer, at : self.controlPoint)
-        self.addSubview(svgLayer)
-        self.sketchLayers = Array(self.sketchLayers[0 ... self.controlPoint])
-        self.controlPoint += 0// just for update undo redo button
+        let svgLayer = ETSSVGLayer(contentSize : self.bounds.size, drawable : ETSDrawableSVG(svgData: svgData), delegate : self)
+        svgLayer.addInto(parent: self)
     }
     
     
@@ -113,12 +172,8 @@ open class ETSSketchpadView : UIView
     {
         if let bezierPath = bezierPath
         {
-            let stockLayer = ETSStockLayer(drawable : ETSDrawableStock(bezierPath : bezierPath, tintColor : self.strokeColor, stockType : self.stockType))
-            self.controlPoint += 1
-            self.sketchLayers.insert(stockLayer, at : self.controlPoint)
-            self.addSubview(stockLayer)
-            self.sketchLayers = Array(self.sketchLayers[0 ... self.controlPoint])
-            self.controlPoint += 0// just for update undo redo button
+            let stockLayer = ETSStockLayer(drawable : ETSDrawableStock(bezierPath : bezierPath, tintColor : self.strokeColor, stockType : self.stockType), delegate : self)
+            stockLayer.addInto(parent: self)
         }
     }
     
@@ -164,7 +219,7 @@ open class ETSSketchpadView : UIView
         {
             bezierCounter += 1
             bezierPoints[bezierCounter] = currentPoint
-
+            
             //Smoothing is done by Bezier Equations where curves are calculated based on four concurrent  points drawn
             if (bezierCounter == 4)
             {
@@ -213,52 +268,79 @@ open class ETSSketchpadView : UIView
     /*Clears the drawn paths in the canvas*/
     open func undo()
     {
-        self.sketchLayers[controlPoint].removeFromSuperview()
-        self.controlPoint -= 1
+        if let last = self.stackUndoRedo.last
+        {
+            self.stackUndoRedo.removeLast()
+            switch last
+            {
+            case .add(let layer, let center, let transform):
+                self.undoStep(stack: last, layer: layer, center: center, transform: transform)
+                break
+            case .pan(let layer, let center, let transform):
+                self.undoStep(stack: last, layer: layer, center: center, transform: transform)
+                break
+            case .rotate(let layer, let center, let transform):
+                self.undoStep(stack: last, layer: layer, center: center, transform: transform)
+                break
+            case .pinch(let layer, let center, let transform):
+                self.undoStep(stack: last, layer: layer, center: center, transform: transform)
+                break
+            case .flipH(let layer, let center, let transform):
+                self.undoStep(stack: last, layer: layer, center: center, transform: transform)
+                break
+            case .flipV(let layer, let center, let transform):
+                self.undoStep(stack: last, layer: layer, center: center, transform: transform)
+                break
+            case .delete(let layer, let center, let transform):
+                self.undoStep(stack: last, layer: layer, center: center, transform: transform)
+                break
+            }
+        }
+    }
+    
+    
+    private func undoStep(stack : ETSSketchUndoRedoStack, layer : ETSSketchLayer, center : CGPoint, transform : CGAffineTransform)
+    {
+        if let mostRecentData = stack.mostRecentAction(selfLayer : layer, fromArray : self.stackUndoRedo)
+        {
+            layer.center = mostRecentData.1
+            layer.transform = mostRecentData.2
+        }
+        else
+        {
+            layer.removeFromSuperview()
+        }
     }
     
     
     open func redo()
     {
-        self.controlPoint += 1
-        self.addSubview(self.sketchLayers[self.controlPoint])
+        
     }
     
     
     open func clear()
     {
-        self.sketchLayers.removeAll()
         self.subviews.forEach { $0.removeFromSuperview() }
-        self.controlPoint = -1
     }
     
     
     open func flipHSelected()
     {
-        if let selected = self.selected
-        {
-            selected.transform = CGAffineTransform(scaleX: -selected.transform.a, y: selected.transform.d)
-        }
+        self.selected?.flipHorizontal()
     }
     
     
     open func flipVSelected()
     {
-        if let selected = self.selected
-        {
-            selected.transform = CGAffineTransform(scaleX: selected.transform.a, y: -selected.transform.d)
-        }
+        self.selected?.flipVertical()
     }
     
     
     open func deleteSelected()
     {
-        if let selected = self.selected, let indexOfSelected = self.sketchLayers.index(of : selected)
-        {
-            self.sketchLayers.remove(at : indexOfSelected).removeFromSuperview()
-            self.controlPoint -= 1
-            ETSSketchpadView.shared?.setSelected(newLayer: nil)
-        }
+        self.selected?.removeFromParent()
+        ETSSketchpadView.shared?.setSelected(newLayer: nil)
     }
     
     
@@ -278,7 +360,7 @@ open class ETSSketchpadView : UIView
 extension ETSSketchpadView
 {
     private(set) static var shared : ETSSketchpadView?
-
+    
     public func setSelected(newLayer : ETSSketchLayer?)
     {
         if let oldLayer = ETSSketchpadView.shared?.selected
@@ -293,5 +375,50 @@ extension ETSSketchpadView
             newLayer?.setNeedsDisplay()
         }
         self.delegate?.shouldEnanleFlipAndDelete(isEnable: (self.selected == nil) ? false : true)
+    }
+}
+
+
+extension ETSSketchpadView : ETSSketchLayerDelegate
+{
+    func didAdd(sketchLayer: ETSSketchLayer)
+    {
+        self.stackUndoRedo.append(.add(sketchLayer, sketchLayer.center, sketchLayer.transform))
+    }
+    
+    
+    func didPan(sketchLayer: ETSSketchLayer)
+    {
+        self.stackUndoRedo.append(.pan(sketchLayer, sketchLayer.center, sketchLayer.transform))
+    }
+    
+    
+    func didRotate(sketchLayer: ETSSketchLayer)
+    {
+        self.stackUndoRedo.append(.rotate(sketchLayer, sketchLayer.center, sketchLayer.transform))
+    }
+    
+    
+    func didPinch(sketchLayer: ETSSketchLayer)
+    {
+        self.stackUndoRedo.append(.pinch(sketchLayer, sketchLayer.center, sketchLayer.transform))
+    }
+    
+    
+    func didFlipV(sketchLayer: ETSSketchLayer)
+    {
+        self.stackUndoRedo.append(.flipV(sketchLayer, sketchLayer.center, sketchLayer.transform))
+    }
+    
+    
+    func didFlipH(sketchLayer: ETSSketchLayer)
+    {
+        self.stackUndoRedo.append(.flipH(sketchLayer, sketchLayer.center, sketchLayer.transform))
+    }
+    
+    
+    func didDelete(sketchLayer: ETSSketchLayer)
+    {
+        self.stackUndoRedo.append(.delete(sketchLayer, sketchLayer.center, sketchLayer.transform))
     }
 }

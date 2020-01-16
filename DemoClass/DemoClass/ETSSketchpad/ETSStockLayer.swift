@@ -43,9 +43,9 @@ class ETSStockLayer : ETSSketchLayer
     }
     
     
-    init(drawable : ETSDrawableStock)
+    init(drawable : ETSDrawableStock, delegate: ETSSketchLayerDelegate)
     {
-        super.init(frame : drawable.bezierPath.bounds, drawable : drawable)
+        super.init(frame : drawable.bezierPath.bounds, drawable : drawable, delegate : delegate)
         ETSSketchpadView.shared?.setSelected(newLayer : nil)
     }
     

@@ -56,14 +56,28 @@ struct ETSDrawableStock : ETSDrawable
 }
 
 
+protocol ETSSketchLayerDelegate : class
+{
+    func didAdd(sketchLayer : ETSSketchLayer)
+    func didPan(sketchLayer : ETSSketchLayer)
+    func didRotate(sketchLayer : ETSSketchLayer)
+    func didPinch(sketchLayer : ETSSketchLayer)
+    func didFlipV(sketchLayer : ETSSketchLayer)
+    func didFlipH(sketchLayer : ETSSketchLayer)
+    func didDelete(sketchLayer : ETSSketchLayer)
+}
+
+
 open class ETSSketchLayer : UIView
 {
+    private weak var delegate   : ETSSketchLayerDelegate?
     let drawable : ETSDrawable
     
     private var tapGesture      : UITapGestureRecognizer?
     private var panGesture      : UIPanGestureRecognizer?
     private var pinchGesture    : UIPinchGestureRecognizer?
     private var rotateGesture   : UIRotationGestureRecognizer?
+    
  
     required public init?(coder: NSCoder)
     {
@@ -71,9 +85,10 @@ open class ETSSketchLayer : UIView
     }
     
     
-    init(frame : CGRect, drawable : ETSDrawable)
+    init(frame : CGRect, drawable : ETSDrawable, delegate : ETSSketchLayerDelegate)
     {
         self.drawable = drawable
+        self.delegate = delegate
         super.init(frame : frame)
         self.initGestureRecognizers()
         self.backgroundColor = .clear
@@ -105,6 +120,34 @@ open class ETSSketchLayer : UIView
         {
             self.addGestureRecognizer(pinchGesture)
         }
+    }
+    
+    
+    open func addInto(parent : UIView)
+    {
+        parent.addSubview(self)
+        self.delegate?.didAdd(sketchLayer : self)
+    }
+    
+    
+    open func removeFromParent()
+    {
+        self.removeFromSuperview()
+        self.delegate?.didDelete(sketchLayer : self)
+    }
+    
+    
+    open func flipHorizontal()
+    {
+        self.transform = CGAffineTransform(scaleX: -self.transform.a, y: self.transform.d)
+        self.delegate?.didFlipH(sketchLayer : self)
+    }
+    
+    
+    open func flipVertical()
+    {
+        self.transform = CGAffineTransform(scaleX: self.transform.a, y: -self.transform.d)
+        self.delegate?.didFlipV(sketchLayer : self)
     }
 }
 
@@ -163,31 +206,46 @@ extension ETSSketchLayer
             self.center.x += translation.x
             self.center.y += translation.y
             panGR.setTranslation(CGPoint.zero, in : self)
-        }
-    }
-    
-    
-    @objc fileprivate func didPinch(_ gestureRecognizer : UIPinchGestureRecognizer)
-    {
-        if ((self.drawable.touchable) && (ETSSketchpadView.shared?.selected == self))
-        {
-            if gestureRecognizer.state == .began || gestureRecognizer.state == .changed
+            
+            if(panGR.state == .ended)
             {
-               gestureRecognizer.view?.transform = (gestureRecognizer.view?.transform.scaledBy(x: gestureRecognizer.scale, y: gestureRecognizer.scale))!
-               gestureRecognizer.scale = 1.0
+                self.delegate?.didPan(sketchLayer: self)
             }
         }
     }
     
     
-    @objc fileprivate func didRotate(_ rotationGR : UIRotationGestureRecognizer)
+    @objc fileprivate func didPinch(_ pinchGR : UIPinchGestureRecognizer)
+    {
+        if ((self.drawable.touchable) && (ETSSketchpadView.shared?.selected == self))
+        {
+            if pinchGR.state == .began || pinchGR.state == .changed
+            {
+               pinchGR.view?.transform = (pinchGR.view?.transform.scaledBy(x: pinchGR.scale, y: pinchGR.scale))!
+               pinchGR.scale = 1.0
+            }
+            
+            if(pinchGR.state == .ended)
+            {
+                self.delegate?.didPinch(sketchLayer: self)
+            }
+        }
+    }
+    
+    
+    @objc fileprivate func didRotate(_ rotateGR : UIRotationGestureRecognizer)
     {
         if ((self.drawable.touchable) && (ETSSketchpadView.shared?.selected == self))
         {
             self.superview!.bringSubviewToFront(self)
-            let rotation = rotationGR.rotation
+            let rotation = rotateGR.rotation
             self.transform = self.transform.rotated(by: rotation)
-            rotationGR.rotation = 0.0
+            rotateGR.rotation = 0.0
+            
+            if(rotateGR.state == .ended)
+            {
+                self.delegate?.didRotate(sketchLayer: self)
+            }
         }
     }
 }
