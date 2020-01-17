@@ -27,53 +27,53 @@ private enum ETSSketchUndo : Equatable
     case flipV(ETSSketchLayer, CGPoint, CGAffineTransform)
     case delete(ETSSketchLayer, CGPoint, CGAffineTransform)
     
-    static func mostRecentAction(sketchLayer : ETSSketchLayer, undoStack : [ETSSketchUndo], undoIndex : Int) -> (ETSSketchLayer, CGPoint, CGAffineTransform)?
+    static func mostRecentAction(sketchLayer : ETSSketchLayer, undoStack : [ETSSketchUndo], undoIndex : Int) -> ETSSketchUndo?
     {
         for index in stride(from: undoIndex, through: 0, by: -1)
         {
             let action = undoStack[index]
             switch action
             {
-            case .add(let layer, let center, let transform):
+            case .add(let layer, _, _):
                 if (layer.isEqual(sketchLayer))
                 {
-                    return (layer, center, transform)
+                    return action
                 }
                 break
-            case .pan(let layer, let center, let transform):
+            case .pan(let layer, _, _):
                 if (layer.isEqual(sketchLayer))
                 {
-                    return (layer, center, transform)
+                    return action
                 }
                 break
-            case .rotate(let layer, let center, let transform):
+            case .rotate(let layer, _, _):
                 if (layer.isEqual(sketchLayer))
                 {
-                    return (layer, center, transform)
+                    return action
                 }
                 break
-            case .pinch(let layer, let center, let transform):
+            case .pinch(let layer, _, _):
                 if (layer.isEqual(sketchLayer))
                 {
-                    return (layer, center, transform)
+                    return action
                 }
                 break
-            case .flipH(let layer, let center, let transform):
+            case .flipH(let layer, _, _):
                 if (layer.isEqual(sketchLayer))
                 {
-                    return (layer, center, transform)
+                    return action
                 }
                 break
-            case .flipV(let layer, let center, let transform):
+            case .flipV(let layer, _, _):
                 if (layer.isEqual(sketchLayer))
                 {
-                    return (layer, center, transform)
+                    return action
                 }
                 break
-            case .delete(let layer, let center, let transform):
+            case .delete(let layer, _, _):
                 if (layer.isEqual(sketchLayer))
                 {
-                    return (layer, center, transform)
+                    return action
                 }
                 break
             }
@@ -111,9 +111,8 @@ open class ETSSketchpadView : UIView
     {
         didSet
         {
-            print("History Index \(self.undoIndex)")
-//            self.delegate?.shouldEnableUndo(isEnable: (self.controlPoint > -1))
-//            self.delegate?.shouldEnableRedo(isEnable: (self.controlPoint < (self.sketchLayers.count-1)))
+            self.delegate?.shouldEnableUndo(isEnable: (self.undoIndex > -1))
+            self.delegate?.shouldEnableRedo(isEnable: (self.undoIndex < (self.undoStack.count-1)))
         }
     }
     //------------------------------------------
@@ -158,6 +157,10 @@ open class ETSSketchpadView : UIView
         {
             let imageLayer = ETSImageLayer(frame: self.bounds, drawable : ETSDrawableImage(image: image), delegate : self)
             imageLayer.addInto(parent: self)
+        }
+        else
+        {
+            self.undoIndex = -1
         }
     }
     
@@ -277,6 +280,7 @@ open class ETSSketchpadView : UIView
             switch stack
             {
             case .add(let sketchLayer, let center, let transform):
+                sketchLayer.removeFromSuperview()
                 self.undoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
                 break
             case .pan(let sketchLayer, let center, let transform):
@@ -295,6 +299,7 @@ open class ETSSketchpadView : UIView
                 self.undoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
                 break
             case .delete(let sketchLayer, let center, let transform):
+                self.addSubview(sketchLayer)
                 self.undoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
                 break
             }
@@ -306,8 +311,37 @@ open class ETSSketchpadView : UIView
     {
         if let recentStack = ETSSketchUndo.mostRecentAction(sketchLayer : sketchLayer, undoStack : self.undoStack, undoIndex : self.undoIndex)
         {
-            sketchLayer.center = recentStack.1
-            sketchLayer.transform = recentStack.2
+            switch recentStack
+            {
+            case .add(let sketchLayer, let center, let transform):
+                sketchLayer.center = center
+                sketchLayer.transform = transform
+                break
+            case .pan(let sketchLayer, let center, let transform):
+                sketchLayer.center = center
+                sketchLayer.transform = transform
+                break
+            case .rotate(let sketchLayer, let center, let transform):
+                sketchLayer.center = center
+                sketchLayer.transform = transform
+                break
+            case .pinch(let sketchLayer, let center, let transform):
+                sketchLayer.center = center
+                sketchLayer.transform = transform
+                break
+            case .flipH(let sketchLayer, let center, let transform):
+                sketchLayer.center = center
+                sketchLayer.transform = transform
+                break
+            case .flipV(let sketchLayer, let center, let transform):
+                sketchLayer.center = center
+                sketchLayer.transform = transform
+                break
+            case .delete(let sketchLayer, let center, let transform):
+                sketchLayer.center = center
+                sketchLayer.transform = transform
+                break
+            }
         }
         else
         {
@@ -326,43 +360,36 @@ open class ETSSketchpadView : UIView
             switch stack
             {
             case .add(let sketchLayer, let center, let transform):
-                self.redoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
+                self.addSubview(sketchLayer)
+                sketchLayer.center = center
+                sketchLayer.transform = transform
                 break
             case .pan(let sketchLayer, let center, let transform):
-                self.redoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
+                sketchLayer.center = center
+                sketchLayer.transform = transform
                 break
             case .rotate(let sketchLayer, let center, let transform):
-                self.redoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
+                sketchLayer.center = center
+                sketchLayer.transform = transform
                 break
             case .pinch(let sketchLayer, let center, let transform):
-                self.redoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
+                sketchLayer.center = center
+                sketchLayer.transform = transform
                 break
             case .flipH(let sketchLayer, let center, let transform):
-                self.redoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
+                sketchLayer.center = center
+                sketchLayer.transform = transform
                 break
             case .flipV(let sketchLayer, let center, let transform):
-                self.redoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
+                sketchLayer.center = center
+                sketchLayer.transform = transform
                 break
             case .delete(let sketchLayer, let center, let transform):
-                self.redoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
+                sketchLayer.removeFromSuperview()
+                sketchLayer.center = center
+                sketchLayer.transform = transform
                 break
             }
-        }
-    }
-    
-    
-    private func redoStep(stack : ETSSketchUndo, sketchLayer : ETSSketchLayer, center : CGPoint, transform : CGAffineTransform)
-    {
-        if let superView = sketchLayer.superview, superView.isEqual(self)
-        {
-            sketchLayer.transform = transform
-            sketchLayer.center = center
-        }
-        else
-        {
-            self.addSubview(sketchLayer)
-            sketchLayer.transform = transform
-            sketchLayer.center = center
         }
     }
     
@@ -436,6 +463,7 @@ extension ETSSketchpadView : ETSSketchLayerDelegate
         self.undoIndex += 1
         self.undoStack.insert(.add(sketchLayer, sketchLayer.center, sketchLayer.transform), at: self.undoIndex)
         self.undoStack = Array(self.undoStack[0 ... self.undoIndex])
+        self.undoIndex += 0
     }
     
     
@@ -444,6 +472,7 @@ extension ETSSketchpadView : ETSSketchLayerDelegate
         self.undoIndex += 1
         self.undoStack.insert(.pan(sketchLayer, sketchLayer.center, sketchLayer.transform), at: self.undoIndex)
         self.undoStack = Array(self.undoStack[0 ... self.undoIndex])
+        self.undoIndex += 0
     }
     
     
@@ -452,6 +481,7 @@ extension ETSSketchpadView : ETSSketchLayerDelegate
         self.undoIndex += 1
         self.undoStack.insert(.rotate(sketchLayer, sketchLayer.center, sketchLayer.transform), at: self.undoIndex)
         self.undoStack = Array(self.undoStack[0 ... self.undoIndex])
+        self.undoIndex += 0
     }
     
     
@@ -460,6 +490,7 @@ extension ETSSketchpadView : ETSSketchLayerDelegate
         self.undoIndex += 1
         self.undoStack.insert(.pinch(sketchLayer, sketchLayer.center, sketchLayer.transform), at: self.undoIndex)
         self.undoStack = Array(self.undoStack[0 ... self.undoIndex])
+        self.undoIndex += 0
     }
     
     
@@ -468,6 +499,7 @@ extension ETSSketchpadView : ETSSketchLayerDelegate
         self.undoIndex += 1
         self.undoStack.insert(.flipV(sketchLayer, sketchLayer.center, sketchLayer.transform), at: self.undoIndex)
         self.undoStack = Array(self.undoStack[0 ... self.undoIndex])
+        self.undoIndex += 0
     }
     
     
@@ -476,6 +508,7 @@ extension ETSSketchpadView : ETSSketchLayerDelegate
         self.undoIndex += 1
         self.undoStack.insert(.flipH(sketchLayer, sketchLayer.center, sketchLayer.transform), at: self.undoIndex)
         self.undoStack = Array(self.undoStack[0 ... self.undoIndex])
+        self.undoIndex += 0
     }
     
     
@@ -484,5 +517,6 @@ extension ETSSketchpadView : ETSSketchLayerDelegate
         self.undoIndex += 1
         self.undoStack.insert(.delete(sketchLayer, sketchLayer.center, sketchLayer.transform), at: self.undoIndex)
         self.undoStack = Array(self.undoStack[0 ... self.undoIndex])
+        self.undoIndex += 0
     }
 }

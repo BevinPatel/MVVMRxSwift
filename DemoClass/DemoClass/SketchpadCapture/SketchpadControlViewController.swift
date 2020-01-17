@@ -70,6 +70,8 @@ class SketchpadControlViewController : UIViewController
     {
         self.sketchpadView?.delegate = self
         self.sketchpadView?.addImageInSketch(image : self.sketchImage)
+        self.sketchpadView?.strokeColor =  self.colorButton?.backgroundColor ?? UIColor.black
+        self.sketchpadView?.strokeWidth = CGFloat(self.stockSizeSlider?.value ?? 1)
 
         let rightbutton = UIBarButtonItem.init(title : Text.label.save, style : .plain, target : self, action : #selector(self.onSaveSketch(sender : )))
         self.navigationItem.rightBarButtonItem = rightbutton
