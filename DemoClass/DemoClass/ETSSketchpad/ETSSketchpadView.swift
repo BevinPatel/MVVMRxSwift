@@ -136,6 +136,7 @@ open class ETSSketchpadView : UIView
     required public init?(coder aDecoder: NSCoder)
     {
         super.init(coder : aDecoder)
+        self.addInteraction(UIDropInteraction(delegate: self))
         ETSSketchpadView.shared = self
         self.setupView()
     }
@@ -518,5 +519,27 @@ extension ETSSketchpadView : ETSSketchLayerDelegate
         self.undoStack.insert(.delete(sketchLayer, sketchLayer.center, sketchLayer.transform), at : self.undoIndex)
         self.undoStack = Array(self.undoStack[0 ... self.undoIndex])
         self.undoIndex += 0
+    }
+}
+
+
+extension ETSSketchpadView : UIDropInteractionDelegate
+{
+    public func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession)
+    {
+        session.loadObjects(ofClass: UIImage.self) { (images) in
+            for image in images
+            {
+                self.addImageInSketch(image: image as? UIImage)
+            }
+        }
+    }
+    public func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool
+    {
+        return session.canLoadObjects(ofClass: UIImage.self)
+    }
+    public func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal
+    {
+        return UIDropProposal(operation: .move)
     }
 }
