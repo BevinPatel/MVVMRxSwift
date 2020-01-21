@@ -266,6 +266,7 @@ extension SketchpadControlViewController : UICollectionViewDataSource, UICollect
     func collectionView(_ collectionView : UICollectionView, cellForItemAt indexPath : IndexPath) -> UICollectionViewCell
     {
         let cell : VectorImageCollectionViewCell = self.vectorCollectionView!.dequeueReusableCell(for : indexPath)
+        cell.contentView.layer.sublayers?.removeAll()
         if let url = Bundle.main.url(forResource: vectorNames[indexPath.row], withExtension: "svg")
         {
             CALayer(SVGURL : url) { (layer) in
@@ -293,6 +294,41 @@ extension SketchpadControlViewController : UICollectionViewDataSource, UICollect
             {
                 assertionFailure("Not able to get data from svg")
             }
+        }
+    }
+}
+
+
+extension SketchpadControlViewController : UICollectionViewDragDelegate
+{
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem]
+    {
+        if let cell = collectionView.cellForItem(at: indexPath) as? VectorImageCollectionViewCell, let layer = cell.layer.sublayers?.first, let image = getImage(layer: layer)
+        {
+            let itemProvider = NSItemProvider(object: image)
+            let dragItem = UIDragItem(itemProvider: itemProvider)
+            return [dragItem]
+        }
+        else
+        {
+            return []
+        }
+    }
+    
+    
+    private func getImage(layer : CALayer) -> UIImage?
+    {
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, true, 0)
+        if let context = UIGraphicsGetCurrentContext()
+        {
+            layer.render(in : context)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return image
+        }
+        else
+        {
+            return nil
         }
     }
 }

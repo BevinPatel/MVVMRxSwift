@@ -288,6 +288,7 @@
                     <connections>
                         <outlet property="dataSource" destination="-1" id="phm-Xx-14g"/>
                         <outlet property="delegate" destination="-1" id="MlA-cL-aHG"/>
+                        <outlet property="dragDelegate" destination="-1" id="ydD-jS-tGI"/>
                     </connections>
                 </collectionView>
             </subviews>
