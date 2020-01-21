@@ -89,8 +89,11 @@ open class ETSSketchLayer : UIView
         self.drawable = drawable
         self.delegate = delegate
         super.init(frame : frame)
-        self.initGestureRecognizers()
         self.backgroundColor = .clear
+        if (drawable.touchable)
+        {
+            self.initGestureRecognizers()
+        }
     }
     
     

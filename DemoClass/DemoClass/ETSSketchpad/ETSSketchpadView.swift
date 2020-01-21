@@ -527,16 +527,27 @@ extension ETSSketchpadView : UIDropInteractionDelegate
 {
     public func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession)
     {
-        session.loadObjects(ofClass: UIImage.self) { (images) in
-            for image in images
+        session.loadObjects(ofClass: SVGURL.self) { (urls) in
+            for url in urls
             {
-                self.addImageInSketch(image: image as? UIImage)
+                if let svgUrl = (url as? SVGURL)?.url
+                {
+                    do
+                    {
+                        let svgData = try Data(contentsOf : svgUrl)
+                        self.addSVGInSketch(svgData: svgData)
+                    }
+                    catch
+                    {
+                        assertionFailure("Not able to get data from svg")
+                    }
+                }
             }
         }
     }
     public func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool
     {
-        return session.canLoadObjects(ofClass: UIImage.self)
+        return session.canLoadObjects(ofClass: SVGURL.self)
     }
     public func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal
     {

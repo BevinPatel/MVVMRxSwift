@@ -303,32 +303,16 @@ extension SketchpadControlViewController : UICollectionViewDragDelegate
 {
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem]
     {
-        if let cell = collectionView.cellForItem(at: indexPath) as? VectorImageCollectionViewCell, let layer = cell.layer.sublayers?.first, let image = getImage(layer: layer)
+        if let url = Bundle.main.url(forResource: vectorNames[indexPath.row], withExtension: "svg")
         {
-            let itemProvider = NSItemProvider(object: image)
+            let svgUrl = SVGURL(url : url)
+            let itemProvider = NSItemProvider(object : svgUrl)
             let dragItem = UIDragItem(itemProvider: itemProvider)
             return [dragItem]
         }
         else
         {
             return []
-        }
-    }
-    
-    
-    private func getImage(layer : CALayer) -> UIImage?
-    {
-        UIGraphicsBeginImageContextWithOptions(layer.frame.size, true, 0)
-        if let context = UIGraphicsGetCurrentContext()
-        {
-            layer.render(in : context)
-            let image = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            return image
-        }
-        else
-        {
-            return nil
         }
     }
 }
