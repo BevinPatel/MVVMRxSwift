@@ -25,9 +25,9 @@ class ETSSVGLayer : ETSSketchLayer
     }
     
     
-    init(contentSize : CGSize, drawable : ETSDrawableSVG, delegate : ETSSketchLayerDelegate)
+    init(center : CGPoint, drawable : ETSDrawableSVG, delegate : ETSSketchLayerDelegate)
     {
-        let origin = CGPoint(x : (contentSize.width - ETSSVGLayer.size.width) * 0.5, y : (contentSize.height - ETSSVGLayer.size.height) * 0.5)
+        let origin = CGPoint(x: center.x - (ETSSVGLayer.size.width * 0.5), y: center.y - (ETSSVGLayer.size.height * 0.5))
         super.init(frame : CGRect(origin : origin, size : ETSSVGLayer.size), drawable : drawable, delegate : delegate)
         CALayer(SVGData : drawable.svgData)
         { (layer) in

@@ -166,9 +166,9 @@ open class ETSSketchpadView : UIView
     }
     
     
-    public func addSVGInSketch(svgData : Data)
+    public func addSVGInSketch(svgData : Data, location : CGPoint)
     {
-        let svgLayer = ETSSVGLayer(contentSize : self.bounds.size, drawable : ETSDrawableSVG(svgData : svgData), delegate : self)
+        let svgLayer = ETSSVGLayer(center : location, drawable : ETSDrawableSVG(svgData : svgData), delegate : self)
         svgLayer.addInto(parent : self)
     }
     
@@ -527,6 +527,8 @@ extension ETSSketchpadView : UIDropInteractionDelegate
 {
     public func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession)
     {
+        let location = session.location(in: self)
+        
         session.loadObjects(ofClass: SVGURL.self) { (urls) in
             for url in urls
             {
@@ -535,7 +537,7 @@ extension ETSSketchpadView : UIDropInteractionDelegate
                     do
                     {
                         let svgData = try Data(contentsOf : svgUrl)
-                        self.addSVGInSketch(svgData: svgData)
+                        self.addSVGInSketch(svgData: svgData, location: location)
                     }
                     catch
                     {

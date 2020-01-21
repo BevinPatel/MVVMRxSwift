@@ -283,12 +283,12 @@ extension SketchpadControlViewController : UICollectionViewDataSource, UICollect
     
     func collectionView(_ collectionView : UICollectionView, didSelectItemAt indexPath : IndexPath)
     {
-        if let svgUrl = Bundle.main.url(forResource: vectorNames[indexPath.row], withExtension: "svg")
+        if let svgUrl = Bundle.main.url(forResource: vectorNames[indexPath.row], withExtension: "svg"), let sketchpadView = self.sketchpadView
         {
             do
             {
                 let svgData = try Data(contentsOf : svgUrl)
-                self.sketchpadView?.addSVGInSketch(svgData: svgData)
+                sketchpadView.addSVGInSketch(svgData: svgData, location : CGPoint(x : sketchpadView.bounds.midX, y : sketchpadView.bounds.midY))
             }
             catch
             {
