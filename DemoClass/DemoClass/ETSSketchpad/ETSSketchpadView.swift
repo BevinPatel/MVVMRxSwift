@@ -155,8 +155,8 @@ open class ETSSketchpadView : UIView
     {
         if let image = image
         {
-            let imageLayer = ETSImageLayer(frame: self.bounds, drawable : ETSDrawableImage(image: image), delegate : self)
-            imageLayer.addInto(parent: self)
+            let imageLayer = ETSImageLayer(frame : self.bounds, drawable : ETSDrawableImage(image : image), delegate : self)
+            imageLayer.addInto(parent : self)
         }
         else
         {
@@ -167,8 +167,8 @@ open class ETSSketchpadView : UIView
     
     public func addSVGInSketch(svgData : Data)
     {
-        let svgLayer = ETSSVGLayer(contentSize : self.bounds.size, drawable : ETSDrawableSVG(svgData: svgData), delegate : self)
-        svgLayer.addInto(parent: self)
+        let svgLayer = ETSSVGLayer(contentSize : self.bounds.size, drawable : ETSDrawableSVG(svgData : svgData), delegate : self)
+        svgLayer.addInto(parent : self)
     }
     
     
@@ -177,7 +177,7 @@ open class ETSSketchpadView : UIView
         if let bezierPath = bezierPath
         {
             let stockLayer = ETSStockLayer(drawable : ETSDrawableStock(bezierPath : bezierPath, tintColor : self.strokeColor, stockType : self.stockType), delegate : self)
-            stockLayer.addInto(parent: self)
+            stockLayer.addInto(parent : self)
         }
     }
     
@@ -281,26 +281,26 @@ open class ETSSketchpadView : UIView
             {
             case .add(let sketchLayer, let center, let transform):
                 sketchLayer.removeFromSuperview()
-                self.undoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
+                self.undoStep(stack : stack, sketchLayer : sketchLayer, center : center, transform : transform)
                 break
             case .pan(let sketchLayer, let center, let transform):
-                self.undoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
+                self.undoStep(stack : stack, sketchLayer : sketchLayer, center : center, transform : transform)
                 break
             case .rotate(let sketchLayer, let center, let transform):
-                self.undoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
+                self.undoStep(stack : stack, sketchLayer : sketchLayer, center : center, transform : transform)
                 break
             case .pinch(let sketchLayer, let center, let transform):
-                self.undoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
+                self.undoStep(stack : stack, sketchLayer : sketchLayer, center : center, transform : transform)
                 break
             case .flipH(let sketchLayer, let center, let transform):
-                self.undoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
+                self.undoStep(stack : stack, sketchLayer : sketchLayer, center : center, transform : transform)
                 break
             case .flipV(let sketchLayer, let center, let transform):
-                self.undoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
+                self.undoStep(stack : stack, sketchLayer : sketchLayer, center : center, transform : transform)
                 break
             case .delete(let sketchLayer, let center, let transform):
                 self.addSubview(sketchLayer)
-                self.undoStep(stack: stack, sketchLayer: sketchLayer, center: center, transform: transform)
+                self.undoStep(stack : stack, sketchLayer : sketchLayer, center : center, transform : transform)
                 break
             }
         }
@@ -458,64 +458,64 @@ extension ETSSketchpadView
 
 extension ETSSketchpadView : ETSSketchLayerDelegate
 {
-    func didAdd(sketchLayer: ETSSketchLayer)
+    func didAdd(sketchLayer : ETSSketchLayer)
     {
         self.undoIndex += 1
-        self.undoStack.insert(.add(sketchLayer, sketchLayer.center, sketchLayer.transform), at: self.undoIndex)
+        self.undoStack.insert(.add(sketchLayer, sketchLayer.center, sketchLayer.transform), at : self.undoIndex)
         self.undoStack = Array(self.undoStack[0 ... self.undoIndex])
         self.undoIndex += 0
     }
     
     
-    func didPan(sketchLayer: ETSSketchLayer)
+    func didPan(sketchLayer : ETSSketchLayer)
     {
         self.undoIndex += 1
-        self.undoStack.insert(.pan(sketchLayer, sketchLayer.center, sketchLayer.transform), at: self.undoIndex)
+        self.undoStack.insert(.pan(sketchLayer, sketchLayer.center, sketchLayer.transform), at : self.undoIndex)
         self.undoStack = Array(self.undoStack[0 ... self.undoIndex])
         self.undoIndex += 0
     }
     
     
-    func didRotate(sketchLayer: ETSSketchLayer)
+    func didRotate(sketchLayer : ETSSketchLayer)
     {
         self.undoIndex += 1
-        self.undoStack.insert(.rotate(sketchLayer, sketchLayer.center, sketchLayer.transform), at: self.undoIndex)
+        self.undoStack.insert(.rotate(sketchLayer, sketchLayer.center, sketchLayer.transform), at : self.undoIndex)
         self.undoStack = Array(self.undoStack[0 ... self.undoIndex])
         self.undoIndex += 0
     }
     
     
-    func didPinch(sketchLayer: ETSSketchLayer)
+    func didPinch(sketchLayer : ETSSketchLayer)
     {
         self.undoIndex += 1
-        self.undoStack.insert(.pinch(sketchLayer, sketchLayer.center, sketchLayer.transform), at: self.undoIndex)
+        self.undoStack.insert(.pinch(sketchLayer, sketchLayer.center, sketchLayer.transform), at : self.undoIndex)
         self.undoStack = Array(self.undoStack[0 ... self.undoIndex])
         self.undoIndex += 0
     }
     
     
-    func didFlipV(sketchLayer: ETSSketchLayer)
+    func didFlipV(sketchLayer : ETSSketchLayer)
     {
         self.undoIndex += 1
-        self.undoStack.insert(.flipV(sketchLayer, sketchLayer.center, sketchLayer.transform), at: self.undoIndex)
+        self.undoStack.insert(.flipV(sketchLayer, sketchLayer.center, sketchLayer.transform), at : self.undoIndex)
         self.undoStack = Array(self.undoStack[0 ... self.undoIndex])
         self.undoIndex += 0
     }
     
     
-    func didFlipH(sketchLayer: ETSSketchLayer)
+    func didFlipH(sketchLayer : ETSSketchLayer)
     {
         self.undoIndex += 1
-        self.undoStack.insert(.flipH(sketchLayer, sketchLayer.center, sketchLayer.transform), at: self.undoIndex)
+        self.undoStack.insert(.flipH(sketchLayer, sketchLayer.center, sketchLayer.transform), at : self.undoIndex)
         self.undoStack = Array(self.undoStack[0 ... self.undoIndex])
         self.undoIndex += 0
     }
     
     
-    func didDelete(sketchLayer: ETSSketchLayer)
+    func didDelete(sketchLayer : ETSSketchLayer)
     {
         self.undoIndex += 1
-        self.undoStack.insert(.delete(sketchLayer, sketchLayer.center, sketchLayer.transform), at: self.undoIndex)
+        self.undoStack.insert(.delete(sketchLayer, sketchLayer.center, sketchLayer.transform), at : self.undoIndex)
         self.undoStack = Array(self.undoStack[0 ... self.undoIndex])
         self.undoIndex += 0
     }

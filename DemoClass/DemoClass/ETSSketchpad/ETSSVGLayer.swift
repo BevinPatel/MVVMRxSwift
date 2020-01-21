@@ -25,12 +25,12 @@ class ETSSVGLayer : ETSSketchLayer
     }
     
     
-    init(contentSize : CGSize, drawable : ETSDrawableSVG, delegate: ETSSketchLayerDelegate)
+    init(contentSize : CGSize, drawable : ETSDrawableSVG, delegate : ETSSketchLayerDelegate)
     {
         let origin = CGPoint(x : (contentSize.width - ETSSVGLayer.size.width) * 0.5, y : (contentSize.height - ETSSVGLayer.size.height) * 0.5)
-        super.init(frame : CGRect(origin: origin, size: ETSSVGLayer.size), drawable : drawable, delegate : delegate)
-        CALayer(SVGData: drawable.svgData)
-        {   (layer) in
+        super.init(frame : CGRect(origin : origin, size : ETSSVGLayer.size), drawable : drawable, delegate : delegate)
+        CALayer(SVGData : drawable.svgData)
+        { (layer) in
             if let myCopy = layer.svgLayerCopy
             {
                 myCopy.resizeToFit(self.bounds)

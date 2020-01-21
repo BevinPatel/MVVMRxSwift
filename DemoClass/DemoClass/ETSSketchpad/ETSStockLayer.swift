@@ -43,7 +43,7 @@ class ETSStockLayer : ETSSketchLayer
     }
     
     
-    init(drawable : ETSDrawableStock, delegate: ETSSketchLayerDelegate)
+    init(drawable : ETSDrawableStock, delegate : ETSSketchLayerDelegate)
     {
         super.init(frame : drawable.bezierPath.bounds, drawable : drawable, delegate : delegate)
         ETSSketchpadView.shared?.setSelected(newLayer : nil)
@@ -112,7 +112,7 @@ class ETSStockLayer : ETSSketchLayer
         
         if let sketchStock = self.drawable as? ETSDrawableStock
         {
-            let origin = CGPoint(x: -sketchStock.bezierPath.bounds.origin.x, y: -sketchStock.bezierPath.bounds.origin.y)
+            let origin = CGPoint(x : -sketchStock.bezierPath.bounds.origin.x, y : -sketchStock.bezierPath.bounds.origin.y)
             stockLayer.frame = CGRect(origin : origin, size : sketchStock.bezierPath.bounds.size)
             stockLayer.lineWidth = sketchStock.bezierPath.lineWidth
             stockLayer.strokeColor = sketchStock.tintColor.cgColor

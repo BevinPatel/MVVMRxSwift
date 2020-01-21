@@ -37,11 +37,11 @@ class SketchpadControlViewController : UIViewController
     weak var delegate : SketchpadControlViewControllerDelegate?
     var sketchImage : UIImage?
     @IBOutlet fileprivate var vectorCollectionView : UICollectionView?
-    fileprivate let vectorNames = [ "svg_barbed_wire","svg_bridge","svg_car","svg_crossroad","svg_road_left_right","svg_road_left_turn",
-                                    "svg_road_right_turn","svg_road_straight","svg_digging","svg_dog","svg_down_arrow","svg_electric_pole_a",
-                                    "svg_electric_pole_b","svg_gasoline","svg_grass","svg_house","svg_left_arrow","svg_right_arrow",
-                                    "svg_smartphone","svg_speed_limit","svg_split","svg_stop","svg_traffic_cone","svg_transmission_line",
-                                    "svg_tree","svg_trees","svg_up_arrow","svg_warning","svg_tipper_truck","svg_chipper"]
+    fileprivate let vectorNames = [ "svg_barbed_wire", "svg_bridge", "svg_car", "svg_crossroad", "svg_road_left_right", "svg_road_left_turn",
+                                    "svg_road_right_turn", "svg_road_straight", "svg_digging", "svg_dog", "svg_down_arrow", "svg_electric_pole_a",
+                                    "svg_electric_pole_b", "svg_gasoline", "svg_grass", "svg_house", "svg_left_arrow", "svg_right_arrow",
+                                    "svg_smartphone", "svg_speed_limit", "svg_split", "svg_stop", "svg_traffic_cone", "svg_transmission_line",
+                                    "svg_tree", "svg_trees", "svg_up_arrow", "svg_warning", "svg_tipper_truck", "svg_chipper"]
     
     lazy var colorPickerController : ColorPickerViewController? =
     {
@@ -80,7 +80,7 @@ class SketchpadControlViewController : UIViewController
         self.navigationItem.leftBarButtonItem = leftbutton
         
         self.selectLineType(self.solidLineButton!)
-        self.shouldEnanleFlipAndDelete(isEnable: false)
+        self.shouldEnanleFlipAndDelete(isEnable : false)
     }
     
     
@@ -218,7 +218,7 @@ extension SketchpadControlViewController : ETSSketchpadViewDelegate
     }
     
     
-    func shouldEnanleFlipAndDelete(isEnable: Bool)
+    func shouldEnanleFlipAndDelete(isEnable : Bool)
     {
         self.flipHButton?.isEnabled = isEnable
         self.flipVButton?.isEnabled = isEnable
@@ -268,7 +268,7 @@ extension SketchpadControlViewController : UICollectionViewDataSource, UICollect
         let cell : VectorImageCollectionViewCell = self.vectorCollectionView!.dequeueReusableCell(for : indexPath)
         if let url = Bundle.main.url(forResource: vectorNames[indexPath.row], withExtension: "svg")
         {
-            CALayer(SVGURL: url) { (layer) in
+            CALayer(SVGURL : url) { (layer) in
                 if let myLayer = layer.svgLayerCopy
                 {
                     myLayer.resizeToFit(cell.contentView.bounds)

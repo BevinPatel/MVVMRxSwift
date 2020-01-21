@@ -9,7 +9,6 @@
 import UIKit
 import SwiftSVG
 
-
 public enum LineType
 {
     case solidLine
